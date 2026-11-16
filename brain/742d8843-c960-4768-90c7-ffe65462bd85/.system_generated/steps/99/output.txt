@@ -1,0 +1,54 @@
+Created At: 2026-11-15T14:28:06+05:30
+Completed At: 2026-11-15T14:28:07+05:30
+Command exited with code 1.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+AggregateError [EPERM]: 
+    at internalConnectMultiple (node:net:1135:18)
+    at internalConnectMultiple (node:net:1211:5)
+    at internalConnectMultiple (node:net:1211:5)
+    at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)
+    at GetAddrInfoReqWrap.emitLookup [as callback] (node:net:1553:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+Emitted 'error' event on ClientRequest instance at:
+    at emitErrorEvent (node:_http_client:108:11)
+    at Socket.socketErrorListener (node:_http_client:575:5)
+    at Socket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EPERM',
+  [errors]: [
+    Error: connect EPERM ::1:3099 - Local (:::0)
+        at internalConnectMultiple (node:net:1207:16)
+        at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)
+        at GetAddrInfoReqWrap.emitLookup [as callback] (node:net:1553:7)
+        at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8) {
+      errno: -1,
+      code: 'EPERM',
+      syscall: 'connect',
+      address: '::1',
+      port: 3099
+    },
+    Error: connect EPERM 127.0.0.1:3099 - Local (0.0.0.0:0)
+        at internalConnectMultiple (node:net:1207:16)
+        at internalConnectMultiple (node:net:1211:5)
+        at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)
+        at GetAddrInfoReqWrap.emitLookup [as callback] (node:net:1553:7)
+        at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8) {
+      errno: -1,
+      code: 'EPERM',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 3099
+    }
+  ]
+}
+
+Node.js v22.23.5

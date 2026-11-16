@@ -1,0 +1,8 @@
+Created At: 2026-11-14T11:34:29+05:30
+Completed At: 2026-11-14T11:34:30+05:30
+Command exited with code 127.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+zsh:1: operation not permitted: ps

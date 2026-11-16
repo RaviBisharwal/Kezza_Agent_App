@@ -1,0 +1,10 @@
+Created At: 2026-11-15T14:29:23+05:30
+Completed At: 2026-11-15T14:29:23+05:30
+Command exited with code 0.
+
+Command output:
+Total images in index.html: 50
+[Eager] #1: images/logo.webp
+[Eager] #2: images/hero3.webp
+[Eager] #6: images/gallery-hairline-marking.webp
+{ eagerCount: 3, lazyCount: 47, missingCount: 0 }

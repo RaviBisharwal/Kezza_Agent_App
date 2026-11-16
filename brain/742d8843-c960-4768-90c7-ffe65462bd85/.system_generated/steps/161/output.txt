@@ -1,0 +1,53 @@
+Created At: 2026-11-15T14:30:32+05:30
+Completed At: 2026-11-15T14:30:34+05:30
+Command exited with code 0.
+
+Command output:
+
+> kezza-clinic-website@2.0.0 test
+> python3 tools/validate_reference_page.py && node -c server.js && node tools/seo/check-seo.js && python3 tools/seo/pseo_audit.py --strict
+
+=== 1. CHECK BANNED WORDS ===
+Banned words found: []
+
+=== 2. CHECK PRICE FIGURES ===
+Price figures found: [('₹', ['₹', '₹'])]
+
+=== 3. CHECK JSON-LD BLOCKS ===
+Total JSON-LD blocks found: 1
+Block 1 (None): VALID JSON
+
+=== 4. CHECK IMAGES (alt, width, height, loading/priority) ===
+Total <img> tags found: 17
+Img 1: src=/images/logo.webp | alt=True | width=True | height=True
+Img 2: src=/images/hair-services/hair-transplant/hair-transplant-hero-clinical-procedure-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 3: src=/images/hair-services/hair-transplant/hair-transplant-follicular-unit-technique-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 4: src=/images/hair-services/hair-transplant/hair-transplant-step1-hairline-design-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 5: src=/images/hair-services/hair-transplant/hair-transplant-step2-micro-motor-fue-extraction-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 6: src=/images/hair-services/hair-transplant/hair-transplant-step3-sapphire-blade-incisions-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 7: src=/images/hair-services/hair-transplant/hair-transplant-step4-graft-implantation-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 8: src=/images/hair-services/hair-transplant/hair-transplant-before-after-crown-area-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 9: src=/images/hair-services/hair-transplant/hair-transplant-before-after-revision-repair-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 10: src=/images/hair-services/hair-transplant/hair-transplant-before-after-female-restoration-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 11: src=/images/hair-services/hair-transplant/hair-transplant-before-after-beard-transplant-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 12: src=/images/hair-services/shared/shared-clinic-interior-surgical-suite-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 13: src=/images/doctors/dr-ankit-bhalothia.webp | alt=True | width=True | height=True
+Img 14: src=/images/hair-services/shared/shared-service-thumb-prp-therapy-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 15: src=/images/hair-services/shared/shared-service-thumb-gfc-therapy-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 16: src=/images/hair-services/shared/shared-service-thumb-hair-loss-consultation-kezza-jaipur.webp | alt=True | width=True | height=True
+Img 17: src=/images/hair-services/hair-transplant/hair-transplant-cta-background-kezza-jaipur.webp | alt=True | width=True | height=True
+
+=== 5. CHECK ASSET EXISTENCE ON DISK ===
+Total linked assets: 19
+Missing assets: []
+
+=== 6. WORD COUNT ESTIMATE OF MAIN BODY ===
+Main body word count: 1511 words (Target: 800-1200)
+
+=== 7. H1 COUNT ===
+Total H1 tags: 1
+H1 content: Hair Transplant in Jaipur <span>| Follicular Restoration</span>
+Checked 119 pages (96 indexable), 96 sitemap URLs.
+
+OK: no errors, 0 warning(s)
+pSEO audit: 119 pages (96 indexable) · critical 0 · warnings 9 · claim wording 1 · notes 0 → docs/pseo

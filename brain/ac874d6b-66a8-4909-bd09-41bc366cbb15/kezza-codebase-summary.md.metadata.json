@@ -1,0 +1,5 @@
+{
+  "summary": "Comprehensive codebase summary for the Kezza mobile project, covering the Expo/React Native frontend (screens, components, hooks, constants) and the FastAPI/PostgreSQL backend (API endpoints, data models, migrations, DB setup), with architecture diagrams and current project state.",
+  "updatedAt": "2026-11-13T05:45:09.150762Z",
+  "userFacing": true
+}

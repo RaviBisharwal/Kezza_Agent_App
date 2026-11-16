@@ -1,0 +1,9 @@
+Created At: 2026-11-14T11:45:26+05:30
+Completed At: 2026-11-14T11:45:32+05:30
+Command exited with code 0.
+
+Command output:
+COMMAND     PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Google     1165 ravi   37u  IPv4 0xb4008bfbf873bd9e      0t0  TCP localhost:57721->localhost:vcom-tunnel (CLOSE_WAIT)
+Python    25487 ravi    3u  IPv4 0x9d2da5641ec19b10      0t0  TCP *:irdmi (LISTEN)
+Python    26879 ravi    3u  IPv4 0x9d2da5641ec19b10      0t0  TCP *:irdmi (LISTEN)

@@ -1,0 +1,19 @@
+Created At: 2026-11-13T11:44:21+05:30
+Completed At: 2026-11-13T11:44:22+05:30
+Task: ac874d6b-66a8-4909-bd09-41bc366cbb15/task-109
+Status: DONE
+Log: file:///Users/ravi/.gemini/antigravity/brain/ac874d6b-66a8-4909-bd09-41bc366cbb15/.system_generated/tasks/task-109.log
+Log output:
+npm error code ENOTFOUND
+npm error syscall getaddrinfo
+npm error errno ENOTFOUND
+npm error network request to https://registry.npmjs.org/tsc failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly.  See: 'npm help config'
+npm error Log files were not written due to an error writing to the directory: /Users/ravi/.npm/_logs
+npm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal
+
+Last progress: 0s ago

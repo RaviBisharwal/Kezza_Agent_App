@@ -1,0 +1,15 @@
+Created At: 2026-11-14T11:48:28+05:30
+Completed At: 2026-11-14T11:48:33+05:30
+Command exited with code 0.
+
+Command output:
+HTTP/1.1 200 OK
+Vary: Origin
+Content-Type: text/html
+Cache-Control: no-cache
+Etag: W/"266-+iTfnDMojPAYJ57OaAm7LCxY/mE"
+Date: Sat, 14 Nov 2026 06:18:33 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"status":"ok","model_loaded":true,"database":{"configured":true,"connected":false},"timestamp":"2026-11-14T06:18:33.620290+00:00"}

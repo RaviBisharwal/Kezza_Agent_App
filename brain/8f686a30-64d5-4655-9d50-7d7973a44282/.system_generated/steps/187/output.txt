@@ -1,0 +1,46 @@
+Created At: 2026-11-14T11:46:30+05:30
+Completed At: 2026-11-14T11:46:50+05:30
+Command exited with code 1.
+
+Command output:
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/_csot.py", line 133, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/database.py", line 944, in command
+    return self._client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2124, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/_csot.py", line 133, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2086, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2890, in run
+    res = self._read() if self._is_read else self._write()
+          ^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 3077, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 3031, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1926, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 304, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 278, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 196, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 244, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: No replica set members match selector "Primary()", Timeout: 3.0s, Topology Description: <TopologyDescription id: 6af7fccdfafff5c4c495f5d2, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.4m4tz.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.05621662500197999>, <ServerDescription ('cluster0-shard-00-01.4m4tz.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.05061595800361829>, <ServerDescription ('cluster0-shard-00-02.4m4tz.mongodb.net', 27017) server_type: Unknown, rtt: None>]>

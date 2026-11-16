@@ -1,0 +1,10 @@
+Created At: 2026-11-15T14:29:04+05:30
+Completed At: 2026-11-15T14:29:04+05:30
+Command exited with code 0.
+
+Command output:
+-rw-rw-r--@ 1 ravi  staff    44K Nov  3 17:20 frontend/images/hero-body-sculpting.webp
+-rw-rw-r--@ 1 ravi  staff    39K Nov  3 17:20 frontend/images/hero/body-contouring.webp
+-rw-rw-r--@ 1 ravi  staff    37K Nov  3 17:20 frontend/images/hero1.webp
+-rw-rw-r--@ 1 ravi  staff    26K Nov  3 17:20 frontend/images/hero3.webp
+-rw-rw-r--@ 1 ravi  staff    22K Nov  3 17:20 frontend/images/hero4.webp

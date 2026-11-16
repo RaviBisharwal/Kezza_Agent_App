@@ -1,0 +1,6 @@
+Command exited with code 0.
+
+Command output:
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='pypi.org', port=443): Failed to resolve 'pypi.org' ([Errno 8] nodename nor servname provided, or not known)")': /simple/pytest/
+ERROR: Could not find a version that satisfies the requirement pytest (from versions: none)
+ERROR: No matching distribution found for pytest

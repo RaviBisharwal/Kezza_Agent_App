@@ -1,0 +1,6 @@
+Created At: 2026-11-13T11:36:09+05:30
+Completed At: 2026-11-13T11:36:10+05:30
+Command exited with code 0.
+
+Command output:
+Clean import after removing models.py OK: ['users', 'branches', 'patients', 'agents', 'referrals']

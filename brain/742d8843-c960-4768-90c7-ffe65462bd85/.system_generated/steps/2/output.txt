@@ -1,0 +1,22 @@
+Created At: 2026-11-15T14:21:17+05:30
+Completed At: 2026-11-15T14:21:17+05:30
+Command exited with code 0.
+
+Command output:
+total 424
+drwxrwxr-x@  16 ravi  staff    512 Nov  3 17:20 .
+drwx------+   9 ravi  staff    288 Nov 15 14:20 ..
+-rw-rw-r--@   1 ravi  staff   1252 Nov  3 17:20 .env.example
+-rw-rw-r--@   1 ravi  staff   1097 Nov  3 17:20 .gitignore
+-rw-rw-r--@   1 ravi  staff  20465 Nov  3 17:20 README.md
+-rw-rw-r--@   1 ravi  staff  12170 Nov  3 17:20 REFACTOR-NOTES.md
+-rw-rw-r--@   1 ravi  staff  41287 Nov  3 17:20 SEO-CHANGES.md
+drwxrwxr-x@   8 ravi  staff    256 Nov  3 17:20 docs
+drwxrwxr-x@ 103 ravi  staff   3296 Nov  3 17:20 frontend
+drwxrwxr-x@   3 ravi  staff     96 Nov  3 17:20 google-apps-script
+-rw-rw-r--@   1 ravi  staff  61083 Nov  3 17:20 package-lock.json
+-rw-rw-r--@   1 ravi  staff   1132 Nov  3 17:20 package.json
+-rw-rw-r--@   1 ravi  staff    534 Nov  3 17:20 pyrefly.toml
+-rw-rw-r--@   1 ravi  staff  47311 Nov  3 17:20 server.js
+-rw-rw-r--@   1 ravi  staff   8787 Nov  3 17:20 server.py
+drwxrwxr-x@  18 ravi  staff    576 Nov  3 17:20 tools

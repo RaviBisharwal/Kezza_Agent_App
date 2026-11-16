@@ -1,0 +1,65 @@
+Created At: 2026-11-15T14:23:37+05:30
+Completed At: 2026-11-15T14:23:37+05:30
+Command exited with code 0.
+
+Command output:
+-rw-rw-r--@ 1 ravi  staff   61371 Nov  3 17:20 frontend/css/bundle-404.min.css
+-rw-rw-r--@ 1 ravi  staff  225435 Nov  3 17:20 frontend/css/bundle-about.min.css
+-rw-rw-r--@ 1 ravi  staff  190032 Nov  3 17:20 frontend/css/bundle-branches.min.css
+-rw-rw-r--@ 1 ravi  staff  215266 Nov  3 17:20 frontend/css/bundle-contact.min.css
+-rw-rw-r--@ 1 ravi  staff  269397 Nov  3 17:20 frontend/css/bundle-content.min.css
+-rw-rw-r--@ 1 ravi  staff  249884 Nov  3 17:20 frontend/css/bundle-dark-circles.min.css
+-rw-rw-r--@ 1 ravi  staff  208745 Nov  3 17:20 frontend/css/bundle-electrolysis.min.css
+-rw-rw-r--@ 1 ravi  staff  197062 Nov  3 17:20 frontend/css/bundle-face-scanner.min.css
+-rw-rw-r--@ 1 ravi  staff  217219 Nov  3 17:20 frontend/css/bundle-hair-loss-consultation.min.css
+-rw-rw-r--@ 1 ravi  staff  246238 Nov  3 17:20 frontend/css/bundle-hair-services.min.css
+-rw-rw-r--@ 1 ravi  staff  214072 Nov  3 17:20 frontend/css/bundle-hair-transplant.min.css
+-rw-rw-r--@ 1 ravi  staff  232030 Nov  3 17:20 frontend/css/bundle-hair-wig.min.css
+-rw-rw-r--@ 1 ravi  staff  232236 Nov  3 17:20 frontend/css/bundle-hi-hair-transplant.min.css
+-rw-rw-r--@ 1 ravi  staff  292453 Nov  3 17:20 frontend/css/bundle-home.min.css
+-rw-rw-r--@ 1 ravi  staff  251379 Nov  3 17:20 frontend/css/bundle-medical-dermatology.min.css
+-rw-rw-r--@ 1 ravi  staff  287083 Nov  3 17:20 frontend/css/bundle-permanent-makeup.min.css
+-rw-rw-r--@ 1 ravi  staff  287372 Nov  3 17:20 frontend/css/bundle-prp-therapy.min.css
+-rw-rw-r--@ 1 ravi  staff   22991 Nov  3 17:20 frontend/css/bundle-scanner-modal.min.css
+-rw-rw-r--@ 1 ravi  staff  220612 Nov  3 17:20 frontend/css/bundle-skin-services.min.css
+-rw-rw-r--@ 1 ravi  staff  249902 Nov  3 17:20 frontend/css/bundle-stretch-marks.min.css
+-rw-rw-r--@ 1 ravi  staff  165066 Nov  3 17:20 frontend/css/bundle-terms.min.css
+-rw-rw-r--@ 1 ravi  staff  158583 Nov  3 17:20 frontend/css/bundle-weight-loss.min.css
+-rw-rw-r--@ 1 ravi  staff  279943 Nov  3 17:20 frontend/css/bundle-white-hair-removal.min.css
+-rw-rw-r--@ 1 ravi  staff   26761 Nov  3 17:20 frontend/css/fa-subset.min.css
+-rw-rw-r--@ 1 ravi  staff    5504 Nov  3 17:20 frontend/js/about-script.min.js
+-rw-rw-r--@ 1 ravi  staff    1693 Nov  3 17:20 frontend/js/before-after-gallery.min.js
+-rw-rw-r--@ 1 ravi  staff   11145 Nov  3 17:20 frontend/js/booking-modal.min.js
+-rw-rw-r--@ 1 ravi  staff    2876 Nov  3 17:20 frontend/js/branches-script.min.js
+-rw-rw-r--@ 1 ravi  staff    4819 Nov  3 17:20 frontend/js/contact-script.min.js
+-rw-rw-r--@ 1 ravi  staff    2248 Nov  3 17:20 frontend/js/continuous-gallery.min.js
+-rw-rw-r--@ 1 ravi  staff   10883 Nov  3 17:20 frontend/js/cost-estimator.min.js
+-rw-rw-r--@ 1 ravi  staff    1432 Nov  3 17:20 frontend/js/doctor-videos.min.js
+-rw-rw-r--@ 1 ravi  staff   37499 Nov  3 17:20 frontend/js/face-scanner-script.min.js
+-rw-rw-r--@ 1 ravi  staff    7158 Nov  3 17:20 frontend/js/google-reviews.min.js
+-rw-rw-r--@ 1 ravi  staff    1850 Nov  3 17:20 frontend/js/hair-loss-consultation.min.js
+-rw-rw-r--@ 1 ravi  staff    8378 Nov  3 17:20 frontend/js/hair-services-script.min.js
+-rw-rw-r--@ 1 ravi  staff    3155 Nov  3 17:20 frontend/js/hair-wig-workflow.min.js
+-rw-rw-r--@ 1 ravi  staff    5418 Nov  3 17:20 frontend/js/home-upgrade.min.js
+-rw-rw-r--@ 1 ravi  staff  211994 Nov  3 17:20 frontend/js/kezza-ai.min.js
+-rw-rw-r--@ 1 ravi  staff    5974 Nov  3 17:20 frontend/js/kezza-reviews.min.js
+-rw-rw-r--@ 1 ravi  staff    3310 Nov  3 17:20 frontend/js/media-fallbacks.min.js
+-rw-rw-r--@ 1 ravi  staff    4381 Nov  3 17:20 frontend/js/mobile-menu.min.js
+-rw-rw-r--@ 1 ravi  staff    9911 Nov  3 17:20 frontend/js/permanent-makeup-script.min.js
+-rw-rw-r--@ 1 ravi  staff    8785 Nov  3 17:20 frontend/js/pro-animations.min.js
+-rw-rw-r--@ 1 ravi  staff    8460 Nov  3 17:20 frontend/js/prp-therapy.min.js
+-rw-rw-r--@ 1 ravi  staff    6724 Nov  3 17:20 frontend/js/quick-actions.min.js
+-rw-rw-r--@ 1 ravi  staff    2414 Nov  3 17:20 frontend/js/scanner-launch.min.js
+-rw-rw-r--@ 1 ravi  staff   48108 Nov  3 17:20 frontend/js/scanner-modal.min.js
+-rw-rw-r--@ 1 ravi  staff    2787 Nov  3 17:20 frontend/js/script.min.js
+-rw-rw-r--@ 1 ravi  staff    1498 Nov  3 17:20 frontend/js/scroll-3d.min.js
+-rw-rw-r--@ 1 ravi  staff    7058 Nov  3 17:20 frontend/js/services-navigation.min.js
+-rw-rw-r--@ 1 ravi  staff    3593 Nov  3 17:20 frontend/js/sikar-reviews.min.js
+-rw-rw-r--@ 1 ravi  staff    7439 Nov  3 17:20 frontend/js/skin-services-script.min.js
+-rw-rw-r--@ 1 ravi  staff    7759 Nov  3 17:20 frontend/js/smooth-scroll.min.js
+-rw-rw-r--@ 1 ravi  staff    5665 Nov  3 17:20 frontend/js/telecrm.min.js
+-rw-rw-r--@ 1 ravi  staff    4925 Nov  3 17:20 frontend/js/terms-script.min.js
+-rw-rw-r--@ 1 ravi  staff    4619 Nov  3 17:20 frontend/js/translate.min.js
+-rw-rw-r--@ 1 ravi  staff    5535 Nov  3 17:20 frontend/js/treatment-page.min.js
+-rw-rw-r--@ 1 ravi  staff    5284 Nov  3 17:20 frontend/js/whatsapp-followup.min.js
+-rw-rw-r--@ 1 ravi  staff   16154 Nov  3 17:20 frontend/js/whatsapp-form.min.js

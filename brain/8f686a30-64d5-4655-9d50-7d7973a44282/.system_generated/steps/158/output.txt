@@ -1,0 +1,4 @@
+Created At: 2026-11-14T11:36:45+05:30
+Completed At: 2026-11-14T11:36:45+05:30
+You have 2 background task(s) currently running:
+[{"taskId":"8f686a30-64d5-4655-9d50-7d7973a44282/task-44","toolName":"run_command","toolSummary":"Admin Vite dev server startup","description":"cd /Users/ravi/Downloads/cabwithai-main/admin \u0026\u0026 npm run dev","startTime":"2026-11-14T05:58:47Z","logUri":"file:///Users/ravi/.gemini/antigravity/brain/8f686a30-64d5-4655-9d50-7d7973a44282/.system_generated/tasks/task-44.log","isDaemon":true},{"taskId":"8f686a30-64d5-4655-9d50-7d7973a44282/task-129","toolName":"run_command","toolSummary":"Start backend on port 8001","description":"cd /Users/ravi/Downloads/cabwithai-main/backend \u0026\u0026 .venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8001","startTime":"2026-11-14T06:05:14Z","logUri":"file:///Users/ravi/.gemini/antigravity/brain/8f686a30-64d5-4655-9d50-7d7973a44282/.system_generated/tasks/task-129.log","isDaemon":true}]

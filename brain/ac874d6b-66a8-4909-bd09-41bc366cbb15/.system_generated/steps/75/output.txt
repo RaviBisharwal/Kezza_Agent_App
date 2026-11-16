@@ -1,0 +1,24 @@
+Created At: 2026-11-13T11:39:47+05:30
+Completed At: 2026-11-13T11:39:49+05:30
+Command exited with code 0.
+
+Command output:
+/Users/ravi/Desktop/Kezza_mobile-main/src/app/_layout.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/app/explore.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/app/index.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/animated-icon.module.css
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/animated-icon.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/animated-icon.web.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/app-tabs.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/app-tabs.web.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/external-link.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/hint-row.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/themed-text.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/themed-view.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/ui/collapsible.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/components/web-badge.tsx
+/Users/ravi/Desktop/Kezza_mobile-main/src/constants/theme.ts
+/Users/ravi/Desktop/Kezza_mobile-main/src/global.css
+/Users/ravi/Desktop/Kezza_mobile-main/src/hooks/use-color-scheme.ts
+/Users/ravi/Desktop/Kezza_mobile-main/src/hooks/use-color-scheme.web.ts
+/Users/ravi/Desktop/Kezza_mobile-main/src/hooks/use-theme.ts

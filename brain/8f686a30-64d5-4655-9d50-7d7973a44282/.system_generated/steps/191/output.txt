@@ -1,0 +1,15 @@
+Created At: 2026-11-14T11:47:15+05:30
+Completed At: 2026-11-14T11:47:15+05:30
+Task: 8f686a30-64d5-4655-9d50-7d7973a44282/task-189
+Status: DONE
+Log: file:///Users/ravi/.gemini/antigravity/brain/8f686a30-64d5-4655-9d50-7d7973a44282/.system_generated/tasks/task-189.log
+Log output:
+<truncated 40 lines>
+thai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 196, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/Downloads/cabwithai-main/backend/.venv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 244, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: No replica set members match selector "Primary()", Timeout: 10.0s, Topology Description: <TopologyDescription id: 6af7fcdedc6f800281489673, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.4m4tz.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.05539001639990602>, <ServerDescription ('cluster0-shard-00-01.4m4tz.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.06480995799938682>, <ServerDescription ('cluster0-shard-00-02.4m4tz.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+
+Last progress: 2s ago

@@ -1,0 +1,100 @@
+Created At: 2026-11-13T11:34:09+05:30
+Completed At: 2026-11-13T11:34:11+05:30
+Command exited with code 0.
+
+Command output:
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+Initialized empty Git repository in /Users/ravi/Desktop/Kezza_mobile-main/.git/
+[master (root-commit) 5d30d08] chore: initial commit — Expo scaffold + FastAPI foundation
+ Committer: Ravi <ravi@Ravis-MacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 66 files changed, 11081 insertions(+)
+ create mode 100644 .claude/settings.json
+ create mode 100644 .gitignore
+ create mode 100644 .vscode/extensions.json
+ create mode 100644 .vscode/settings.json
+ create mode 100644 AGENTS.md
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 app.json
+ create mode 100644 assets/expo.icon/Assets/expo-symbol 2.svg
+ create mode 100644 assets/expo.icon/Assets/grid.png
+ create mode 100644 assets/expo.icon/icon.json
+ create mode 100644 assets/images/android-icon-background.png
+ create mode 100644 assets/images/android-icon-foreground.png
+ create mode 100644 assets/images/android-icon-monochrome.png
+ create mode 100644 assets/images/expo-badge-white.png
+ create mode 100644 assets/images/expo-badge.png
+ create mode 100644 assets/images/expo-logo.png
+ create mode 100644 assets/images/favicon.png
+ create mode 100644 assets/images/icon.png
+ create mode 100644 assets/images/logo-glow.png
+ create mode 100644 assets/images/react-logo.png
+ create mode 100644 assets/images/react-logo@2x.png
+ create mode 100644 assets/images/react-logo@3x.png
+ create mode 100644 assets/images/splash-icon.png
+ create mode 100644 assets/images/tabIcons/explore.png
+ create mode 100644 assets/images/tabIcons/explore@2x.png
+ create mode 100644 assets/images/tabIcons/explore@3x.png
+ create mode 100644 assets/images/tabIcons/home.png
+ create mode 100644 assets/images/tabIcons/home@2x.png
+ create mode 100644 assets/images/tabIcons/home@3x.png
+ create mode 100644 assets/images/tutorial-web.png
+ create mode 100644 backend/alembic.ini
+ create mode 100644 backend/app/__init__.py
+ create mode 100644 backend/app/base.py
+ create mode 100644 backend/app/database.py
+ create mode 100644 backend/app/main.py
+ create mode 100644 backend/app/models.py
+ create mode 100644 backend/migrations/README
+ create mode 100644 backend/migrations/env.py
+ create mode 100644 backend/migrations/script.py.mako
+ create mode 100644 backend/migrations/versions/643252b8f44a_create_initial_kezza_tables.py
+ create mode 100644 backend/requirements.txt
+ create mode 100644 backend/test_db.py
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 scripts/reset-project.js
+ create mode 100644 src/app/_layout.tsx
+ create mode 100644 src/app/explore.tsx
+ create mode 100644 src/app/index.tsx
+ create mode 100644 src/components/animated-icon.module.css
+ create mode 100644 src/components/animated-icon.tsx
+ create mode 100644 src/components/animated-icon.web.tsx
+ create mode 100644 src/components/app-tabs.tsx
+ create mode 100644 src/components/app-tabs.web.tsx
+ create mode 100644 src/components/external-link.tsx
+ create mode 100644 src/components/hint-row.tsx
+ create mode 100644 src/components/themed-text.tsx
+ create mode 100644 src/components/themed-view.tsx
+ create mode 100644 src/components/ui/collapsible.tsx
+ create mode 100644 src/components/web-badge.tsx
+ create mode 100644 src/constants/theme.ts
+ create mode 100644 src/global.css
+ create mode 100644 src/hooks/use-color-scheme.ts
+ create mode 100644 src/hooks/use-color-scheme.web.ts
+ create mode 100644 src/hooks/use-theme.ts
+ create mode 100644 tsconfig.json

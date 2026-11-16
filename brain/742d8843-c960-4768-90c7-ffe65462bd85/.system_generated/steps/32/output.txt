@@ -1,0 +1,8 @@
+Created At: 2026-11-15T14:23:49+05:30
+Completed At: 2026-11-15T14:23:51+05:30
+Command exited with code 7.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+curl: (7) Failed to connect to localhost port 3001 after 0 ms: Couldn't connect to server

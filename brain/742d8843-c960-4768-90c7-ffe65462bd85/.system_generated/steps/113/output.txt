@@ -1,0 +1,26 @@
+Created At: 2026-11-15T14:28:50+05:30
+Completed At: 2026-11-15T14:28:50+05:30
+Command exited with code 0.
+
+Command output:
+    "home": [
+      "css/styles.css",
+      "css/quick-actions.css",
+      "css/services-navigation.css",
+      "css/scroll-3d.css",
+      "css/responsive.css",
+      "css/luxury-pro.css",
+      "css/home-upgrade.css",
+      "css/kezza-ai.css",
+      "css/mobile-pro.css",
+      "css/site-footer.css",
+      "css/header-pro.css",
+      "css/mobile-perf.css"
+    ],
+    "permanent-makeup": [
+      "css/permanent-makeup-styles.css",
+      "css/quick-actions.css",
+      "css/services-navigation.css",
+      "css/kezza-ai.css",
+      "css/responsive.css",
+      "css/scroll-3d.css",

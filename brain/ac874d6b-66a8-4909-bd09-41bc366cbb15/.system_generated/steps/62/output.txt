@@ -1,0 +1,8 @@
+Created At: 2026-11-13T11:35:56+05:30
+Completed At: 2026-11-13T11:35:59+05:30
+Command exited with code 0.
+
+Command output:
+All 5 model imports OK: ['users', 'branches', 'patients', 'agents', 'referrals']
+Session factory OK: sessionmaker(class_='Session', autocommit=False, bind=Engine(postgresql+psycopg://u:***@localhost:5432/kezza), autoflush=False, expire_on_commit=False)
+get_db OK: <function get_db at 0x10541f2e0>

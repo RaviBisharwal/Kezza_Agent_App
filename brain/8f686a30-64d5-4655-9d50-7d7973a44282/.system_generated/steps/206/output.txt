@@ -1,0 +1,91 @@
+Created At: 2026-11-14T11:48:20+05:30
+Completed At: 2026-11-14T11:48:20+05:30
+Task: 8f686a30-64d5-4655-9d50-7d7973a44282/task-44
+Status: RUNNING
+Log: file:///Users/ravi/.gemini/antigravity/brain/8f686a30-64d5-4655-9d50-7d7973a44282/.system_generated/tasks/task-44.log
+Log output:
+
+> admin@0.0.0 dev
+> vite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  VITE v8.3.8  ready in 875 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11:35:37 AM [vite] .env changed, restarting server...
+11:35:37 AM [vite] server restarted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11:36:50 AM [vite] .env changed, restarting server...
+11:36:50 AM [vite] server restarted.
+
+Last progress: 11m30s ago

@@ -1,0 +1,16 @@
+Created At: 2026-11-14T11:32:05+05:30
+Completed At: 2026-11-14T11:32:05+05:30
+Command exited with code 0.
+
+Command output:
+/Users/ravi/Downloads/cabwithai-main/backend/backend/sms_service.py:13:    if os.getenv("OTP_DEV_MODE", "false").lower() == "true":
+/Users/ravi/Downloads/cabwithai-main/backend/backend/security.py:14:    secret = os.getenv("JWT_SECRET")
+/Users/ravi/Downloads/cabwithai-main/backend/backend/security.py:29:    expires = datetime.now(timezone.utc) + timedelta(minutes=int(os.getenv("JWT_EXPIRE_MINUTES", "60")))
+/Users/ravi/Downloads/cabwithai-main/backend/backend/security.py:49:    return datetime.now(timezone.utc) + timedelta(minutes=int(os.getenv("OTP_EXPIRE_MINUTES", "10")))
+/Users/ravi/Downloads/cabwithai-main/backend/backend/mongodb.py:24:    uri = os.getenv("MONGODB_URI")
+/Users/ravi/Downloads/cabwithai-main/backend/backend/mongodb.py:29:    return _client[os.getenv("MONGODB_DATABASE", "cab_booking")]
+/Users/ravi/Downloads/cabwithai-main/backend/backend/mongodb.py:71:    if not os.getenv("MONGODB_URI"):
+/Users/ravi/Downloads/cabwithai-main/backend/backend/bootstrap_admin.py:17:    email = os.getenv("ADMIN_EMAIL", "").strip().lower()
+/Users/ravi/Downloads/cabwithai-main/backend/backend/bootstrap_admin.py:18:    password = os.getenv("ADMIN_PASSWORD", "")
+/Users/ravi/Downloads/cabwithai-main/backend/backend/bootstrap_admin.py:19:    name = os.getenv("ADMIN_NAME", "Administrator").strip()
+/Users/ravi/Downloads/cabwithai-main/backend/backend/main.py:44:allowed_origins = [origin.strip() for origin in os.getenv("FRONTEND_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if origin.strip()]

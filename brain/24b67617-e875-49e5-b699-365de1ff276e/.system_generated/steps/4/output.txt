@@ -1,0 +1,45 @@
+Created At: 2026-11-14T10:56:08+05:30
+Completed At: 2026-11-14T10:56:09+05:30
+Command exited with code 0.
+
+Command output:
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/.git/HEAD
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/.git/config
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/.git/description
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/.git/index
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/.git/packed-refs
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/.gitignore
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/README.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/USER_DRIVER_CAPABILITIES.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/.gitignore
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/README.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/eslint.config.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/index.html
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/package.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/pnpm-lock.yaml
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/tsconfig.app.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/tsconfig.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/tsconfig.node.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/admin/vite.config.ts
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/.gitignore
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/.python-version
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/README.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/requirements.txt
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/vercel.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/.eslintrc.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/.gitignore
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/.prettierrc.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/.watchmanconfig
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/App.tsx
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/Gemfile
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/README.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/app.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/babel.config.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/index.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/jest.config.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/jest.setup.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/metro.config.js
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/package.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/pnpm-lock.yaml
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/pnpm-workspace.yaml
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/cab/tsconfig.json

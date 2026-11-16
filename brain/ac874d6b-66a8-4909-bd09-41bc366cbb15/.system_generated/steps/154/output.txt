@@ -1,0 +1,42 @@
+Created At: 2026-11-13T11:44:57+05:30
+Completed At: 2026-11-13T11:44:57+05:30
+Command exited with code 0.
+
+Command output:
+[master 5d29c44] feat(phase-7-scaffold): implement mobile app navigation & feature structure
+ Committer: Ravi <ravi@Ravis-MacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 23 files changed, 1353 insertions(+), 284 deletions(-)
+ create mode 100644 src/app/(app)/(tabs)/_layout.tsx
+ create mode 100644 src/app/(app)/(tabs)/index.tsx
+ create mode 100644 src/app/(app)/(tabs)/referrals.tsx
+ create mode 100644 src/app/(app)/(tabs)/wallet.tsx
+ create mode 100644 src/app/(app)/_layout.tsx
+ create mode 100644 src/app/(app)/profile.tsx
+ create mode 100644 src/app/(auth)/_layout.tsx
+ create mode 100644 src/app/(auth)/login.tsx
+ create mode 100644 src/app/(auth)/verify-otp.tsx
+ delete mode 100644 src/app/explore.tsx
+ delete mode 100644 src/app/index.tsx
+ create mode 100644 src/features/auth/hooks.ts
+ create mode 100644 src/features/auth/types.ts
+ create mode 100644 src/features/commissions/hooks.ts
+ create mode 100644 src/features/commissions/types.ts
+ create mode 100644 src/features/points/hooks.ts
+ create mode 100644 src/features/points/types.ts
+ create mode 100644 src/features/referrals/hooks.ts
+ create mode 100644 src/features/referrals/types.ts
+ create mode 100644 src/lib/api.ts
+ create mode 100644 src/lib/query-client.ts
+ create mode 100644 src/store/auth-store.ts

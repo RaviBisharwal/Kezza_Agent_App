@@ -1,0 +1,22 @@
+Created At: 2026-11-14T11:31:49+05:30
+Completed At: 2026-11-14T11:31:49+05:30
+Command exited with code 0.
+
+Command output:
+/Library/Frameworks/Python.framework/Versions/3.11/bin/python3
+Python 3.11.0
+total 40
+drwxrwxr-x@ 14 ravi  staff   448 Nov 13 22:10 .
+drwxrwxr-x@  9 ravi  staff   288 Nov 14 11:23 ..
+-rw-rw-r--@  1 ravi  staff   234 Nov 13 22:10 .gitignore
+-rw-rw-r--@  1 ravi  staff     5 Nov 13 22:10 .python-version
+-rw-rw-r--@  1 ravi  staff  4069 Nov 13 22:10 README.md
+drwxrwxr-x@  3 ravi  staff    96 Nov 13 22:10 api
+drwxrwxr-x@ 17 ravi  staff   544 Nov 13 22:10 backend
+drwxrwxr-x@  9 ravi  staff   288 Nov 13 22:10 ml
+drwxrwxr-x@  3 ravi  staff    96 Nov 13 22:10 models
+drwxrwxr-x@  3 ravi  staff    96 Nov 13 22:10 notes
+drwxrwxr-x@  6 ravi  staff   192 Nov 13 22:10 reports
+-rw-rw-r--@  1 ravi  staff   311 Nov 13 22:10 requirements.txt
+drwxrwxr-x@  7 ravi  staff   224 Nov 13 22:10 tests
+-rw-rw-r--@  1 ravi  staff   238 Nov 13 22:10 vercel.json

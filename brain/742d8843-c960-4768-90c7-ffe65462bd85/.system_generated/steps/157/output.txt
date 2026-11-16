@@ -1,0 +1,19 @@
+Created At: 2026-11-15T14:30:21+05:30
+Completed At: 2026-11-15T14:30:23+05:30
+Command exited with code 0.
+
+Command output:
+frontend/hair-and-skin-clinic-sikar/index.html:36:<link href="/css/genuine-reviews.css" rel="stylesheet"/>
+frontend/index.html:19:<link rel="stylesheet" href="/css/genuine-reviews.css"/>
+frontend/locations/sikar/index.html:38:<link href="/css/genuine-reviews.css" rel="stylesheet"/>
+frontend/reviews.html:44:  <link href="/css/genuine-reviews.css" rel="stylesheet"/>
+frontend/offers/bridal-packages/index.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/offers/rhinoplasty/index.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/offers/laser-hair-reduction/index.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/offers/hair-transplant/index.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/doctor-videos.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/index.html:39:<link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/cost-estimator.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/before-after.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/book-appointment.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>
+frontend/reviews.html:43:  <link href="/css/upgrades-pro.css" rel="stylesheet"/>

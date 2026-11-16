@@ -1,0 +1,6 @@
+Created At: 2026-11-14T11:35:25+05:30
+Completed At: 2026-11-14T11:35:30+05:30
+Command exited with code 0.
+
+Command output:
+{"status":"ok","model_loaded":true,"database":{"configured":false,"connected":false},"timestamp":"2026-11-14T06:05:30.845364+00:00"}

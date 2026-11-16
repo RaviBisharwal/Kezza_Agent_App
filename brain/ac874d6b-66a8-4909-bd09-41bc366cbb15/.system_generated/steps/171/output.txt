@@ -1,0 +1,11 @@
+Created At: 2026-11-13T11:51:25+05:30
+Completed At: 2026-11-13T11:51:25+05:30
+Command exited with code 0.
+
+Command output:
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=kezza_db
+DB_USER=kezza_user
+DB_PASSWORD=kezza_pass123
+EXPO_PUBLIC_API_URL=http://localhost:8000/api/v1

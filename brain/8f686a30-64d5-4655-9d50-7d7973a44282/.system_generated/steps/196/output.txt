@@ -1,0 +1,13 @@
+Created At: 2026-11-14T11:47:38+05:30
+Completed At: 2026-11-14T11:47:41+05:30
+Command exited with code 3.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+INFO:     Started server process [32726]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 48] error while attempting to bind on address ('0.0.0.0', 8001): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.

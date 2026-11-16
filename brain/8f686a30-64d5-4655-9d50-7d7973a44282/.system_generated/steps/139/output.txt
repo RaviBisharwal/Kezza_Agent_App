@@ -1,0 +1,6 @@
+Created At: 2026-11-14T11:35:41+05:30
+Completed At: 2026-11-14T11:35:51+05:30
+Command exited with code 0.
+
+Command output:
+{"service":"AI-Driven Cab Booking API","status":"running","docs":"/docs","routes":["/health","/predict-eta","/assign-driver","/drivers/nearest","/bookings/*","/transactions/*","/auth/*","/admin/*","/analysis"]}

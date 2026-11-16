@@ -1,0 +1,17 @@
+Created At: 2026-11-15T14:28:56+05:30
+Completed At: 2026-11-15T14:28:56+05:30
+Command exited with code 0.
+
+Command output:
+11: * It also creates optimized critical and deferred bundles for high-traffic landing
+14: *     frontend/css/bundle-home-critical.min.css
+153:  const critical = [];
+157:      if (ABOVE_THE_FOLD_RE.test(b.header) || /kenburns|pulse|fade/i.test(b.header)) critical.push(b.raw);
+167:      if (innerCrit.length) critical.push(`${b.header}{\n${innerCrit.join('\n')}\n}`);
+170:      if (ABOVE_THE_FOLD_RE.test(b.selector)) critical.push(b.raw);
+176:  return { critical: critical.join('\n'), deferred: deferred.join('\n') };
+189:  const criticalCss = baseCritical.map(f => fs.readFileSync(path.join(FE, f), 'utf8')).join('\n');
+201:  const allCritical = criticalCss + '\n' + lux.critical + '\n' + hup.critical + '\n' + mob.critical + '\n' + qck.critical;
+207:  fs.writeFileSync(path.join(FE, 'css', 'bundle-home-critical.min.css'), minCrit);
+211:    criticalHash: hash(minCrit),
+261:      const homePattern = /[ \t]*<link\b[^>]*href=["'][^"']*bundle-home(?:-critical)?\.min\.css[^"']*["'][^>]*>(?:[ \t]*<!--[\s\S]*?-->)?[ \t]*(?:\r?\n[ \t]*<!--[\s\S]*?-->)*(?:\r?\n[ \t]*<noscript>[\s\S]*?<\/noscript>)*(?:\r?\n[ \t]*<script>[\s\S]*?<\/script>)*\r?\n?/i;

@@ -1,0 +1,6 @@
+Created At: 2026-11-14T11:35:54+05:30
+Completed At: 2026-11-14T11:36:03+05:30
+Command exited with code 0.
+
+Command output:
+{"detail":[{"type":"missing","loc":["body","origin_lat"],"msg":"Field required","input":{"pickup_lat":40.7128,"pickup_lon":-74.006,"dropoff_lat":40.7589,"dropoff_lon":-73.9851}},{"type":"missing","loc":["body","origin_lon"],"msg":"Field required","input":{"pickup_lat":40.7128,"pickup_lon":-74.006,"dropoff_lat":40.7589,"dropoff_lon":-73.9851}},{"type":"missing","loc":["body","destination_lat"],"msg":"Field required","input":{"pickup_lat":40.7128,"pickup_lon":-74.006,"dropoff_lat":40.7589,"dropoff_lon":-73.9851}},{"type":"missing","loc":["body","destination_lon"],"msg":"Field required","input":{"pickup_lat":40.7128,"pickup_lon":-74.006,"dropoff_lat":40.7589,"dropoff_lon":-73.9851}},{"type":"missing","loc":["body","pickup_datetime"],"msg":"Field required","input":{"pickup_lat":40.7128,"pickup_lon":-74.006,"dropoff_lat":40.7589,"dropoff_lon":-73.9851}}]}

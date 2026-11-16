@@ -1,0 +1,35 @@
+Created At: 2026-11-13T11:36:17+05:30
+Completed At: 2026-11-13T11:36:17+05:30
+Command exited with code 0.
+
+Command output:
+[master b5c9578] feat(phase-1): refactor backend into target folder structure
+ Committer: Ravi <ravi@Ravis-MacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 17 files changed, 358 insertions(+), 266 deletions(-)
+ create mode 100644 backend/app/api/__init__.py
+ create mode 100644 backend/app/api/v1/__init__.py
+ create mode 100644 backend/app/api/v1/endpoints/__init__.py
+ delete mode 100644 backend/app/models.py
+ create mode 100644 backend/app/models/__init__.py
+ create mode 100644 backend/app/models/agent.py
+ create mode 100644 backend/app/models/branch.py
+ create mode 100644 backend/app/models/patient.py
+ create mode 100644 backend/app/models/referral.py
+ create mode 100644 backend/app/models/user.py
+ create mode 100644 backend/app/schemas/__init__.py
+ create mode 100644 backend/app/services/__init__.py
+ create mode 100644 backend/app/tests/conftest.py
+ create mode 100644 backend/app/tests/test_health.py
+ create mode 100644 backend/pytest.ini

@@ -1,0 +1,6 @@
+Created At: 2026-11-14T11:49:04+05:30
+Completed At: 2026-11-14T11:49:24+05:30
+Command exited with code 0.
+
+Command output:
+Atlas error: ServerSelectionTimeoutError No replica set members match selector "Primary()", Timeout: 3.0s, Topology Description: <TopologyDescription id: 6af7fd67230ee2c8d079b4b8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.4m4tz.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.06652033399586799>, <ServerDescription ('cluster0-shard-00-01.4m4tz.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.0683447499977774>, <ServerDescription ('cluster0-shard-00-02.4m4tz.mongodb.net', 27017) server_type: Unknown, rtt: None>]>

@@ -1,0 +1,44 @@
+Created At: 2026-11-13T11:56:07+05:30
+Completed At: 2026-11-13T11:56:08+05:30
+Command exited with code 0.
+
+Command output:
+ M backend/app/database.py
+ M backend/app/main.py
+ M backend/app/models/__init__.py
+ M backend/app/schemas/__init__.py
+ M backend/app/tests/conftest.py
+ M src/app/(app)/(tabs)/_layout.tsx
+ M src/app/(app)/(tabs)/index.tsx
+ M src/app/(app)/(tabs)/referrals.tsx
+ M src/app/(app)/(tabs)/wallet.tsx
+ M src/app/(app)/profile.tsx
+ M src/app/(auth)/login.tsx
+ M src/app/(auth)/verify-otp.tsx
+ M src/features/auth/hooks.ts
+ M src/features/auth/types.ts
+ M src/features/commissions/hooks.ts
+ M src/features/commissions/types.ts
+ M src/features/points/hooks.ts
+ M src/features/points/types.ts
+ M src/features/referrals/hooks.ts
+ M src/features/referrals/types.ts
+ M src/store/auth-store.ts
+?? backend/app/api/v1/endpoints/auth.py
+?? backend/app/api/v1/endpoints/payments.py
+?? backend/app/api/v1/endpoints/referrals.py
+?? backend/app/api/v1/endpoints/wallet.py
+?? backend/app/models/commission.py
+?? backend/app/models/otp.py
+?? backend/app/models/payment.py
+?? backend/app/models/points.py
+?? backend/app/schemas/auth.py
+?? backend/app/schemas/payments.py
+?? backend/app/schemas/referrals.py
+?? backend/app/schemas/wallet.py
+?? backend/app/services/auth_service.py
+?? backend/app/services/payment_service.py
+?? backend/app/services/referral_service.py
+?? backend/app/services/wallet_service.py
+?? backend/app/tests/test_journey.py
+?? backend/migrations/versions/a89c31bdf721_create_payments_points_commission_tables.py

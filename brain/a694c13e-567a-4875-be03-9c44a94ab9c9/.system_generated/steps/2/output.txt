@@ -1,0 +1,8 @@
+Created At: 2026-11-16T14:37:38+05:30
+Completed At: 2026-11-16T14:37:39+05:30
+Command exited with code 0.
+
+Command output:
+total 0
+drwxr-xr-x@  2 ravi  staff   64 Nov 16 13:36 .
+drwx------+ 11 ravi  staff  352 Nov 16 14:37 ..

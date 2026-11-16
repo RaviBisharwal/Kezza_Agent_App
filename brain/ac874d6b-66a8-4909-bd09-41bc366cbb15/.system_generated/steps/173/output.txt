@@ -1,0 +1,13 @@
+Created At: 2026-11-13T11:51:31+05:30
+Completed At: 2026-11-13T11:51:31+05:30
+Command exited with code 0.
+
+Command output:
+DB Connection error: <class 'sqlalchemy.exc.OperationalError'> (psycopg.OperationalError) connection is bad: connection to server at "127.0.0.1", port 5432 failed: Operation not permitted
+	Is the server running on that host and accepting TCP/IP connections?
+Multiple connection attempts failed. All failures were:
+- host: 'localhost', port: 5432, hostaddr: '::1': connection is bad: connection to server at "::1", port 5432 failed: Operation not permitted
+	Is the server running on that host and accepting TCP/IP connections?
+- host: 'localhost', port: 5432, hostaddr: '127.0.0.1': connection is bad: connection to server at "127.0.0.1", port 5432 failed: Operation not permitted
+	Is the server running on that host and accepting TCP/IP connections?
+(Background on this error at: https://sqlalche.me/e/21/e3q8)

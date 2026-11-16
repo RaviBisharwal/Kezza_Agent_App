@@ -1,0 +1,6 @@
+Created At: 2026-11-14T11:32:23+05:30
+Completed At: 2026-11-14T11:32:23+05:30
+Command exited with code 0.
+
+Command output:
+/opt/homebrew/opt/python@3.12/bin/python3.12

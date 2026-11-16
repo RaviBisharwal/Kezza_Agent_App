@@ -1,0 +1,27 @@
+Created At: 2026-11-15T14:26:50+05:30
+Completed At: 2026-11-15T14:26:51+05:30
+Command exited with code 0.
+
+Command output:
+Found 50 images
+Top 15 largest images:
+┌─────────┬──────────────────────────────────────────────┬───────────┬─────────┐
+│ (index) │ src                                          │ size      │ loading │
+├─────────┼──────────────────────────────────────────────┼───────────┼─────────┤
+│ 0       │ 'images/gallery-hair-transplant-grafts.webp' │ '170.8KB' │ 'lazy'  │
+│ 1       │ 'images/gallery-hair-transplant-grafts.webp' │ '170.8KB' │ 'lazy'  │
+│ 2       │ 'images/kezza-sikar-building.webp'           │ '86.0KB'  │ 'lazy'  │
+│ 3       │ 'images/body-sculpting-treatment.webp'       │ '66.6KB'  │ 'lazy'  │
+│ 4       │ 'images/prp-1.webp'                          │ '65.5KB'  │ 'lazy'  │
+│ 5       │ 'images/fui-hair-1.webp'                     │ '62.5KB'  │ 'lazy'  │
+│ 6       │ 'images/fui-hair-1.webp'                     │ '62.5KB'  │ 'lazy'  │
+│ 7       │ 'images/fui-hair-1.webp'                     │ '62.5KB'  │ 'lazy'  │
+│ 8       │ 'images/female-hair-restoration.webp'        │ '62.4KB'  │ 'lazy'  │
+│ 9       │ 'images/kezza-ajmer-building.webp'           │ '61.4KB'  │ 'lazy'  │
+│ 10      │ 'images/kezza-jaipur-building.webp'          │ '59.8KB'  │ 'lazy'  │
+│ 11      │ 'images/dhi-hair-1.webp'                     │ '59.3KB'  │ 'lazy'  │
+│ 12      │ 'images/dhi-hair-1.webp'                     │ '59.3KB'  │ 'lazy'  │
+│ 13      │ 'images/mustache-transplant.webp'            │ '50.3KB'  │ 'lazy'  │
+│ 14      │ 'images/tummy-tightening-result.webp'        │ '49.4KB'  │ 'lazy'  │
+└─────────┴──────────────────────────────────────────────┴───────────┴─────────┘
+Total image weight: 2.19 MB

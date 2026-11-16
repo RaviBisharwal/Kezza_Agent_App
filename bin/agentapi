@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "/Users/ravi/.gemini/bin/agy" agentapi "$@"

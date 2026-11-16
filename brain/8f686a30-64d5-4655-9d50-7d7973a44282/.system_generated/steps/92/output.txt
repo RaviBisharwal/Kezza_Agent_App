@@ -1,0 +1,9 @@
+Created At: 2026-11-14T11:32:52+05:30
+Completed At: 2026-11-14T11:32:53+05:30
+Command exited with code 0.
+
+Command output:
+sysmon request failed with error: sysmond service not found
+pgrep: Cannot get process list
+==> Downloading Homebrew API data
+no mongodb running

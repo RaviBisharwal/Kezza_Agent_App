@@ -1,0 +1,6 @@
+Created At: 2026-11-14T11:32:02+05:30
+Completed At: 2026-11-14T11:32:02+05:30
+Command exited with code 0.
+
+Command output:
+/Users/ravi/Downloads/cabwithai-main/cab/ios/.xcode.env

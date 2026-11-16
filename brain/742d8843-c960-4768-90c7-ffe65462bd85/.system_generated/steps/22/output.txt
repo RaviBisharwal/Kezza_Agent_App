@@ -1,0 +1,10 @@
+Created At: 2026-11-15T14:23:31+05:30
+Completed At: 2026-11-15T14:23:31+05:30
+Command exited with code 0.
+
+Command output:
+515:const LEAD_STORE_PATH = process.env.LEAD_STORE_PATH || path.join(__dirname, 'data', 'leads.json');
+519:        if (!fs.existsSync(LEAD_STORE_PATH)) return [];
+520:        const parsed = JSON.parse(fs.readFileSync(LEAD_STORE_PATH, 'utf8'));
+530:        fs.mkdirSync(path.dirname(LEAD_STORE_PATH), { recursive: true });
+531:        fs.writeFileSync(LEAD_STORE_PATH, JSON.stringify(records, null, 2), 'utf8');

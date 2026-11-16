@@ -1,0 +1,38 @@
+Created At: 2026-11-13T11:56:18+05:30
+Completed At: 2026-11-13T11:56:19+05:30
+Command exited with code 0.
+
+Command output:
+[master ac669db] feat: complete first end-to-end Kezza business journey
+ Committer: Ravi <ravi@Ravis-MacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 39 files changed, 3653 insertions(+), 661 deletions(-)
+ create mode 100644 backend/app/api/v1/endpoints/auth.py
+ create mode 100644 backend/app/api/v1/endpoints/payments.py
+ create mode 100644 backend/app/api/v1/endpoints/referrals.py
+ create mode 100644 backend/app/api/v1/endpoints/wallet.py
+ create mode 100644 backend/app/models/commission.py
+ create mode 100644 backend/app/models/otp.py
+ create mode 100644 backend/app/models/payment.py
+ create mode 100644 backend/app/models/points.py
+ create mode 100644 backend/app/schemas/auth.py
+ create mode 100644 backend/app/schemas/payments.py
+ create mode 100644 backend/app/schemas/referrals.py
+ create mode 100644 backend/app/schemas/wallet.py
+ create mode 100644 backend/app/services/auth_service.py
+ create mode 100644 backend/app/services/payment_service.py
+ create mode 100644 backend/app/services/referral_service.py
+ create mode 100644 backend/app/services/wallet_service.py
+ create mode 100644 backend/app/tests/test_journey.py
+ create mode 100644 backend/migrations/versions/a89c31bdf721_create_payments_points_commission_tables.py

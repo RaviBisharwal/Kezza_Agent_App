@@ -1,0 +1,44 @@
+Created At: 2026-11-14T10:56:21+05:30
+Completed At: 2026-11-14T10:56:21+05:30
+Command exited with code 0.
+
+Command output:
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/.gitignore
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/.python-version
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/README.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/api/index.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/__init__.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/admin_data.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/admin_routes.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/allocation.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/auth_routes.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/booking_routes.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/bootstrap_admin.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/dependencies.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/main.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/ml_service.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/mongodb.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/realtime.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/schemas.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/security.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/backend/sms_service.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/__init__.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/acquire.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/config.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/eda.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/features.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/inspect_dataset.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/ml/train.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/models/eta_travel_time.joblib
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/notes/PROJECT_NOTES.md
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/reports/eda_summary.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/reports/model_comparison.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/reports/model_metadata.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/reports/source_schema.json
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/requirements.txt
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/tests/test_allocation.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/tests/test_booking_routes.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/tests/test_driver_signup.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/tests/test_realtime.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/tests/test_status_management.py
+/Users/ravi/.gemini/antigravity/scratch/cabwithai/backend/vercel.json
