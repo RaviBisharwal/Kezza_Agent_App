@@ -1,0 +1,18 @@
+Created At: 2026-11-16T15:55:26+05:30
+Completed At: 2026-11-16T15:55:27+05:30
+Command exited with code 0.
+
+Command output:
+total 64
+drwxr-xr-x@ 12 ravi  staff   384 Nov 16 15:15 .
+drwx------+ 12 ravi  staff   384 Nov 16 15:13 ..
+-rw-r--r--@  1 ravi  staff   165 Nov 16 15:14 .env.example
+-rw-r--r--@  1 ravi  staff    68 Nov 16 15:14 .gitignore
+-rw-r--r--@  1 ravi  staff  2871 Nov 16 15:01 README.md
+-rw-r--r--@  1 ravi  staff   456 Nov 16 14:53 app.json
+drwxr-xr-x@  3 ravi  staff    96 Nov 16 15:14 docs
+-rw-r--r--@  1 ravi  staff   184 Nov 16 14:59 eslint.config.js
+-rw-r--r--@  1 ravi  staff   115 Nov 16 14:53 expo-env.d.ts
+-rw-r--r--@  1 ravi  staff   934 Nov 16 14:59 package.json
+drwxr-xr-x@  8 ravi  staff   256 Nov 16 15:14 src
+-rw-r--r--@  1 ravi  staff   200 Nov 16 14:53 tsconfig.json

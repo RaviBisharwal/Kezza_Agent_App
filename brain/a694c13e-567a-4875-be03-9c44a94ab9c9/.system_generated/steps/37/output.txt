@@ -1,0 +1,137 @@
+Created At: 2026-11-16T15:55:38+05:30
+Completed At: 2026-11-16T15:55:41+05:30
+Command exited with code 0.
+
+Command output:
+export type AgentProfileResponse = {
+  id: string;
+  phone_e164: string;
+  full_name: string;
+  role: 'agent' | 'patient' | 'admin';
+  agent_id: string | null;
+  agent_code: string | null;
+};
+
+export type OtpRequestResponse = { status: string; message: string; dev_code?: string };
+export type OtpVerifyResponse = {
+  status: 'success' | 'needs_registration';
+  access_token?: string;
+  phone_e164?: string;
+  user?: AgentProfileResponse;
+  message?: string;
+};
+export type AgentAuthResponse = { access_token: string; user: AgentProfileResponse };
+import { useMutation } from '@tanstack/react-query';
+import { api } from '@/lib/api';
+import type { AgentAuthResponse, OtpRequestResponse, OtpVerifyResponse } from './types';
+
+export function useRequestOtp() {
+  return useMutation({
+    mutationFn: async (phone_e164: string) => (await api.post<OtpRequestResponse>('/auth/otp/request', { phone_e164 })).data,
+  });
+}
+
+export function useVerifyOtp() {
+  return useMutation({
+    mutationFn: async (payload: { phone_e164: string; otp_code: string }) => (await api.post<OtpVerifyResponse>('/auth/otp/verify', payload)).data,
+  });
+}
+
+export function useRegisterAgent() {
+  return useMutation({
+    mutationFn: async (payload: { phone_e164: string; full_name: string; role: 'agent' }) =>
+      (await api.post<AgentAuthResponse>('/auth/register', payload)).data,
+  });
+}
+export type ReferralStatus = 'registered' | 'contacted' | 'consultation_booked' | 'converted' | 'not_converted' | 'rejected';
+
+export type Referral = {
+  id: string;
+  patient_name: string;
+  patient_phone_e164: string;
+  referring_agent_id: string;
+  status: ReferralStatus;
+  service_interest: string | null;
+  created_at: string;
+  converted_at: string | null;
+};
+
+export type ReferralCodeInfo = {
+  agent_code: string;
+  referral_link: string;
+  total_referrals: number;
+  converted_count: number;
+};
+
+export type CreateLeadPayload = {
+  patient_name: string;
+  patient_phone_e164: string;
+  service_interest?: string;
+};
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { api } from '@/lib/api';
+import type { CreateLeadPayload, Referral, ReferralCodeInfo } from './types';
+
+export const referralKeys = {
+  list: ['agent-referrals'] as const,
+  code: ['agent-referral-code'] as const,
+};
+
+export function useAgentReferrals() {
+  return useQuery({ queryKey: referralKeys.list, queryFn: async () => (await api.get<Referral[]>('/referrals')).data });
+}
+
+export function useAgentReferralCode() {
+  return useQuery({ queryKey: referralKeys.code, queryFn: async () => (await api.get<ReferralCodeInfo>('/referrals/my-code')).data });
+}
+
+export function useCreateReferralLead() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (payload: CreateLeadPayload) => (await api.post<Referral>('/referrals/lead', payload)).data,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: referralKeys.list });
+      void queryClient.invalidateQueries({ queryKey: referralKeys.code });
+    },
+  });
+}
+export type CommissionEntry = {
+  id: string;
+  tier_name: string | null;
+  tier_percent: number;
+  amount_minor_units: number;
+  currency: string;
+  status: string;
+  created_at: string;
+  treatment_name: string | null;
+};
+
+export type CurrencyTotals = {
+  pending_minor_units: number;
+  approved_minor_units: number;
+  paid_minor_units: number;
+  total_earned_minor_units: number;
+};
+
+export type AgentEarnings = {
+  agent_code: string;
+  commission_tier: string;
+  tier_percent: number;
+  eligible_direct_agents: number;
+  pending_minor_units: number;
+  approved_minor_units: number;
+  paid_minor_units: number;
+  total_earned_minor_units: number;
+  earnings_by_currency: Record<string, CurrencyTotals>;
+  ledger: CommissionEntry[];
+};
+import { useQuery } from '@tanstack/react-query';
+import { api } from '@/lib/api';
+import type { AgentEarnings } from './types';
+
+export function useAgentEarnings() {
+  return useQuery({
+    queryKey: ['agent-earnings'],
+    queryFn: async () => (await api.get<AgentEarnings>('/wallet/agent')).data,
+  });
+}

@@ -1,0 +1,214 @@
+Created At: 2026-11-16T15:55:33+05:30
+Completed At: 2026-11-16T15:55:41+05:30
+Command exited with code 0.
+
+Command output:
+import { QueryClientProvider } from '@tanstack/react-query';
+import { Stack, useRouter, useSegments } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
+import { queryClient } from '@/lib/query-client';
+import { useAuthStore } from '@/store/auth-store';
+
+function RouteGuard() {
+  const router = useRouter();
+  const segments = useSegments();
+  const { isHydrated, accessToken } = useAuthStore();
+  useEffect(() => {
+    if (!isHydrated) return;
+    const inAuth = segments[0] === '(auth)';
+    if (!accessToken && !inAuth) router.replace('/(auth)/login');
+    if (accessToken && inAuth) router.replace('/(tabs)');
+  }, [accessToken, isHydrated, router, segments]);
+  return null;
+}
+
+export default function RootLayout() {
+  const hydrate = useAuthStore((state) => state.hydrate);
+  useEffect(() => { void hydrate(); }, [hydrate]);
+  return (
+    <QueryClientProvider client={queryClient}>
+      <StatusBar style="dark" />
+      <RouteGuard />
+      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#F4F7F6' } }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="add-patient" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="profile" options={{ presentation: 'modal' }} />
+      </Stack>
+    </QueryClientProvider>
+  );
+}
+import { Redirect } from 'expo-router';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { Colors } from '@/constants/theme';
+import { useAuthStore } from '@/store/auth-store';
+
+export default function IndexRoute() {
+  const { isHydrated, accessToken } = useAuthStore();
+  if (!isHydrated) return <View style={styles.loading}><ActivityIndicator color={Colors.teal} /></View>;
+  return <Redirect href={accessToken ? '/(tabs)' : '/(auth)/login'} />;
+}
+
+const styles = StyleSheet.create({ loading: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.canvas } });
+import { Stack } from 'expo-router';
+
+export default function AuthLayout() {
+  return <Stack screenOptions={{ headerShown: false, animation: 'fade' }} />;
+}
+import { useState } from 'react';
+import { router } from 'expo-router';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { FormField } from '@/components/FormField';
+import { Colors, Space } from '@/constants/theme';
+import { useRequestOtp } from '@/features/auth/hooks';
+import { getErrorMessage } from '@/lib/errors';
+import { isIndianMobile, normalizeIndianMobile, toE164 } from '@/lib/phone';
+
+export default function LoginScreen() {
+  const [phone, setPhone] = useState('');
+  const [error, setError] = useState('');
+  const requestOtp = useRequestOtp();
+  const normalized = normalizeIndianMobile(phone);
+
+  async function submit() {
+    setError('');
+    if (!isIndianMobile(normalized)) { setError('Enter a valid 10-digit Indian mobile number.'); return; }
+    try {
+      const result = await requestOtp.mutateAsync(toE164(normalized));
+      router.push({ pathname: '/(auth)/verify', params: { phone: toE164(normalized), devCode: result.dev_code ?? '' } });
+    } catch (caught) { setError(getErrorMessage(caught, 'We could not send the verification code.')); }
+  }
+
+  return (
+    <Screen>
+      <View style={styles.brand}><View style={styles.mark}><Text style={styles.markText}>K</Text></View><Text style={styles.brandName}>KEZZA <Text style={styles.brandAccent}>AGENT</Text></Text></View>
+      <PageHeading eyebrow="Agent workspace" title="Welcome back" subtitle="Sign in to manage patient referrals and follow up with confidence." />
+      <Card>
+        <Text style={styles.cardTitle}>Secure sign in</Text>
+        <Text style={styles.body}>We’ll send a one-time verification code to your mobile number.</Text>
+        <FormField label="Mobile number" value={phone} onChangeText={setPhone} placeholder="98765 43210" keyboardType="phone-pad" maxLength={14} />
+        {error ? <InlineNotice tone="error">{error}</InlineNotice> : null}
+        <Button onPress={submit} loading={requestOtp.isPending}>Continue with OTP</Button>
+      </Card>
+      <Text style={styles.footnote}>Agent accounts only · Your session is stored securely on this device.</Text>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({
+  brand: { flexDirection: 'row', alignItems: 'center', gap: Space.md, marginTop: Space.xxl, marginBottom: Space.md },
+  mark: { width: 42, height: 42, borderRadius: 14, backgroundColor: Colors.teal, alignItems: 'center', justifyContent: 'center' },
+  markText: { color: Colors.white, fontSize: 25, fontWeight: '900' },
+  brandName: { color: Colors.ink, fontSize: 15, letterSpacing: 1.3, fontWeight: '900' },
+  brandAccent: { color: Colors.teal },
+  cardTitle: { fontSize: 19, fontWeight: '800', color: Colors.ink },
+  body: { color: Colors.inkMuted, fontSize: 14, lineHeight: 21 },
+  footnote: { marginTop: 'auto', paddingTop: Space.xxxl, textAlign: 'center', color: Colors.inkMuted, fontSize: 12, lineHeight: 18 },
+});
+import { useState } from 'react';
+import { router, useLocalSearchParams } from 'expo-router';
+import { StyleSheet, Text } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { FormField } from '@/components/FormField';
+import { Colors } from '@/constants/theme';
+import { useVerifyOtp } from '@/features/auth/hooks';
+import { getErrorMessage } from '@/lib/errors';
+import { useAuthStore } from '@/store/auth-store';
+
+export default function VerifyScreen() {
+  const params = useLocalSearchParams<{ phone?: string; devCode?: string }>();
+  const phone = typeof params.phone === 'string' ? params.phone : '';
+  const devCode = typeof params.devCode === 'string' ? params.devCode : '';
+  const [code, setCode] = useState('');
+  const [error, setError] = useState('');
+  const verifyOtp = useVerifyOtp();
+
+  async function submit() {
+    setError('');
+    if (!/^\d{6}$/.test(code)) { setError('Enter the six-digit code.'); return; }
+    try {
+      const result = await verifyOtp.mutateAsync({ phone_e164: phone, otp_code: code });
+      if (result.status === 'needs_registration') {
+        router.replace({ pathname: '/(auth)/register', params: { phone } });
+        return;
+      }
+      const user = result.user;
+      if (user?.role !== 'agent' || !user.agent_id || !result.access_token) {
+        setError('This mobile number is not linked to an active agent account. Please use an agent number or contact Kezza support.');
+        return;
+      }
+      await useAuthStore.getState().signIn(result.access_token, {
+        id: user.id, fullName: user.full_name, phone: user.phone_e164, agentId: user.agent_id, agentCode: user.agent_code ?? undefined,
+      });
+      router.replace('/(tabs)');
+    } catch (caught) { setError(getErrorMessage(caught, 'That code could not be verified.')); }
+  }
+
+  return (
+    <Screen>
+      <PageHeading eyebrow="Step 2 of 2" title="Verify your number" subtitle={`Enter the six-digit code sent to ${phone || 'your mobile number'}.`} />
+      {devCode ? <InlineNotice tone="info">Development OTP: {devCode}. This appears only when the API is running in development mode.</InlineNotice> : null}
+      <Card>
+        <FormField label="Verification code" value={code} onChangeText={(value) => setCode(value.replace(/\D/g, '').slice(0, 6))} placeholder="123456" keyboardType="number-pad" maxLength={6} />
+        {error ? <InlineNotice tone="error">{error}</InlineNotice> : null}
+        <Button onPress={submit} loading={verifyOtp.isPending}>Verify and sign in</Button>
+        <Button variant="quiet" onPress={() => router.back()}>Change mobile number</Button>
+      </Card>
+      <Text style={styles.security}>Your account is checked by the Kezza API before access is granted.</Text>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({ security: { color: Colors.inkMuted, fontSize: 12, lineHeight: 18, textAlign: 'center', marginTop: 'auto', paddingTop: 24 } });
+import { useState } from 'react';
+import { router, useLocalSearchParams } from 'expo-router';
+import { StyleSheet, Text } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { FormField } from '@/components/FormField';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { Colors } from '@/constants/theme';
+import { useRegisterAgent } from '@/features/auth/hooks';
+import { getErrorMessage } from '@/lib/errors';
+import { useAuthStore } from '@/store/auth-store';
+
+export default function RegisterScreen() {
+  const { phone: rawPhone } = useLocalSearchParams<{ phone?: string }>();
+  const phone = typeof rawPhone === 'string' ? rawPhone : '';
+  const [name, setName] = useState('');
+  const [error, setError] = useState('');
+  const registration = useRegisterAgent();
+
+  async function submit() {
+    setError('');
+    if (name.trim().length < 2) { setError('Enter your full name to continue.'); return; }
+    try {
+      const result = await registration.mutateAsync({ phone_e164: phone, full_name: name.trim(), role: 'agent' });
+      const user = result.user;
+      if (user.role !== 'agent' || !user.agent_id) { setError('Kezza could not create an agent profile for this account. Contact support.'); return; }
+      await useAuthStore.getState().signIn(result.access_token, {
+        id: user.id, fullName: user.full_name, phone: user.phone_e164, agentId: user.agent_id, agentCode: user.agent_code ?? undefined,
+      });
+      router.replace('/(tabs)');
+    } catch (caught) { setError(getErrorMessage(caught, 'We could not create your agent account.')); }
+  }
+
+  return (
+    <Screen>
+      <PageHeading eyebrow="Agent profile" title="Complete your setup" subtitle="Your mobile number is verified. Add your name to create your agent profile." />
+      <Card>
+        <FormField label="Full name" value={name} onChangeText={setName} placeholder="Enter your full name" autoCapitalize="words" maxLength={150} />
+        <FormField label="Verified mobile number" value={phone} onChangeText={() => undefined} placeholder="+91" editable={false} />
+        <Text style={styles.note}>Your agent referral code will be assigned by Kezza after registration.</Text>
+        {error ? <InlineNotice tone="error">{error}</InlineNotice> : null}
+        <Button onPress={submit} loading={registration.isPending}>Create agent account</Button>
+      </Card>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({ note: { color: Colors.inkMuted, fontSize: 13, lineHeight: 19 } });

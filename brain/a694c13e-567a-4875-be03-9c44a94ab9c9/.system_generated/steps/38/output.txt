@@ -1,0 +1,217 @@
+Created At: 2026-11-16T15:55:40+05:30
+Completed At: 2026-11-16T15:55:41+05:30
+Command exited with code 0.
+
+Command output:
+import type { PropsWithChildren } from 'react';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Colors, Space } from '@/constants/theme';
+
+export function Button({ children, onPress, loading = false, disabled = false, variant = 'primary' }: PropsWithChildren<{
+  onPress: () => void;
+  loading?: boolean;
+  disabled?: boolean;
+  variant?: 'primary' | 'secondary' | 'quiet';
+}>) {
+  const secondary = variant === 'secondary';
+  const quiet = variant === 'quiet';
+  return (
+    <Pressable disabled={disabled || loading} onPress={onPress} style={({ pressed }) => [styles.button, secondary && styles.secondary, quiet && styles.quiet, (disabled || loading) && styles.disabled, pressed && styles.pressed]}>
+      {loading ? <ActivityIndicator color={secondary || quiet ? Colors.teal : Colors.white} /> : <Text style={[styles.label, (secondary || quiet) && styles.secondaryLabel]}>{children}</Text>}
+    </Pressable>
+  );
+}
+
+export function InlineNotice({ children, tone = 'info' }: PropsWithChildren<{ tone?: 'info' | 'success' | 'error' }>) {
+  const palette = tone === 'success' ? { background: Colors.greenSoft, color: Colors.green } : tone === 'error' ? { background: Colors.redSoft, color: Colors.red } : { background: Colors.softTeal, color: Colors.tealDark };
+  return <View style={[styles.notice, { backgroundColor: palette.background }]}><Text style={[styles.noticeText, { color: palette.color }]}>{children}</Text></View>;
+}
+
+const styles = StyleSheet.create({
+  button: { minHeight: 52, borderRadius: 14, backgroundColor: Colors.teal, alignItems: 'center', justifyContent: 'center', paddingHorizontal: Space.xl },
+  secondary: { backgroundColor: Colors.softTeal, borderColor: '#C6E1DA', borderWidth: 1 },
+  quiet: { backgroundColor: 'transparent' },
+  disabled: { opacity: 0.5 },
+  pressed: { opacity: 0.78 },
+  label: { color: Colors.white, fontSize: 15, fontWeight: '800' },
+  secondaryLabel: { color: Colors.tealDark },
+  notice: { padding: Space.md, borderRadius: 12 },
+  noticeText: { fontSize: 13, lineHeight: 19, fontWeight: '600' },
+});
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Colors, Space } from '@/constants/theme';
+
+export function FormField({ label, value, onChangeText, placeholder, keyboardType, maxLength, autoCapitalize = 'none', multiline = false, editable = true }: {
+  label: string;
+  value: string;
+  onChangeText: (value: string) => void;
+  placeholder: string;
+  keyboardType?: 'default' | 'phone-pad' | 'number-pad';
+  maxLength?: number;
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+  multiline?: boolean;
+  editable?: boolean;
+}) {
+  return (
+    <View style={styles.wrap}>
+      <Text style={styles.label}>{label}</Text>
+      <TextInput
+        accessibilityLabel={label}
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        placeholderTextColor="#82919A"
+        keyboardType={keyboardType}
+        maxLength={maxLength}
+        autoCapitalize={autoCapitalize}
+        autoCorrect={false}
+        multiline={multiline}
+        editable={editable}
+        textAlignVertical={multiline ? 'top' : 'center'}
+        style={[styles.input, multiline && styles.multiline, !editable && styles.readonly]}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  wrap: { gap: Space.sm },
+  label: { color: Colors.ink, fontSize: 13, fontWeight: '700' },
+  input: { minHeight: 52, borderRadius: 13, borderWidth: 1, borderColor: Colors.line, backgroundColor: Colors.surface, paddingHorizontal: 15, color: Colors.ink, fontSize: 16 },
+  multiline: { minHeight: 90, paddingTop: 14 },
+  readonly: { opacity: 0.75 },
+});
+import type { PropsWithChildren, ReactElement, ReactNode } from 'react';
+import { ScrollView, StyleSheet, Text, View, type RefreshControlProps, type StyleProp, type ViewStyle } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Colors, Space } from '@/constants/theme';
+
+export function Screen({ children, scroll = true, bottom, refreshControl }: PropsWithChildren<{ scroll?: boolean; bottom?: ReactNode; refreshControl?: ReactElement<RefreshControlProps> | null }>) {
+  return (
+    <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
+      {scroll ? <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" refreshControl={refreshControl ?? undefined}>{children}</ScrollView> : <View style={styles.content}>{children}</View>}
+      {bottom}
+    </SafeAreaView>
+  );
+}
+
+export function PageHeading({ eyebrow, title, subtitle }: { eyebrow?: string; title: string; subtitle?: string }) {
+  return (
+    <View style={styles.heading}>
+      {eyebrow ? <Text style={styles.eyebrow}>{eyebrow.toUpperCase()}</Text> : null}
+      <Text style={styles.title}>{title}</Text>
+      {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
+    </View>
+  );
+}
+
+export function Card({ children, style }: PropsWithChildren<{ style?: StyleProp<ViewStyle> }>) {
+  return <View style={[styles.card, style]}>{children}</View>;
+}
+
+const styles = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: Colors.canvas },
+  content: { padding: Space.xl, paddingBottom: Space.xxxl, gap: Space.lg, flexGrow: 1 },
+  heading: { gap: Space.xs, marginBottom: Space.xs },
+  eyebrow: { color: Colors.teal, fontSize: 11, fontWeight: '800', letterSpacing: 1.2 },
+  title: { color: Colors.ink, fontSize: 28, lineHeight: 34, fontWeight: '800', letterSpacing: -0.5 },
+  subtitle: { color: Colors.inkMuted, fontSize: 15, lineHeight: 22, marginTop: 2 },
+  card: { backgroundColor: Colors.surface, borderRadius: 20, borderColor: Colors.line, borderWidth: 1, padding: Space.xl, gap: Space.md },
+});
+import { StyleSheet, Text, View } from 'react-native';
+import { Colors } from '@/constants/theme';
+import type { ReferralStatus } from '@/features/referrals/types';
+
+const labels: Record<ReferralStatus, string> = {
+  registered: 'Registered',
+  contacted: 'Contacted',
+  consultation_booked: 'Consultation booked',
+  converted: 'Converted',
+  not_converted: 'Not converted',
+  rejected: 'Closed',
+};
+
+export function StatusBadge({ status }: { status: ReferralStatus }) {
+  const positive = status === 'converted';
+  const progress = status === 'contacted' || status === 'consultation_booked';
+  const palette = positive ? { bg: Colors.greenSoft, fg: Colors.green } : progress ? { bg: Colors.amberSoft, fg: Colors.amber } : { bg: '#EDF1F2', fg: Colors.inkMuted };
+  return <View style={[styles.badge, { backgroundColor: palette.bg }]}><Text style={[styles.text, { color: palette.fg }]}>{labels[status] ?? 'Registered'}</Text></View>;
+}
+
+const styles = StyleSheet.create({ badge: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 18, alignSelf: 'flex-start' }, text: { fontSize: 11, fontWeight: '800' } });
+export const Colors = {
+  ink: '#173A49',
+  inkMuted: '#5E717B',
+  teal: '#087F73',
+  tealDark: '#06665D',
+  canvas: '#F4F7F6',
+  surface: '#FFFFFF',
+  line: '#DCE6E3',
+  softTeal: '#E4F2EF',
+  green: '#217A55',
+  greenSoft: '#E6F4EC',
+  amber: '#98600A',
+  amberSoft: '#FBF2E2',
+  red: '#A4413A',
+  redSoft: '#F9EAE8',
+  white: '#FFFFFF',
+};
+
+export const Space = { xs: 4, sm: 8, md: 12, lg: 16, xl: 20, xxl: 24, xxxl: 32 };
+{
+  "expo": {
+    "name": "Kezza Agent",
+    "slug": "kezza-agent",
+    "version": "1.0.0",
+    "scheme": "kezza-agent",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": ["expo-router", "expo-secure-store"],
+    "experiments": { "typedRoutes": true },
+    "ios": { "supportsTablet": false, "bundleIdentifier": "in.co.kezza.agent" },
+    "android": { "package": "in.co.kezza.agent" },
+    "web": { "bundler": "metro" }
+  }
+}
+# API base URL must include /api/v1.
+# For a physical phone, replace localhost with your Mac's LAN IPv4 address.
+EXPO_PUBLIC_API_URL=http://192.168.1.25:8000/api/v1
+# Kezza Agent app: backend integration
+
+## Current API contract used by the app
+
+| Agent workflow | Request | Purpose |
+| --- | --- | --- |
+| Request OTP | `POST /api/v1/auth/otp/request` | Start phone verification; `dev_code` is available only in development. |
+| Verify OTP | `POST /api/v1/auth/otp/verify` | Sign in an existing agent or request registration. |
+| Register agent | `POST /api/v1/auth/register` | Create an agent account after the phone has a verified OTP. |
+| Load agent profile | Included in the auth response | Confirms the signed-in role and agent ID. |
+| Referral code and counts | `GET /api/v1/referrals/my-code` | Display the agent's code and API-generated patient deep link. |
+| Referral history | `GET /api/v1/referrals` | Read the authenticated agent's patient referrals and current statuses. |
+| Create patient lead | `POST /api/v1/referrals/lead` | Store a referral lead for the authenticated agent. |
+| Commission wallet | `GET /api/v1/wallet/agent` | Read commission tier, earnings totals, and commission ledger. |
+
+Every request after authentication uses the server-issued bearer token. The mobile client never writes to PostgreSQL or changes a reward balance directly.
+
+## Agent points are a backend feature gap
+
+The current database and API expose patient points and agent commissions. They do not expose an agent-points balance or ledger. The app therefore displays commissions from the real endpoint and clearly explains that agent points are pending. It must not infer points from referrals or commissions.
+
+Before enabling agent points, the backend needs these product and engineering decisions:
+
+1. Define the event that awards points (for example, a verified treatment payment for a referred patient) and the point rate.
+2. Define eligibility, caps, expiry, adjustments, and refund treatment.
+3. Add an append-only `agent_points_ledger` tied to the agent and the source referral/payment. Add a uniqueness rule so retries cannot award twice.
+4. Write point awards in the same server transaction that confirms the trusted payment and referral conversion. Append reversal entries when a qualifying payment is refunded.
+5. Add a JWT-protected read endpoint such as `GET /api/v1/wallet/agent-points` returning the calculated balance and ledger. The agent mobile app should remain read-only for points.
+6. Add migration, API schema, authorization checks, and backend coverage before showing a points balance in this app.
+
+The sample route name above is a proposal, not an existing endpoint. The business rules need approval in the normal product process before they are treated as the Kezza policy.
+
+## Consent boundary
+
+The mobile form requires the agent to confirm the patient agreed to referral follow-up. The existing `ReferralLeadCreateSchema` has no consent field, and its route does not store a consent record. For an auditable production flow, extend the API and database to record the consent state, timestamp, and policy/version or capture the consent through an approved server-side process. The client checkbox alone is not an audit record.
+
+## Network setup
+
+`EXPO_PUBLIC_API_URL` must include `/api/v1`, for example `http://192.168.1.25:8000/api/v1`. A physical phone cannot reach the Mac through `localhost`; use the Mac's current Wi-Fi IP and ensure the backend listens on a network-reachable interface. The variable is bundled into the client and must contain no secret credentials.

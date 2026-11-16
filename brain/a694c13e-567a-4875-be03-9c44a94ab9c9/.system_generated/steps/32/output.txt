@@ -1,0 +1,34 @@
+Created At: 2026-11-16T15:55:27+05:30
+Completed At: 2026-11-16T15:55:27+05:30
+Command exited with code 0.
+
+Command output:
+/Users/ravi/Desktop/Kezza Agent App/src/app/(auth)/_layout.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(auth)/login.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(auth)/register.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(auth)/verify.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(tabs)/_layout.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(tabs)/index.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(tabs)/patients.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/(tabs)/wallet.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/_layout.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/add-patient.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/index.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/app/profile.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/components/Button.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/components/FormField.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/components/Screen.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/components/StatusBadge.tsx
+/Users/ravi/Desktop/Kezza Agent App/src/constants/theme.ts
+/Users/ravi/Desktop/Kezza Agent App/src/features/auth/hooks.ts
+/Users/ravi/Desktop/Kezza Agent App/src/features/auth/types.ts
+/Users/ravi/Desktop/Kezza Agent App/src/features/referrals/hooks.ts
+/Users/ravi/Desktop/Kezza Agent App/src/features/referrals/types.ts
+/Users/ravi/Desktop/Kezza Agent App/src/features/wallet/hooks.ts
+/Users/ravi/Desktop/Kezza Agent App/src/features/wallet/types.ts
+/Users/ravi/Desktop/Kezza Agent App/src/lib/api.ts
+/Users/ravi/Desktop/Kezza Agent App/src/lib/errors.ts
+/Users/ravi/Desktop/Kezza Agent App/src/lib/format.ts
+/Users/ravi/Desktop/Kezza Agent App/src/lib/phone.ts
+/Users/ravi/Desktop/Kezza Agent App/src/lib/query-client.ts
+/Users/ravi/Desktop/Kezza Agent App/src/store/auth-store.ts

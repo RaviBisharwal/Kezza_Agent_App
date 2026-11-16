@@ -1,0 +1,386 @@
+Created At: 2026-11-16T15:55:35+05:30
+Completed At: 2026-11-16T15:55:41+05:30
+Command exited with code 0.
+
+Command output:
+import { Tabs } from 'expo-router';
+import { Colors } from '@/constants/theme';
+
+export default function AgentTabs() {
+  return (
+    <Tabs screenOptions={{
+      headerShown: false,
+      tabBarActiveTintColor: Colors.teal,
+      tabBarInactiveTintColor: Colors.inkMuted,
+      tabBarLabelStyle: { fontSize: 11, fontWeight: '700', paddingBottom: 3 },
+      tabBarStyle: { height: 66, paddingTop: 8, borderTopColor: Colors.line, backgroundColor: Colors.white },
+    }}>
+      <Tabs.Screen name="index" options={{ title: 'Overview', tabBarAccessibilityLabel: 'Overview' }} />
+      <Tabs.Screen name="patients" options={{ title: 'Patients', tabBarAccessibilityLabel: 'Patients' }} />
+      <Tabs.Screen name="wallet" options={{ title: 'Earnings', tabBarAccessibilityLabel: 'Earnings' }} />
+    </Tabs>
+  );
+}
+import * as Clipboard from 'expo-clipboard';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Pressable, RefreshControl, Share, StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, Screen } from '@/components/Screen';
+import { StatusBadge } from '@/components/StatusBadge';
+import { Colors, Space } from '@/constants/theme';
+import { useAgentReferralCode, useAgentReferrals } from '@/features/referrals/hooks';
+import { formatDate } from '@/lib/format';
+import { getErrorMessage } from '@/lib/errors';
+import { useAuthStore } from '@/store/auth-store';
+
+export default function OverviewScreen() {
+  const user = useAuthStore((state) => state.user);
+  const referrals = useAgentReferrals();
+  const code = useAgentReferralCode();
+  const [copied, setCopied] = useState(false);
+  const refreshing = referrals.isRefetching || code.isRefetching;
+  const items = referrals.data ?? [];
+  const converted = items.filter((item) => item.status === 'converted').length;
+  const active = items.filter((item) => ['registered', 'contacted', 'consultation_booked'].includes(item.status)).length;
+  const link = code.data?.referral_link ?? '';
+
+  async function copyCode() {
+    if (!code.data?.agent_code) return;
+    await Clipboard.setStringAsync(code.data.agent_code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  }
+
+  async function shareLink() {
+    if (!link) return;
+    await Share.share({ message: `Join Kezza with my referral link: ${link}` });
+  }
+
+  return (
+    <Screen refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => { void referrals.refetch(); void code.refetch(); }} tintColor={Colors.teal} />}>
+      <View style={styles.topline}>
+        <View><Text style={styles.kicker}>KEZZA AGENT</Text><Text style={styles.greeting}>Hello, {user?.fullName.split(' ')[0] ?? 'Agent'}</Text></View>
+        <Pressable accessibilityRole="button" accessibilityLabel="Open profile" onPress={() => router.push('/profile')} style={styles.avatar}><Text style={styles.avatarText}>{user?.fullName.slice(0, 1).toUpperCase() ?? 'A'}</Text></Pressable>
+      </View>
+      <Text style={styles.subheading}>Your referral workspace at a glance.</Text>
+
+      <View style={styles.statsRow}>
+        <Stat label="Patients added" value={String(code.data?.total_referrals ?? items.length)} />
+        <Stat label="In progress" value={String(active)} />
+        <Stat label="Converted" value={String(code.data?.converted_count ?? converted)} accent />
+      </View>
+
+      <Card style={styles.inviteCard}>
+        <View style={styles.cardHead}><Text style={styles.inviteEyebrow}>YOUR REFERRAL CODE</Text><Text style={styles.code}>{code.data?.agent_code ?? '—'}</Text></View>
+        <Text style={styles.cardCopy}>Share your code with a patient or add their details directly to track the referral.</Text>
+        <View style={styles.actionRow}>
+          <View style={styles.actionCell}><Button variant="secondary" onPress={copyCode}>{copied ? 'Copied' : 'Copy code'}</Button></View>
+          <View style={styles.actionCell}><Button variant="secondary" onPress={shareLink}>Share link</Button></View>
+        </View>
+      </Card>
+
+      <Button onPress={() => router.push('/add-patient')}>＋  Add a patient</Button>
+
+      {referrals.isError || code.isError ? <InlineNotice tone="error">{getErrorMessage(referrals.error ?? code.error, 'Could not load your latest referrals. Pull down to retry.')}</InlineNotice> : null}
+
+      <View style={styles.sectionHeader}><Text style={styles.sectionTitle}>Recent referrals</Text><Pressable onPress={() => router.push('/patients')}><Text style={styles.seeAll}>View all</Text></Pressable></View>
+      {referrals.isLoading ? <Card><Text style={styles.muted}>Loading your referral activity…</Text></Card> : items.length === 0 ? (
+        <Card><Text style={styles.emptyTitle}>Your first referral starts here</Text><Text style={styles.muted}>Add a patient or share your code. New referrals will appear here as their status changes.</Text></Card>
+      ) : items.slice(0, 3).map((item) => (
+        <Pressable key={item.id} onPress={() => router.push('/patients')}>
+          <Card style={styles.referralCard}>
+            <View style={styles.referralTop}><Text style={styles.patientName} numberOfLines={1}>{item.patient_name}</Text><StatusBadge status={item.status} /></View>
+            <Text style={styles.muted}>{item.service_interest || 'No service selected'} · Added {formatDate(item.created_at)}</Text>
+          </Card>
+        </Pressable>
+      ))}
+      <Text style={styles.disclaimer}>Patient records and earnings are loaded from Kezza’s secure API.</Text>
+    </Screen>
+  );
+}
+
+function Stat({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
+  return <View style={styles.stat}><Text style={[styles.statValue, accent && { color: Colors.teal }]}>{value}</Text><Text style={styles.statLabel}>{label}</Text></View>;
+}
+
+const styles = StyleSheet.create({
+  topline: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: Space.sm },
+  kicker: { fontSize: 10, letterSpacing: 1.4, color: Colors.teal, fontWeight: '900' },
+  greeting: { fontSize: 27, lineHeight: 33, fontWeight: '900', color: Colors.ink, marginTop: 3 },
+  subheading: { color: Colors.inkMuted, fontSize: 14, marginTop: -Space.md },
+  avatar: { width: 44, height: 44, borderRadius: 16, backgroundColor: Colors.softTeal, alignItems: 'center', justifyContent: 'center' },
+  avatarText: { color: Colors.tealDark, fontSize: 18, fontWeight: '800' },
+  statsRow: { flexDirection: 'row', gap: Space.sm },
+  stat: { flex: 1, minHeight: 84, borderRadius: 16, backgroundColor: Colors.white, borderColor: Colors.line, borderWidth: 1, padding: Space.md, justifyContent: 'center', gap: 4 },
+  statValue: { color: Colors.ink, fontSize: 23, fontWeight: '900' },
+  statLabel: { color: Colors.inkMuted, fontSize: 11, fontWeight: '700', lineHeight: 15 },
+  inviteCard: { backgroundColor: Colors.ink, borderColor: Colors.ink, paddingVertical: Space.xl },
+  cardHead: { gap: Space.xs },
+  inviteEyebrow: { color: '#B8D9D4', fontSize: 10, fontWeight: '900', letterSpacing: 1.3 },
+  code: { color: Colors.white, fontSize: 29, letterSpacing: 2, fontWeight: '900' },
+  cardCopy: { color: '#D9E8E5', fontSize: 13, lineHeight: 19 },
+  actionRow: { flexDirection: 'row', gap: Space.md },
+  actionCell: { flex: 1 },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: Space.sm },
+  sectionTitle: { color: Colors.ink, fontSize: 18, fontWeight: '800' },
+  seeAll: { color: Colors.teal, fontSize: 13, fontWeight: '800' },
+  referralCard: { padding: Space.lg },
+  referralTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: Space.sm },
+  patientName: { color: Colors.ink, fontWeight: '800', fontSize: 15, flex: 1 },
+  muted: { color: Colors.inkMuted, fontSize: 13, lineHeight: 19 },
+  emptyTitle: { color: Colors.ink, fontSize: 16, fontWeight: '800' },
+  disclaimer: { textAlign: 'center', marginTop: Space.sm, color: Colors.inkMuted, fontSize: 11, lineHeight: 16 },
+});
+import { useMemo, useState } from 'react';
+import { router } from 'expo-router';
+import { Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { FormField } from '@/components/FormField';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { StatusBadge } from '@/components/StatusBadge';
+import { Colors, Space } from '@/constants/theme';
+import { useAgentReferrals } from '@/features/referrals/hooks';
+import type { ReferralStatus } from '@/features/referrals/types';
+import { formatDate } from '@/lib/format';
+import { getErrorMessage } from '@/lib/errors';
+
+const filters: { label: string; value: 'all' | ReferralStatus }[] = [
+  { label: 'All', value: 'all' }, { label: 'Registered', value: 'registered' }, { label: 'In progress', value: 'contacted' }, { label: 'Converted', value: 'converted' },
+];
+
+export default function PatientsScreen() {
+  const referrals = useAgentReferrals();
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState<'all' | ReferralStatus>('all');
+  const filtered = useMemo(() => (referrals.data ?? []).filter((item) => {
+    const matchesSearch = `${item.patient_name} ${item.patient_phone_e164} ${item.service_interest ?? ''}`.toLowerCase().includes(search.toLowerCase());
+    const matchesFilter = filter === 'all' || (filter === 'contacted' ? ['contacted', 'consultation_booked'].includes(item.status) : item.status === filter);
+    return matchesSearch && matchesFilter;
+  }), [filter, referrals.data, search]);
+
+  return (
+    <Screen refreshControl={<RefreshControl refreshing={referrals.isRefetching} onRefresh={() => void referrals.refetch()} tintColor={Colors.teal} />}>
+      <PageHeading eyebrow="Patient management" title="Your patients" subtitle="Keep track of the people you’ve referred and their next step." />
+      <Button onPress={() => router.push('/add-patient')}>＋  Add a patient</Button>
+      <FormField label="Search referrals" value={search} onChangeText={setSearch} placeholder="Name, number, or service" />
+      <View style={styles.filters}>{filters.map((item) => {
+        const selected = filter === item.value;
+        return <Pressable key={item.value} onPress={() => setFilter(item.value)} style={[styles.filter, selected && styles.filterSelected]}><Text style={[styles.filterText, selected && styles.filterTextSelected]}>{item.label}</Text></Pressable>;
+      })}</View>
+      {referrals.isError ? <InlineNotice tone="error">{getErrorMessage(referrals.error, 'Could not load referrals. Pull down to retry.')}</InlineNotice> : null}
+      {referrals.isLoading ? <Card><Text style={styles.muted}>Loading referral records…</Text></Card> : filtered.length === 0 ? (
+        <Card><Text style={styles.emptyTitle}>{(referrals.data ?? []).length ? 'No matching referrals' : 'No patients added yet'}</Text><Text style={styles.muted}>{(referrals.data ?? []).length ? 'Try a different search or status filter.' : 'Add a patient to create your first tracked referral.'}</Text></Card>
+      ) : filtered.map((item) => (
+        <Card key={item.id} style={styles.patientCard}>
+          <View style={styles.cardHead}><Text style={styles.name}>{item.patient_name}</Text><StatusBadge status={item.status} /></View>
+          <Text style={styles.phone}>{item.patient_phone_e164}</Text>
+          <View style={styles.rule} />
+          <View style={styles.metaRow}><Text style={styles.metaLabel}>Service</Text><Text style={styles.metaValue}>{item.service_interest || 'Not specified'}</Text></View>
+          <View style={styles.metaRow}><Text style={styles.metaLabel}>Added</Text><Text style={styles.metaValue}>{formatDate(item.created_at)}</Text></View>
+          {item.converted_at ? <View style={styles.metaRow}><Text style={styles.metaLabel}>Converted</Text><Text style={styles.metaValue}>{formatDate(item.converted_at)}</Text></View> : null}
+        </Card>
+      ))}
+      <Text style={styles.privacy}>Patient details are visible only after the agent API authorizes this session.</Text>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({
+  filters: { flexDirection: 'row', flexWrap: 'wrap', gap: Space.sm },
+  filter: { paddingHorizontal: 13, paddingVertical: 9, borderRadius: 20, backgroundColor: Colors.white, borderWidth: 1, borderColor: Colors.line },
+  filterSelected: { backgroundColor: Colors.teal, borderColor: Colors.teal },
+  filterText: { color: Colors.inkMuted, fontSize: 12, fontWeight: '700' },
+  filterTextSelected: { color: Colors.white },
+  patientCard: { gap: Space.sm },
+  cardHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: Space.sm },
+  name: { color: Colors.ink, fontSize: 16, fontWeight: '800', flex: 1 },
+  phone: { color: Colors.inkMuted, fontSize: 13 },
+  rule: { height: 1, backgroundColor: Colors.line, marginVertical: Space.xs },
+  metaRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: Space.md },
+  metaLabel: { color: Colors.inkMuted, fontSize: 12 },
+  metaValue: { color: Colors.ink, fontSize: 12, fontWeight: '700', flex: 1, textAlign: 'right' },
+  emptyTitle: { color: Colors.ink, fontSize: 16, fontWeight: '800' },
+  muted: { color: Colors.inkMuted, fontSize: 13, lineHeight: 19 },
+  privacy: { textAlign: 'center', color: Colors.inkMuted, fontSize: 11, lineHeight: 16, marginTop: Space.sm },
+});
+import { RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { Colors, Space } from '@/constants/theme';
+import { useAgentEarnings } from '@/features/wallet/hooks';
+import { formatDate, formatMoney } from '@/lib/format';
+import { getErrorMessage } from '@/lib/errors';
+
+export default function WalletScreen() {
+  const earnings = useAgentEarnings();
+  const currencies = Object.entries(earnings.data?.earnings_by_currency ?? {});
+  return (
+    <Screen refreshControl={<RefreshControl refreshing={earnings.isRefetching} onRefresh={() => void earnings.refetch()} tintColor={Colors.teal} />}>
+      <PageHeading eyebrow="Earnings" title="Your commission" subtitle="Verified treatment payments may create commission entries for your referrals." />
+      {earnings.isError ? <InlineNotice tone="error">{getErrorMessage(earnings.error, 'Could not load earnings. Pull down to retry.')}</InlineNotice> : null}
+      {earnings.isLoading ? <Card><Text style={styles.muted}>Loading your commission details…</Text></Card> : earnings.data ? <>
+        <Card style={styles.tierCard}>
+          <Text style={styles.eyebrow}>CURRENT COMMISSION TIER</Text>
+          <Text style={styles.tierName}>{earnings.data.commission_tier}</Text>
+          <Text style={styles.tierSub}>{earnings.data.tier_percent}% commission · {earnings.data.eligible_direct_agents} eligible direct agents</Text>
+        </Card>
+        {currencies.length === 0 ? <Card><Text style={styles.emptyTitle}>No commission activity yet</Text><Text style={styles.muted}>Commission appears after a trusted payment integration records a verified patient payment.</Text></Card> : currencies.map(([currency, totals]) => (
+          <View key={currency} style={styles.currencyGroup}>
+            <Text style={styles.groupTitle}>{currency} earnings</Text>
+            <Card>
+              <MoneyRow label="Total earned" value={totals.total_earned_minor_units} currency={currency} strong />
+              <View style={styles.rule} />
+              <MoneyRow label="Approved" value={totals.approved_minor_units} currency={currency} />
+              <MoneyRow label="Pending" value={totals.pending_minor_units} currency={currency} />
+              <MoneyRow label="Paid" value={totals.paid_minor_units} currency={currency} />
+            </Card>
+          </View>
+        ))}
+        <InlineNotice tone="info">Agent reward points are not available in the current backend. This wallet shows real commission data only; points need a dedicated agent ledger and API first.</InlineNotice>
+        <View style={styles.sectionHeader}><Text style={styles.groupTitle}>Commission activity</Text><Text style={styles.count}>{earnings.data.ledger.length}</Text></View>
+        {earnings.data.ledger.length === 0 ? <Card><Text style={styles.muted}>No commission entries have been recorded yet.</Text></Card> : earnings.data.ledger.slice(0, 20).map((entry) => (
+          <Card key={entry.id} style={styles.ledgerCard}>
+            <View style={styles.ledgerTop}><Text style={styles.treatment} numberOfLines={1}>{entry.treatment_name || 'Referral commission'}</Text><Text style={styles.amount}>{formatMoney(entry.amount_minor_units, entry.currency)}</Text></View>
+            <Text style={styles.muted}>{entry.status} · {entry.tier_percent}% tier · {formatDate(entry.created_at)}</Text>
+          </Card>
+        ))}
+      </> : <Card><Text style={styles.muted}>Earnings are currently unavailable.</Text><Button variant="secondary" onPress={() => void earnings.refetch()}>Try again</Button></Card>}
+      <Text style={styles.footer}>Commission values are supplied by the Kezza backend. The agent app cannot edit wallet balances.</Text>
+    </Screen>
+  );
+}
+
+function MoneyRow({ label, value, currency, strong = false }: { label: string; value: number; currency: string; strong?: boolean }) {
+  return <View style={styles.moneyRow}><Text style={[styles.moneyLabel, strong && styles.totalLabel]}>{label}</Text><Text style={[styles.moneyValue, strong && styles.totalValue]}>{formatMoney(value, currency)}</Text></View>;
+}
+
+const styles = StyleSheet.create({
+  tierCard: { backgroundColor: Colors.ink, borderColor: Colors.ink },
+  eyebrow: { color: '#B8D9D4', fontSize: 10, letterSpacing: 1.2, fontWeight: '900' },
+  tierName: { color: Colors.white, fontSize: 22, fontWeight: '900' },
+  tierSub: { color: '#D9E8E5', fontSize: 13, lineHeight: 19 },
+  currencyGroup: { gap: Space.md },
+  groupTitle: { color: Colors.ink, fontSize: 17, fontWeight: '800' },
+  moneyRow: { flexDirection: 'row', justifyContent: 'space-between', gap: Space.md, alignItems: 'center' },
+  moneyLabel: { color: Colors.inkMuted, fontSize: 13 },
+  moneyValue: { color: Colors.ink, fontSize: 14, fontWeight: '700' },
+  totalLabel: { color: Colors.ink, fontWeight: '800' },
+  totalValue: { color: Colors.teal, fontSize: 20, fontWeight: '900' },
+  rule: { height: 1, backgroundColor: Colors.line },
+  emptyTitle: { color: Colors.ink, fontWeight: '800', fontSize: 16 },
+  muted: { color: Colors.inkMuted, fontSize: 13, lineHeight: 19 },
+  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: Space.sm },
+  count: { color: Colors.inkMuted, fontSize: 12, fontWeight: '700' },
+  ledgerCard: { padding: Space.lg },
+  ledgerTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: Space.md },
+  treatment: { flex: 1, color: Colors.ink, fontWeight: '800', fontSize: 14 },
+  amount: { color: Colors.teal, fontSize: 14, fontWeight: '900' },
+  footer: { textAlign: 'center', color: Colors.inkMuted, fontSize: 11, lineHeight: 16, marginTop: Space.sm },
+});
+import { useState } from 'react';
+import { router } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { FormField } from '@/components/FormField';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { Colors, Space } from '@/constants/theme';
+import { useCreateReferralLead } from '@/features/referrals/hooks';
+import { getErrorMessage } from '@/lib/errors';
+import { isIndianMobile, normalizeIndianMobile, toE164 } from '@/lib/phone';
+
+export default function AddPatientScreen() {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [service, setService] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [error, setError] = useState('');
+  const createLead = useCreateReferralLead();
+  const mobile = normalizeIndianMobile(phone);
+
+  async function submit() {
+    setError('');
+    if (name.trim().length < 2) { setError('Enter the patient’s full name.'); return; }
+    if (!isIndianMobile(mobile)) { setError('Enter a valid 10-digit Indian mobile number.'); return; }
+    if (!consent) { setError('Confirm that the patient agreed to have their details shared with Kezza.'); return; }
+    try {
+      await createLead.mutateAsync({
+        patient_name: name.trim(),
+        patient_phone_e164: toE164(mobile),
+        ...(service.trim() ? { service_interest: service.trim() } : {}),
+      });
+    } catch (caught) { setError(getErrorMessage(caught, 'The patient referral could not be saved.')); }
+  }
+
+  if (createLead.isSuccess) {
+    return (
+      <Screen>
+        <PageHeading eyebrow="Referral created" title="Patient added" subtitle="The referral is now linked to your agent account." />
+        <Card><Text style={styles.successMark}>✓</Text><Text style={styles.successTitle}>{createLead.data.patient_name}</Text><Text style={styles.muted}>Status: Registered</Text><Text style={styles.muted}>You can track this referral in your Patients list.</Text></Card>
+        <Button onPress={() => router.back()}>Done</Button>
+        <Button variant="secondary" onPress={() => { createLead.reset(); setName(''); setPhone(''); setService(''); setConsent(false); }}>Add another patient</Button>
+      </Screen>
+    );
+  }
+
+  return (
+    <Screen>
+      <PageHeading eyebrow="New referral" title="Add a patient" subtitle="Create a tracked referral for a patient who has agreed to be contacted by Kezza." />
+      <Card>
+        <FormField label="Patient full name" value={name} onChangeText={setName} placeholder="Enter full name" autoCapitalize="words" maxLength={150} />
+        <FormField label="Mobile number" value={phone} onChangeText={setPhone} placeholder="98765 43210" keyboardType="phone-pad" maxLength={14} />
+        <FormField label="Service interest (optional)" value={service} onChangeText={setService} placeholder="For example, dental care" autoCapitalize="sentences" maxLength={120} />
+        <Pressable accessibilityRole="checkbox" accessibilityState={{ checked: consent }} onPress={() => setConsent((current) => !current)} style={styles.consentRow}>
+          <View style={[styles.checkbox, consent && styles.checked]}>{consent ? <Text style={styles.check}>✓</Text> : null}</View>
+          <Text style={styles.consentText}>The patient has agreed that I may share these details with Kezza for referral follow-up.</Text>
+        </Pressable>
+        <InlineNotice tone="info">The current backend accepts the referral details but does not store a consent record. Do not submit patient details without permission.</InlineNotice>
+        {error ? <InlineNotice tone="error">{error}</InlineNotice> : null}
+        <Button onPress={submit} loading={createLead.isPending}>Save patient referral</Button>
+        <Button variant="quiet" onPress={() => router.back()}>Cancel</Button>
+      </Card>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({
+  consentRow: { flexDirection: 'row', alignItems: 'flex-start', gap: Space.md, paddingVertical: Space.xs },
+  checkbox: { width: 22, height: 22, borderRadius: 6, borderWidth: 1.5, borderColor: Colors.line, backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'center' },
+  checked: { backgroundColor: Colors.teal, borderColor: Colors.teal },
+  check: { color: Colors.white, fontSize: 14, fontWeight: '900' },
+  consentText: { flex: 1, color: Colors.ink, fontSize: 13, lineHeight: 19 },
+  successMark: { color: Colors.green, backgroundColor: Colors.greenSoft, overflow: 'hidden', width: 44, height: 44, borderRadius: 22, textAlign: 'center', textAlignVertical: 'center', fontSize: 25, fontWeight: '900' },
+  successTitle: { color: Colors.ink, fontSize: 19, fontWeight: '800' },
+  muted: { color: Colors.inkMuted, fontSize: 14, lineHeight: 20 },
+});
+import { router } from 'expo-router';
+import { StyleSheet, Text } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { Colors } from '@/constants/theme';
+import { useAuthStore } from '@/store/auth-store';
+
+export default function ProfileScreen() {
+  const user = useAuthStore((state) => state.user);
+  const signOut = useAuthStore((state) => state.signOut);
+  async function logout() { await signOut(); router.replace('/(auth)/login'); }
+  return (
+    <Screen>
+      <PageHeading eyebrow="Agent account" title="Your profile" subtitle="Your Kezza Agent session and identity." />
+      <Card>
+        <Info label="Name" value={user?.fullName ?? '—'} />
+        <Info label="Mobile" value={user?.phone ?? '—'} />
+        <Info label="Agent code" value={user?.agentCode ?? 'Available in your referral card'} />
+        <InlineNotice tone="info">This is a separate agent app connected to the same Kezza API. Sign out here to clear this app’s saved session.</InlineNotice>
+      </Card>
+      <Button variant="secondary" onPress={() => router.back()}>Back to dashboard</Button>
+      <Button onPress={logout}>Sign out</Button>
+    </Screen>
+  );
+}
+
+function Info({ label, value }: { label: string; value: string }) {
+  return <><Text style={styles.label}>{label}</Text><Text style={styles.value}>{value}</Text></>;
+}
+
+const styles = StyleSheet.create({ label: { color: Colors.inkMuted, fontSize: 12, fontWeight: '700' }, value: { color: Colors.ink, fontSize: 15, fontWeight: '700', marginTop: -8 }, });

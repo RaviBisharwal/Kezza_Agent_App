@@ -1,0 +1,143 @@
+Created At: 2026-11-16T15:55:36+05:30
+Completed At: 2026-11-16T15:55:41+05:30
+Command exited with code 0.
+
+Command output:
+import { create } from 'axios';
+import { useAuthStore } from '@/store/auth-store';
+
+const baseURL = process.env.EXPO_PUBLIC_API_URL?.trim().replace(/\/$/, '');
+
+export const api = create({
+  baseURL,
+  timeout: 15_000,
+  headers: { 'Content-Type': 'application/json' },
+});
+
+api.interceptors.request.use((config) => {
+  if (!baseURL) {
+    throw new Error('API address is not configured. Copy .env.example to .env and set EXPO_PUBLIC_API_URL.');
+  }
+  const token = useAuthStore.getState().accessToken;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error?.response?.status === 401) await useAuthStore.getState().signOut();
+    return Promise.reject(error);
+  },
+);
+import type { AxiosError } from 'axios';
+
+type ApiErrorBody = { detail?: string; message?: string };
+
+export function getErrorMessage(error: unknown, fallback = 'Something went wrong. Please try again.') {
+  const apiError = error as AxiosError<ApiErrorBody>;
+  const message = apiError.response?.data?.detail ?? apiError.response?.data?.message;
+  if (typeof message === 'string') return message;
+  if (!apiError.response && apiError.message?.includes('API address')) return apiError.message;
+  if (!apiError.response && apiError.code === 'ECONNABORTED') return 'The request timed out. Check your connection and try again.';
+  if (!apiError.response) return 'Could not reach Kezza. Check that the API is running and the phone can reach its network address.';
+  return fallback;
+}
+export function formatMoney(minorUnits: number, currency: string) {
+  const amount = minorUnits / 100;
+  try {
+    return new Intl.NumberFormat('en-IN', { style: 'currency', currency, maximumFractionDigits: 2 }).format(amount);
+  } catch {
+    return `${currency} ${amount.toFixed(2)}`;
+  }
+}
+
+export function formatDate(value: string) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? 'Date unavailable' : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+const INDIAN_MOBILE = /^[6-9]\d{9}$/;
+
+export function normalizeIndianMobile(value: string) {
+  let digits = value.replace(/\D/g, '');
+  if (digits.startsWith('0091') && digits.length > 10) digits = digits.slice(4);
+  else if (digits.startsWith('91') && digits.length > 10) digits = digits.slice(2);
+  else if (digits.startsWith('0') && digits.length === 11) digits = digits.slice(1);
+  return digits.slice(0, 10);
+}
+
+export function isIndianMobile(value: string) {
+  return INDIAN_MOBILE.test(value);
+}
+
+export function toE164(value: string) {
+  return `+91${value}`;
+}
+import { QueryClient } from '@tanstack/react-query';
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: { staleTime: 30_000, retry: 1, refetchOnWindowFocus: false },
+    mutations: { retry: 0 },
+  },
+});
+import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
+import { create } from 'zustand';
+
+export type AgentUser = {
+  id: string;
+  fullName: string;
+  phone: string;
+  agentId: string;
+  agentCode?: string;
+};
+
+type AuthState = {
+  isHydrated: boolean;
+  accessToken: string | null;
+  user: AgentUser | null;
+  hydrate: () => Promise<void>;
+  signIn: (token: string, user: AgentUser) => Promise<void>;
+  signOut: () => Promise<void>;
+};
+
+const TOKEN_KEY = 'kezza_agent_access_token';
+const USER_KEY = 'kezza_agent_user';
+
+async function getItem(key: string) {
+  if (Platform.OS === 'web') return localStorage.getItem(key);
+  try { return await SecureStore.getItemAsync(key); } catch { return null; }
+}
+async function setItem(key: string, value: string) {
+  if (Platform.OS === 'web') { localStorage.setItem(key, value); return; }
+  await SecureStore.setItemAsync(key, value);
+}
+async function removeItem(key: string) {
+  if (Platform.OS === 'web') { localStorage.removeItem(key); return; }
+  try { await SecureStore.deleteItemAsync(key); } catch { /* The local session is still cleared. */ }
+}
+
+export const useAuthStore = create<AuthState>((set) => ({
+  isHydrated: false,
+  accessToken: null,
+  user: null,
+  hydrate: async () => {
+    try {
+      const [token, userJson] = await Promise.all([getItem(TOKEN_KEY), getItem(USER_KEY)]);
+      if (token && userJson) {
+        const user = JSON.parse(userJson) as AgentUser;
+        if (user.agentId) set({ accessToken: token, user });
+      }
+    } catch { /* Treat invalid saved data as a signed-out session. */ }
+    finally { set({ isHydrated: true }); }
+  },
+  signIn: async (accessToken, user) => {
+    await Promise.all([setItem(TOKEN_KEY, accessToken), setItem(USER_KEY, JSON.stringify(user))]);
+    set({ accessToken, user });
+  },
+  signOut: async () => {
+    await Promise.all([removeItem(TOKEN_KEY), removeItem(USER_KEY)]);
+    set({ accessToken: null, user: null });
+  },
+}));

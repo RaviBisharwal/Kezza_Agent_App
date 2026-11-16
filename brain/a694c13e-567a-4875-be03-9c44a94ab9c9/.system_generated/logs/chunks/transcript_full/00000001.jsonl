@@ -1,0 +1,1 @@
+ and npx tsc --noEmit.","tool_calls":[{"name":"run_command","args":{"BypassSandbox":true,"CommandLine":"cd /Users/ravi/Desktop/Kezza\\ Agent\\ App && npx expo install --fix 2>&1","WaitMsBeforeAsync":10000,"toolSummary":"Fix Expo dependency versions"}}]}
