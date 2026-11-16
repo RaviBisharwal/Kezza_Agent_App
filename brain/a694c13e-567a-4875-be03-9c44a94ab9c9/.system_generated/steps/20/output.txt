@@ -1,0 +1,48 @@
+Created At: 2026-11-16T15:15:09+05:30
+Completed At: 2026-11-16T15:15:09+05:30
+Command exited with code 0.
+
+Command output:
+docs
+docs/backend-integration.md
+src
+src/app
+src/app/index.tsx
+src/app/add-patient.tsx
+src/app/(tabs)
+src/app/(tabs)/index.tsx
+src/app/(tabs)/wallet.tsx
+src/app/(tabs)/patients.tsx
+src/app/(tabs)/_layout.tsx
+src/app/profile.tsx
+src/app/_layout.tsx
+src/app/(auth)
+src/app/(auth)/login.tsx
+src/app/(auth)/register.tsx
+src/app/(auth)/_layout.tsx
+src/app/(auth)/verify.tsx
+src/constants
+src/constants/theme.ts
+src/features
+src/features/auth
+src/features/auth/types.ts
+src/features/auth/hooks.ts
+src/features/referrals
+src/features/referrals/types.ts
+src/features/referrals/hooks.ts
+src/features/wallet
+src/features/wallet/types.ts
+src/features/wallet/hooks.ts
+src/components
+src/components/FormField.tsx
+src/components/StatusBadge.tsx
+src/components/Screen.tsx
+src/components/Button.tsx
+src/lib
+src/lib/query-client.ts
+src/lib/errors.ts
+src/lib/api.ts
+src/lib/format.ts
+src/lib/phone.ts
+src/store
+src/store/auth-store.ts
