@@ -1,0 +1,16 @@
+Created At: 2026-11-16T16:22:10+05:30
+Completed At: 2026-11-16T16:22:10+05:30
+Command exited with code 0.
+
+Command output:
+expo-router: 57.0.31
+expo-secure-store: 57.0.4
+expo-clipboard: 57.0.2
+expo-constants: 57.0.24
+expo-linking: 57.0.14
+expo-status-bar: 57.0.1
+@tanstack/react-query: 5.107.1
+axios: 1.21.1
+zustand: 5.1.0
+react-native-safe-area-context: 5.7.0
+react-native-screens: 4.26.2

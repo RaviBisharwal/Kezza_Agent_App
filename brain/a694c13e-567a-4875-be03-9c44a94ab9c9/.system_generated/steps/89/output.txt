@@ -1,0 +1,8 @@
+Created At: 2026-11-16T16:22:04+05:30
+Completed At: 2026-11-16T16:22:04+05:30
+Command exited with code 0.
+
+Command output:
+Expo SDK: 57.0.33
+React Native: 0.86.3
+React: 19.2.3

@@ -1,0 +1,6 @@
+Created At: 2026-11-16T16:12:07+05:30
+Completed At: 2026-11-16T16:12:08+05:30
+Command exited with code 0.
+
+Command output:
+	inet 192.168.1.67 netmask 0xffffff00 broadcast 192.168.1.255
