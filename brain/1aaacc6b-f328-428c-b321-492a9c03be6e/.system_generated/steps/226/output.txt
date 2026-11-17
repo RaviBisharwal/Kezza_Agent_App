@@ -1,0 +1,35 @@
+Created At: 2026-11-17T13:28:29+05:30
+Completed At: 2026-11-17T13:28:29+05:30
+Command exited with code 0.
+
+Command output:
+Archive:  kezza-agent-app-source.zip
+2d9c5923b0b9f38591970c49917648384500f3b8
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  11-17-2026 12:39   .agent/
+        0  11-17-2026 12:39   .agent/workflows/
+     1937  11-17-2026 12:39   .agent/workflows/add-phase.md
+     1560  11-17-2026 12:39   .agent/workflows/add-todo.md
+     2402  11-17-2026 12:39   .agent/workflows/audit-milestone.md
+     1907  11-17-2026 12:39   .agent/workflows/check-todos.md
+     4770  11-17-2026 12:39   .agent/workflows/complete-milestone.md
+     6255  11-17-2026 12:39   .agent/workflows/debug.md
+     2768  11-17-2026 12:39   .agent/workflows/discuss-phase.md
+    11244  11-17-2026 12:39   .agent/workflows/execute.md
+     3438  11-17-2026 12:39   .agent/workflows/help.md
+     2651  11-17-2026 12:39   .agent/workflows/insert-phase.md
+     5436  11-17-2026 12:39   .agent/workflows/install.md
+     2081  11-17-2026 12:39   .agent/workflows/list-phase-assumptions.md
+     9430  11-17-2026 12:39   .agent/workflows/map.md
+     3519  11-17-2026 12:39   .agent/workflows/new-milestone.md
+     9326  11-17-2026 12:39   .agent/workflows/new-project.md
+     4452  11-17-2026 12:39   .agent/workflows/pause.md
+     2359  11-17-2026 12:39   .agent/workflows/plan-milestone-gaps.md
+    12190  11-17-2026 12:39   .agent/workflows/plan.md
+     2455  11-17-2026 12:39   .agent/workflows/progress.md
+     2856  11-17-2026 12:39   .agent/workflows/remove-phase.md
+     3742  11-17-2026 12:39   .agent/workflows/research-phase.md
+     3713  11-17-2026 12:39   .agent/workflows/resume.md
+     4431  11-17-2026 12:39   .agent/workflows/sprint.md
+     5502  11-17-2026 12:39   .agent/workflows/update.md

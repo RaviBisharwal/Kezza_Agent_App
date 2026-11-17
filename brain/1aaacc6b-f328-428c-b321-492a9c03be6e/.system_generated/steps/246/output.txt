@@ -1,0 +1,8 @@
+Created At: 2026-11-17T13:29:04+05:30
+Completed At: 2026-11-17T13:29:04+05:30
+Command exited with code 0.
+
+Command output:
+[master e5406c7] chore(admin): remove tracked node_modules symlink
+ 1 file changed, 1 deletion(-)
+ delete mode 120000 admin/node_modules
