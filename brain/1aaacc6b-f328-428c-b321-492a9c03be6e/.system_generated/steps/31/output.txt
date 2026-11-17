@@ -1,0 +1,24 @@
+Created At: 2026-11-17T12:37:10+05:30
+Completed At: 2026-11-17T12:37:10+05:30
+Command exited with code 0.
+
+Command output:
+total 160
+drwxr-xr-x@ 18 ravi  staff   576 Nov 17 11:09 .
+drwxr-xr-x@ 29 ravi  staff   928 Nov 17 12:29 ..
+-rw-r--r--@  1 ravi  staff  2253 Nov 17 11:09 search_repo.ps1
+-rw-r--r--@  1 ravi  staff  1521 Nov 17 11:09 search_repo.sh
+-rw-r--r--@  1 ravi  staff  4683 Nov 17 11:09 setup_search.ps1
+-rw-r--r--@  1 ravi  staff  4101 Nov 17 11:09 setup_search.sh
+-rw-r--r--@  1 ravi  staff  5070 Nov 17 11:09 validate-agents.ps1
+-rw-r--r--@  1 ravi  staff  4426 Nov 17 11:09 validate-agents.sh
+-rw-r--r--@  1 ravi  staff  2800 Nov 17 11:09 validate-all.ps1
+-rw-r--r--@  1 ravi  staff  2015 Nov 17 11:09 validate-all.sh
+-rw-r--r--@  1 ravi  staff  2866 Nov 17 11:09 validate-encoding.ps1
+-rw-r--r--@  1 ravi  staff  2035 Nov 17 11:09 validate-encoding.sh
+-rw-r--r--@  1 ravi  staff  2439 Nov 17 11:09 validate-skills.ps1
+-rw-r--r--@  1 ravi  staff  1990 Nov 17 11:09 validate-skills.sh
+-rw-r--r--@  1 ravi  staff  2307 Nov 17 11:09 validate-templates.ps1
+-rw-r--r--@  1 ravi  staff  1813 Nov 17 11:09 validate-templates.sh
+-rw-r--r--@  1 ravi  staff  2309 Nov 17 11:09 validate-workflows.ps1
+-rw-r--r--@  1 ravi  staff  1813 Nov 17 11:09 validate-workflows.sh

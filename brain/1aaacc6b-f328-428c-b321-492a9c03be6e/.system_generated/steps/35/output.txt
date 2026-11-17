@@ -1,0 +1,13 @@
+Created At: 2026-11-17T12:37:17+05:30
+Completed At: 2026-11-17T12:37:18+05:30
+Command exited with code 0.
+
+Command output:
+scripts/search_repo.sh:        Bourne-Again shell script text executable, ASCII text, with CRLF line terminators
+scripts/setup_search.sh:       Bourne-Again shell script text executable, Unicode text, UTF-8 text, with CRLF line terminators
+scripts/validate-agents.sh:    Bourne-Again shell script text executable, Unicode text, UTF-8 text, with very long lines (306), with CRLF line terminators
+scripts/validate-all.sh:       Bourne-Again shell script text executable, Unicode text, UTF-8 text, with CRLF line terminators
+scripts/validate-encoding.sh:  Bourne-Again shell script text executable, Unicode text, UTF-8 text, with CRLF line terminators
+scripts/validate-skills.sh:    Bourne-Again shell script text executable, Unicode text, UTF-8 text, with CRLF line terminators
+scripts/validate-templates.sh: Bourne-Again shell script text executable, Unicode text, UTF-8 text, with CRLF line terminators
+scripts/validate-workflows.sh: Bourne-Again shell script text executable, Unicode text, UTF-8 text, with CRLF line terminators

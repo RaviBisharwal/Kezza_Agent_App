@@ -1,0 +1,30 @@
+Created At: 2026-11-17T12:37:23+05:30
+Completed At: 2026-11-17T12:37:24+05:30
+Command exited with code 1.
+
+Command output:
+
+╔═══════════════════════════════════════════════════════╗
+║         GSD ► RUNNING ALL VALIDATORS                  ║
+╚═══════════════════════════════════════════════════════╝
+
+▶ Running workflow validation...
+scripts/validate-all.sh: line 16: scripts/validate-workflows.sh: Permission denied
+
+▶ Running skill validation...
+scripts/validate-all.sh: line 22: scripts/validate-skills.sh: Permission denied
+
+▶ Running subagent validation...
+scripts/validate-all.sh: line 28: scripts/validate-agents.sh: Permission denied
+
+▶ Running template validation...
+scripts/validate-all.sh: line 34: scripts/validate-templates.sh: Permission denied
+
+▶ Running script encoding validation...
+scripts/validate-all.sh: line 40: scripts/validate-encoding.sh: Permission denied
+
+╔═══════════════════════════════════════════════════════╗
+║                    SUMMARY                            ║
+╚═══════════════════════════════════════════════════════╝
+
+❌ 5 validator(s) failed

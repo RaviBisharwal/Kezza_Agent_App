@@ -1,0 +1,16 @@
+Created At: 2026-11-17T12:37:13+05:30
+Completed At: 2026-11-17T12:37:14+05:30
+Command exited with code 2.
+
+Command output:
+scripts/validate-all.sh: line 4: : command not found
+scripts/validate-all.sh: line 7: : command not found
+
+╔═══════════════════════════════════════════════════════╗
+║         GSD ► RUNNING ALL VALIDATORS                  ║
+╚═══════════════════════════════════════════════════════╝
+
+scripts/validate-all.sh: line 13: : command not found
+▶ Running workflow validation...
+scripts/validate-all.sh: line 16: scripts/validate-workflows.sh: No such file or directory
+scripts/validate-all.sh: line 57: syntax error: unexpected end of file

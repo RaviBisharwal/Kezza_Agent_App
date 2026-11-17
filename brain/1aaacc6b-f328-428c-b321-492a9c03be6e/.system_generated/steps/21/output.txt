@@ -1,0 +1,19 @@
+Created At: 2026-11-17T12:36:48+05:30
+Completed At: 2026-11-17T12:36:49+05:30
+Command exited with code 0.
+
+Command output:
+Lifecycle scripts included in kezza-agent-app@1.0.0:
+  start
+    expo start
+available via `npm run-script`:
+  android
+    expo start --android
+  ios
+    expo start --ios
+  web
+    expo start --web
+  lint
+    expo lint
+  typecheck
+    tsc --noEmit

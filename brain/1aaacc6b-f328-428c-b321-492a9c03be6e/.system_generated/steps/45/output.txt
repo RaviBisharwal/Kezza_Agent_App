@@ -1,0 +1,10 @@
+Created At: 2026-11-17T12:37:36+05:30
+Completed At: 2026-11-17T12:37:36+05:30
+Command exited with code 0.
+
+Command output:
+.agents/agents/gsd-debugger.md:   Unicode text, UTF-8 text, with CRLF line terminators
+.agents/agents/gsd-executor.md:   Unicode text, UTF-8 text, with CRLF line terminators
+.agents/agents/gsd-planner.md:    Unicode text, UTF-8 text, with CRLF line terminators
+.agents/agents/gsd-researcher.md: Unicode text, UTF-8 text, with CRLF line terminators
+.agents/agents/gsd-verifier.md:   Unicode text, UTF-8 text, with CRLF line terminators

@@ -1,0 +1,26 @@
+Created At: 2026-11-17T12:37:39+05:30
+Completed At: 2026-11-17T12:37:39+05:30
+Command exited with code 0.
+
+Command output:
+Total CRLF files: 106
+./PROJECT_RULES.md
+./GSD-STYLE.md
+./VERSION
+./model_capabilities.yaml
+./.gemini/GEMINI.md
+./.agents/agents/gsd-researcher.md
+./.agents/agents/gsd-debugger.md
+./.agents/agents/gsd-executor.md
+./.agents/agents/gsd-verifier.md
+./.agents/agents/gsd-planner.md
+./.agents/skills/codebase-mapper/SKILL.md
+./.agents/skills/context-health-monitor/SKILL.md
+./.agents/skills/subagent-delegation/SKILL.md
+./.agents/skills/planner/SKILL.md
+./.agents/skills/context-fetch/SKILL.md
+./.agents/skills/context-compressor/SKILL.md
+./.agents/skills/debugger/SKILL.md
+./.agents/skills/empirical-validation/SKILL.md
+./.agents/skills/verifier/SKILL.md
+./.agents/skills/plan-checker/SKILL.md
