@@ -1,0 +1,12 @@
+Created At: 2026-11-17T12:15:10+05:30
+Completed At: 2026-11-17T12:15:10+05:30
+Command exited with code 0.
+
+Command output:
+163:    base_users = select(func.count()).select_from(User).where(User.role == "agent", User.status == "active")
+190:@router.post("/agents/invitations", status_code=201)
+198:    if existing and (existing.role != "agent" or existing.status != "invited"):
+199:        raise HTTPException(status_code=409, detail="This mobile number already belongs to an active or non-agent account")
+212:                        status="invited", branch_id=branch.id, agent_code=agent_code, created_by_id=user.id)
+643:          after={"status": cycle.status, "agent_count": len(summary)}, reason=payload.reason,
+806:    notify(db, user_id=agent.id, event_type=f"branch_change.{row.status}", title="Branch request updated",

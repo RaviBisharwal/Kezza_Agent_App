@@ -1,0 +1,3 @@
+Created At: 2026-11-17T12:18:27+05:30
+Completed At: 2026-11-17T12:18:27+05:30
+{"status":"added","name":"admin-builder","model":"claude-sonnet-4-6","model_display_name":"Claude Sonnet 4.6 (Thinking)","conversation_id":"3176fcda-69e2-423e-aeff-a8eae03ee16b","open_board":"[Open the Swarm UI](sidecar://swarm/swarm_board/?auto_open=false)","note":"The brief is on the board as #6, where every member of the swarm can read it. post_message, read_board and swarm_wait are not available until your next turn. Add the rest of the workers, then end your turn: a post that names @coordinator wakes you, so brief each worker to post to @coordinator when it is done. When you reply to the user, end with open_board, exactly as given, on its own line, so they can open the live board."}
