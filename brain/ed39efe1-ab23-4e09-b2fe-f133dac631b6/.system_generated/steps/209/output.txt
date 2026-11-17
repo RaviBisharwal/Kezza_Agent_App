@@ -1,0 +1,77 @@
+Created At: 2026-11-17T12:30:24+05:30
+Completed At: 2026-11-17T12:30:24+05:30
+Command exited with code 0.
+
+Command output:
+total 4808
+drwxr-xr-x@ 71 ravi  staff    2272 Nov 17 12:00 .
+drwxr-xr-x@ 13 ravi  staff     416 Nov 17 12:00 ..
+-rw-r--r--@  1 ravi  staff    1141 Nov 17 12:00 LICENSE
+-rw-r--r--@  1 ravi  staff    1441 Nov 17 12:00 README.md
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 assert
+-rw-r--r--@  1 ravi  staff   42891 Nov 17 12:00 assert.d.ts
+-rw-r--r--@  1 ravi  staff   29929 Nov 17 12:00 async_hooks.d.ts
+-rw-r--r--@  1 ravi  staff   22956 Nov 17 12:00 buffer.buffer.d.ts
+-rw-r--r--@  1 ravi  staff   81198 Nov 17 12:00 buffer.d.ts
+-rw-r--r--@  1 ravi  staff   59901 Nov 17 12:00 child_process.d.ts
+-rw-r--r--@  1 ravi  staff   19527 Nov 17 12:00 cluster.d.ts
+-rw-r--r--@  1 ravi  staff    4250 Nov 17 12:00 console.d.ts
+-rw-r--r--@  1 ravi  staff     491 Nov 17 12:00 constants.d.ts
+-rw-r--r--@  1 ravi  staff  168968 Nov 17 12:00 crypto.d.ts
+-rw-r--r--@  1 ravi  staff   31103 Nov 17 12:00 dgram.d.ts
+-rw-r--r--@  1 ravi  staff   34563 Nov 17 12:00 diagnostics_channel.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 dns
+-rw-r--r--@  1 ravi  staff   34353 Nov 17 12:00 dns.d.ts
+-rw-r--r--@  1 ravi  staff    6597 Nov 17 12:00 domain.d.ts
+-rw-r--r--@  1 ravi  staff   47375 Nov 17 12:00 events.d.ts
+-rw-r--r--@  1 ravi  staff   20654 Nov 17 12:00 ffi.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 fs
+-rw-r--r--@  1 ravi  staff  202247 Nov 17 12:00 fs.d.ts
+-rw-r--r--@  1 ravi  staff    5084 Nov 17 12:00 globals.d.ts
+-rw-r--r--@  1 ravi  staff    4864 Nov 17 12:00 globals.typedarray.d.ts
+-rw-r--r--@  1 ravi  staff   99276 Nov 17 12:00 http.d.ts
+-rw-r--r--@  1 ravi  staff  119406 Nov 17 12:00 http2.d.ts
+-rw-r--r--@  1 ravi  staff   16812 Nov 17 12:00 https.d.ts
+-rw-r--r--@  1 ravi  staff    5053 Nov 17 12:00 index.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 inspector
+-rw-r--r--@  1 ravi  staff   12276 Nov 17 12:00 inspector.d.ts
+-rw-r--r--@  1 ravi  staff  228362 Nov 17 12:00 inspector.generated.d.ts
+-rw-r--r--@  1 ravi  staff   32983 Nov 17 12:00 module.d.ts
+-rw-r--r--@  1 ravi  staff   47835 Nov 17 12:00 net.d.ts
+-rw-r--r--@  1 ravi  staff   19278 Nov 17 12:00 os.d.ts
+-rw-r--r--@  1 ravi  staff    4057 Nov 17 12:00 package.json
+drwxr-xr-x@  4 ravi  staff     128 Nov 17 12:00 path
+-rw-r--r--@  1 ravi  staff    7639 Nov 17 12:00 path.d.ts
+-rw-r--r--@  1 ravi  staff   23593 Nov 17 12:00 perf_hooks.d.ts
+-rw-r--r--@  1 ravi  staff  115113 Nov 17 12:00 process.d.ts
+-rw-r--r--@  1 ravi  staff    3780 Nov 17 12:00 punycode.d.ts
+-rw-r--r--@  1 ravi  staff    6642 Nov 17 12:00 querystring.d.ts
+-rw-r--r--@  1 ravi  staff   94639 Nov 17 12:00 quic.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 readline
+-rw-r--r--@  1 ravi  staff   21216 Nov 17 12:00 readline.d.ts
+-rw-r--r--@  1 ravi  staff   19023 Nov 17 12:00 repl.d.ts
+-rw-r--r--@  1 ravi  staff    2045 Nov 17 12:00 sea.d.ts
+-rw-r--r--@  1 ravi  staff   55651 Nov 17 12:00 sqlite.d.ts
+drwxr-xr-x@  6 ravi  staff     192 Nov 17 12:00 stream
+-rw-r--r--@  1 ravi  staff   90588 Nov 17 12:00 stream.d.ts
+-rw-r--r--@  1 ravi  staff    1318 Nov 17 12:00 string_decoder.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 test
+-rw-r--r--@  1 ravi  staff  120493 Nov 17 12:00 test.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 timers
+-rw-r--r--@  1 ravi  staff    7351 Nov 17 12:00 timers.d.ts
+-rw-r--r--@  1 ravi  staff   60511 Nov 17 12:00 tls.d.ts
+-rw-r--r--@  1 ravi  staff    3842 Nov 17 12:00 trace_events.d.ts
+drwxr-xr-x@  6 ravi  staff     192 Nov 17 12:00 ts5.6
+drwxr-xr-x@  4 ravi  staff     128 Nov 17 12:00 ts5.7
+-rw-r--r--@  1 ravi  staff   11270 Nov 17 12:00 tty.d.ts
+-rw-r--r--@  1 ravi  staff   25457 Nov 17 12:00 url.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 util
+-rw-r--r--@  1 ravi  staff   65566 Nov 17 12:00 util.d.ts
+-rw-r--r--@  1 ravi  staff   42889 Nov 17 12:00 v8.d.ts
+-rw-r--r--@  1 ravi  staff    6606 Nov 17 12:00 vfs.d.ts
+-rw-r--r--@  1 ravi  staff   53187 Nov 17 12:00 vm.d.ts
+-rw-r--r--@  1 ravi  staff    6250 Nov 17 12:00 wasi.d.ts
+drwxr-xr-x@ 18 ravi  staff     576 Nov 17 12:00 web-globals
+-rw-r--r--@  1 ravi  staff   29817 Nov 17 12:00 worker_threads.d.ts
+drwxr-xr-x@  3 ravi  staff      96 Nov 17 12:00 zlib
+-rw-r--r--@  1 ravi  staff   64097 Nov 17 12:00 zlib.d.ts

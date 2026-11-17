@@ -1,0 +1,15 @@
+Created At: 2026-11-17T12:31:05+05:30
+Completed At: 2026-11-17T12:31:08+05:30
+Command exited with code 2.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+admin/src/components/AdminConsole.tsx:5:14 - error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+
+5 const API = (process.env.NEXT_PUBLIC_API_URL ?? '').replace(/\/$/, '');
+               ~~~~~~~
+
+
+Found 1 error in admin/src/components/AdminConsole.tsx:5
+

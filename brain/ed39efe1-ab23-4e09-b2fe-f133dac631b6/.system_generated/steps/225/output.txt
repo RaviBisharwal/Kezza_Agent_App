@@ -1,0 +1,24 @@
+Created At: 2026-11-17T12:31:37+05:30
+Completed At: 2026-11-17T12:31:40+05:30
+Command exited with code 2.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+
+> kezza-agent-app@1.0.0 typecheck
+> tsc --noEmit
+
+src/app/(tabs)/payments.tsx:56:99 - error TS2322: Type 'string' is not assignable to type 'ReferralStatus'.
+
+56             <View style={styles.top}><Text style={styles.ref}>{item.reference}</Text><StatusBadge status={item.status} /></View>
+                                                                                                     ~~~~~~
+
+  src/components/StatusBadge.tsx:14:43
+    14 export function StatusBadge({ status }: { status: ReferralStatus }) {
+                                                 ~~~~~~
+    The expected type comes from property 'status' which is declared here on type 'IntrinsicAttributes & { status: ReferralStatus; }'
+
+
+Found 1 error in src/app/(tabs)/payments.tsx:56
+
