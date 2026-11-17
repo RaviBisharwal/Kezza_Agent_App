@@ -1,0 +1,52 @@
+Created At: 2026-11-17T14:42:07+05:30
+Completed At: 2026-11-17T14:42:07+05:30
+Command exited with code 0.
+
+Command output:
+commit 2d9c5923b0b9f38591970c49917648384500f3b8
+Author: Kezza Senior Developer <dev@kezza.co.in>
+Date:   Tue Nov 17 12:39:49 2026 +0530
+
+    chore(hardening): fix CRLF line endings, update admin lint config, and finalize roadmap state
+
+diff --git a/admin/eslint.config.mjs b/admin/eslint.config.mjs
+index b261ecf..d1716ec 100644
+--- a/admin/eslint.config.mjs
++++ b/admin/eslint.config.mjs
+@@ -1,9 +1,28 @@
+-import { defineConfig, globalIgnores } from 'eslint/config';
+-import nextVitals from 'eslint-config-next/core-web-vitals';
+-import nextTs from 'eslint-config-next/typescript';
++import tsParser from '@typescript-eslint/parser';
++import tsPlugin from '@typescript-eslint/eslint-plugin';
+ 
+-export default defineConfig([
+-  ...nextVitals,
+-  ...nextTs,
+-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+-]);
++export default [
++  {
++    ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'node_modules/**'],
++  },
++  {
++    files: ['**/*.ts', '**/*.tsx'],
++    languageOptions: {
++      parser: tsParser,
++      parserOptions: {
++        ecmaVersion: 'latest',
++        sourceType: 'module',
++        ecmaFeatures: {
++          jsx: true,
++        },
++      },
++    },
++    plugins: {
++      '@typescript-eslint': tsPlugin,
++    },
++    rules: {
++      'no-unused-vars': 'off',
++      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
++    },
++  },
++];

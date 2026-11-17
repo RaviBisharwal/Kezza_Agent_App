@@ -1,0 +1,12 @@
+Created At: 2026-11-17T14:42:17+05:30
+Completed At: 2026-11-17T14:42:17+05:30
+Command exited with code 0.
+
+Command output:
+admin/src/
+admin/src/app
+admin/src/app/layout.tsx
+admin/src/app/page.tsx
+admin/src/app/globals.css
+admin/src/components
+admin/src/components/AdminConsole.tsx
