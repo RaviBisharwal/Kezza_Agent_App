@@ -1,0 +1,33 @@
+Created At: 2026-11-17T12:20:56+05:30
+Completed At: 2026-11-17T12:20:59+05:30
+Command exited with code 2.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+
+> kezza-agent-app@1.0.0 typecheck
+> tsc --noEmit
+
+admin/next.config.ts:1:33 - error TS2307: Cannot find module 'next' or its corresponding type declarations.
+
+1 import type { NextConfig } from 'next';
+                                  ~~~~~~
+
+admin/src/app/layout.tsx:1:31 - error TS2307: Cannot find module 'next' or its corresponding type declarations.
+
+1 import type { Metadata } from 'next';
+                                ~~~~~~
+
+admin/src/app/page.tsx:1:26 - error TS2307: Cannot find module '@/components/AdminConsole' or its corresponding type declarations.
+
+1 import AdminConsole from '@/components/AdminConsole';
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Found 3 errors in 3 files.
+
+Errors  Files
+     1  admin/next.config.ts:1
+     1  admin/src/app/layout.tsx:1
+     1  admin/src/app/page.tsx:1

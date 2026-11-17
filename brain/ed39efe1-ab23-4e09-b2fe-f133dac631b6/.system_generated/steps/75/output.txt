@@ -1,0 +1,30 @@
+Created At: 2026-11-17T12:19:43+05:30
+Completed At: 2026-11-17T12:19:43+05:30
+Command exited with code 0.
+
+Command output:
+class Branch(Base):
+class ServiceCatalog(Base):
+class User(Base):
+class AgentInvitation(Base):
+class OtpChallenge(Base):
+class GoogleIdentity(Base):
+class RefreshSession(Base):
+class Patient(Base):
+class Referral(Base):
+class ReferralEvent(Base):
+class Sale(Base):
+class RewardPolicy(Base):
+class RewardCycle(Base):
+class PaymentRequest(Base):
+class PaymentEvidence(Base):
+class PaymentDecision(Base):
+class RewardLedgerEntry(Base):
+class CycleSettlement(Base):
+class BranchChangeRequest(Base):
+class Feedback(Base):
+class Notification(Base):
+class AuditLog(Base):
+class AppRelease(Base):
+class LegalDocument(Base):
+class PolicyAcceptance(Base):

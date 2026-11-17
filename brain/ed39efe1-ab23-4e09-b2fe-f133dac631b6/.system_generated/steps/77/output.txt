@@ -1,0 +1,30 @@
+Created At: 2026-11-17T12:19:48+05:30
+Completed At: 2026-11-17T12:19:48+05:30
+Command exited with code 0.
+
+Command output:
+    op.create_table('branches',
+    op.create_table('otp_challenges',
+    op.create_table('patients',
+    op.create_table('services',
+    op.create_table('users',
+    op.create_table('agent_invitations',
+    op.create_table('app_releases',
+    op.create_table('audit_logs',
+    op.create_table('branch_change_requests',
+    op.create_table('feedback',
+    op.create_table('google_identities',
+    op.create_table('legal_documents',
+    op.create_table('notifications',
+    op.create_table('referrals',
+    op.create_table('refresh_sessions',
+    op.create_table('reward_policies',
+    op.create_table('policy_acceptances',
+    op.create_table('referral_events',
+    op.create_table('reward_cycles',
+    op.create_table('sales',
+    op.create_table('cycle_settlements',
+    op.create_table('payment_requests',
+    op.create_table('payment_decisions',
+    op.create_table('payment_evidence',
+    op.create_table('reward_ledger',

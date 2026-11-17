@@ -1,0 +1,26 @@
+Created At: 2026-11-17T12:20:47+05:30
+Completed At: 2026-11-17T12:20:47+05:30
+Command exited with code 0.
+
+Command output:
+@router.get("/agent/me")
+@router.get("/agent/dashboard")
+@router.get("/agent/referrals")
+@router.post("/agent/referrals", status_code=201)
+@router.patch("/agent/referrals/{referral_id}/status")
+@router.get("/agent/referrals/{referral_id}")
+@router.get("/agent/payments/claims")
+@router.post("/agent/payments/claims", status_code=201)
+@router.get("/agent/payments/claims/{payment_id}")
+@router.post("/agent/payments/claims/{payment_id}/evidence", status_code=201)
+@router.get("/agent/payments/evidence/{evidence_id}")
+@router.post("/agent/payments/claims/{payment_id}/respond")
+@router.get("/agent/wallet")
+@router.get("/agent/branches")
+@router.get("/agent/services")
+@router.get("/agent/legal-documents")
+@router.post("/agent/legal-documents/{document_id}/accept")
+@router.post("/agent/branch-change-requests", status_code=201)
+@router.post("/agent/feedback", status_code=201)
+@router.get("/agent/notifications")
+@router.post("/agent/notifications/{notification_id}/read")

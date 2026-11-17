@@ -1,0 +1,45 @@
+Created At: 2026-11-17T12:22:09+05:30
+Completed At: 2026-11-17T12:22:10+05:30
+Command exited with code 0.
+
+Command output:
+src/app/(auth)/_layout.tsx
+src/app/(auth)/login.tsx
+src/app/(auth)/register.tsx
+src/app/(auth)/verify.tsx
+src/app/(tabs)/_layout.tsx
+src/app/(tabs)/index.tsx
+src/app/(tabs)/patients.tsx
+src/app/(tabs)/payments.tsx
+src/app/(tabs)/wallet.tsx
+src/app/_layout.tsx
+src/app/about.tsx
+src/app/add-patient.tsx
+src/app/add-payment.tsx
+src/app/branch-change.tsx
+src/app/branches.tsx
+src/app/feedback.tsx
+src/app/index.tsx
+src/app/notifications.tsx
+src/app/payment-claim/[id].tsx
+src/app/policies.tsx
+src/app/profile.tsx
+src/app/referral/[id].tsx
+src/components/Button.tsx
+src/components/FormField.tsx
+src/components/Screen.tsx
+src/components/StatusBadge.tsx
+src/constants/theme.ts
+src/features/auth/hooks.ts
+src/features/auth/types.ts
+src/features/payments/hooks.ts
+src/features/referrals/hooks.ts
+src/features/referrals/types.ts
+src/features/wallet/hooks.ts
+src/features/wallet/types.ts
+src/lib/api.ts
+src/lib/errors.ts
+src/lib/format.ts
+src/lib/phone.ts
+src/lib/query-client.ts
+src/store/auth-store.ts

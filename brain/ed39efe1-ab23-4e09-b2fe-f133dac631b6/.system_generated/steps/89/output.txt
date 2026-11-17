@@ -1,0 +1,4 @@
+Command exited with code 0.
+
+Command output:
+pip 22.3 from /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pip (python 3.11)

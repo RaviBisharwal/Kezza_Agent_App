@@ -1,0 +1,33 @@
+Created At: 2026-11-17T12:19:30+05:30
+Completed At: 2026-11-17T12:19:30+05:30
+Command exited with code 0.
+
+Command output:
+total 976
+drwxr-xr-x@  27 ravi  staff     864 Nov 17 12:02 .
+drwxr-xr-x@   9 ravi  staff     288 Nov 17 10:59 ..
+drwxr-xr-x@   3 ravi  staff      96 Nov 17 11:09 .agent
+drwxr-xr-x@   4 ravi  staff     128 Nov 17 11:09 .agents
+-rw-r--r--    1 ravi  staff     165 Nov 16 14:53 .env.example
+drwxr-xr-x@   6 ravi  staff     192 Nov 17 12:02 .expo
+drwxr-xr-x@   3 ravi  staff      96 Nov 17 11:09 .gemini
+-rw-r--r--@   1 ravi  staff     389 Nov 17 12:02 .gitignore
+drwxr-xr-x@   7 ravi  staff     224 Nov 17 12:13 .gsd
+-rw-r--r--@   1 ravi  staff    6981 Nov 17 11:09 GSD-STYLE.md
+-rw-r--r--@   1 ravi  staff    9468 Nov 17 11:09 PROJECT_RULES.md
+-rw-r--r--@   1 ravi  staff    5120 Nov 17 11:44 README.md
+-rw-r--r--@   1 ravi  staff       7 Nov 17 11:09 VERSION
+drwxr-xr-x@   5 ravi  staff     160 Nov 17 11:09 adapters
+drwxr-xr-x    8 ravi  staff     256 Nov 17 10:59 admin
+-rw-r--r--    1 ravi  staff     456 Nov 16 14:53 app.json
+drwxr-xr-x    8 ravi  staff     256 Nov 17 10:59 backend
+drwxr-xr-x    7 ravi  staff     224 Nov 17 11:44 docs
+-rw-r--r--    1 ravi  staff     184 Nov 16 14:59 eslint.config.js
+-rw-r--r--@   1 ravi  staff     110 Nov 17 12:02 expo-env.d.ts
+-rw-r--r--@   1 ravi  staff    2943 Nov 17 11:09 model_capabilities.yaml
+drwxr-xr-x@ 534 ravi  staff   17088 Nov 17 12:00 node_modules
+-rw-r--r--@   1 ravi  staff  431999 Nov 17 12:00 package-lock.json
+-rw-r--r--@   1 ravi  staff    1034 Nov 17 11:50 package.json
+drwxr-xr-x@  18 ravi  staff     576 Nov 17 11:09 scripts
+drwxr-xr-x    8 ravi  staff     256 Nov 17 10:59 src
+-rw-r--r--    1 ravi  staff     200 Nov 16 14:53 tsconfig.json

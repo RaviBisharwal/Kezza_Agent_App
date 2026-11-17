@@ -1,0 +1,14 @@
+Created At: 2026-11-17T12:19:59+05:30
+Completed At: 2026-11-17T12:19:59+05:30
+Command exited with code 0.
+
+Command output:
+total 24
+drwxr-xr-x   8 ravi  staff  256 Nov 17 10:59 .
+drwxr-xr-x@ 28 ravi  staff  896 Nov 17 12:19 ..
+-rw-r--r--   1 ravi  staff  640 Nov 17 10:42 .env.example
+-rw-r--r--   1 ravi  staff  664 Nov 16 18:25 alembic.ini
+drwxr-xr-x  14 ravi  staff  448 Nov 17 10:59 app
+drwxr-xr-x   5 ravi  staff  160 Nov 17 10:59 migrations
+-rw-r--r--   1 ravi  staff  245 Nov 17 10:48 requirements.txt
+drwxr-xr-x   4 ravi  staff  128 Nov 17 10:59 scripts

@@ -1,0 +1,70 @@
+Created At: 2026-11-17T12:22:46+05:30
+Completed At: 2026-11-17T12:22:46+05:30
+Command exited with code 0.
+
+Command output:
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { Platform } from 'react-native';
+import { api } from '@/lib/api';
+
+export type PaymentClaim = {
+  id: string;
+  reference: string;
+  referral_id: string;
+  sale_id: string;
+  invoice_number: string | null;
+  invoice_amount_paise: number | null;
+  claimed_amount_paise: number;
+  approved_amount_paise: number | null;
+  payment_date: string;
+  payment_method: string;
+  transaction_reference: string | null;
+  status: string;
+  review_reason: string | null;
+  created_at: string;
+  evidence?: { id: string; name: string; content_type: string; size_bytes: number; created_at: string }[];
+  decisions?: { decision: string; reason: string | null; approved_amount_paise: number | null; created_at: string }[];
+};
+
+export type CreatePaymentClaim = {
+  referral_id: string;
+  branch_id: string;
+  service_id?: string;
+  invoice_number: string;
+  invoice_amount_paise: number;
+  claimed_amount_paise: number;
+  payment_date: string;
+  payment_method: 'cash' | 'card' | 'upi' | 'bank_transfer' | 'payment_link' | 'other';
+  transaction_reference?: string;
+  agent_notes?: string;
+  idempotency_key: string;
+};
+
+export function usePaymentClaims() {
+  return useQuery({ queryKey: ['agent-payment-claims'], queryFn: async () => (await api.get<PaymentClaim[]>('/agent/payments/claims')).data });
+}
+
+export function usePaymentClaim(id: string) {
+  return useQuery({ queryKey: ['agent-payment-claim', id], queryFn: async () => (await api.get<PaymentClaim>(`/agent/payments/claims/${id}`)).data, enabled: Boolean(id) });
+}
+
+export function useCreatePaymentClaim() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: async (payload: CreatePaymentClaim) => (await api.post<PaymentClaim>('/agent/payments/claims', payload)).data,
+    onSuccess: () => { void client.invalidateQueries({ queryKey: ['agent-payment-claims'] }); void client.invalidateQueries({ queryKey: ['agent-dashboard'] }); },
+  });
+}
+
+export function useUploadPaymentEvidence(paymentId: string) {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: async (asset: { uri: string; name: string; mimeType?: string | null; file?: File }) => {
+      const body = new FormData();
+      if (Platform.OS === 'web' && asset.file) body.append('file', asset.file, asset.name);
+      else body.append('file', { uri: asset.uri, name: asset.name, type: asset.mimeType ?? 'application/octet-stream' } as unknown as Blob);
+      return (await api.post(`/agent/payments/claims/${paymentId}/evidence`, body, { headers: { 'Content-Type': 'multipart/form-data' } })).data;
+    },
+    onSuccess: () => { void client.invalidateQueries({ queryKey: ['agent-payment-claim', paymentId] }); },
+  });
+}
