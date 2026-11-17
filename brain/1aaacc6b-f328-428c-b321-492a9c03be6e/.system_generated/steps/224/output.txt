@@ -1,0 +1,6 @@
+Created At: 2026-11-17T13:28:20+05:30
+Completed At: 2026-11-17T13:28:20+05:30
+Command exited with code 0.
+
+Command output:
+-rw-r--r--@ 1 ravi  staff   382K Nov 17 13:27 kezza-agent-app-source.zip
