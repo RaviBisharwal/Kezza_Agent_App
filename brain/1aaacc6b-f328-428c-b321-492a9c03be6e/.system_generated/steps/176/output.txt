@@ -1,0 +1,4 @@
+Created At: 2026-11-17T12:47:04+05:30
+Completed At: 2026-11-17T12:47:04+05:30
+You have 1 background task(s) currently running:
+[{"taskId":"1aaacc6b-f328-428c-b321-492a9c03be6e/task-172","toolName":"run_command","toolSummary":"Start Expo Metro bundler on port 8083","description":"BROWSER=none EXPO_NO_TELEMETRY=1 EXPO_HOME=/tmp/.expo npx expo start --port 8083","startTime":"2026-11-17T07:11:48Z","logUri":"file:///Users/ravi/.gemini/antigravity/brain/1aaacc6b-f328-428c-b321-492a9c03be6e/.system_generated/tasks/task-172.log","isDaemon":true}]

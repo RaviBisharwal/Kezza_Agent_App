@@ -1,0 +1,7 @@
+Created At: 2026-11-17T12:47:24+05:30
+Completed At: 2026-11-17T12:47:25+05:30
+Command exited with code 3.
+
+Command output:
+sysmon request failed with error: sysmond service not found
+pgrep: Cannot get process list
