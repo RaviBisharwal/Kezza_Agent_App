@@ -1,0 +1,7 @@
+Created At: 2026-11-17T14:50:43+05:30
+Completed At: 2026-11-17T14:50:43+05:30
+Command exited with code 0.
+
+Command output:
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    29168 ravi   14u  IPv6 0x22bfee6dc9009dca      0t0  TCP *:3000 (LISTEN)

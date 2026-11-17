@@ -1,0 +1,17 @@
+Created At: 2026-11-17T14:49:06+05:30
+Completed At: 2026-11-17T14:49:06+05:30
+Command exited with code 0.
+
+Command output:
+zTurbopackConfig = _zod.z.strictObject({
+    rules: _zod.z.record(_zod.z.string(), zTurbopackRuleConfigCollection).optional(),
+    resolveAlias: _zod.z.record(_zod.z.string(), _zod.z.union([
+        _zod.z.string(),
+        _zod.z.array(_zod.z.string()),
+        _zod.z.record(_zod.z.string(), _zod.z.union([
+            _zod.z.string(),
+            _zod.z.array(_zod.z.string())
+        ]))
+    ])).optional(),
+    resolveExtensions: _zod.z.array(_zod.z.string()).optional(),
+    root: _zod.z.string

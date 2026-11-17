@@ -1,0 +1,24 @@
+Created At: 2026-11-17T14:50:55+05:30
+Completed At: 2026-11-17T14:50:55+05:30
+Command exited with code 0.
+
+Command output:
+COMMAND     PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Electron    626 ravi   44u  IPv4 0x6e3e3d51c26e00cd      0t0  TCP 127.0.0.1:49388 (LISTEN)
+rapportd    643 ravi   12u  IPv4 0x1f448f4699573ba5      0t0  TCP *:54272 (LISTEN)
+rapportd    643 ravi   13u  IPv6 0x501d61e74381538d      0t0  TCP *:54272 (LISTEN)
+ControlCe   676 ravi    7u  IPv4 0xd6d14c43274609a6      0t0  TCP *:7000 (LISTEN)
+ControlCe   676 ravi    8u  IPv6 0xc17cd64e45cf1957      0t0  TCP *:7000 (LISTEN)
+ControlCe   676 ravi    9u  IPv4 0x904743489c5f4f87      0t0  TCP *:5000 (LISTEN)
+ControlCe   676 ravi   10u  IPv6 0x98aaba5c90e74808      0t0  TCP *:5000 (LISTEN)
+postgres   1879 ravi    7u  IPv6 0x59684c02e405e3cc      0t0  TCP [::1]:5432 (LISTEN)
+postgres   1879 ravi    8u  IPv4 0xc61c63a5db75e300      0t0  TCP 127.0.0.1:5432 (LISTEN)
+dbeaver    5240 ravi  119u  IPv6 0xa79aa008e6bbaf2c      0t0  TCP 127.0.0.1:49779 (LISTEN)
+agy       11318 ravi   10u  IPv4 0x72b326accc87c037      0t0  TCP 127.0.0.1:52157 (LISTEN)
+agy       11318 ravi   11u  IPv4 0xbdb7efe2407db614      0t0  TCP 127.0.0.1:52154 (LISTEN)
+codex     13870 ravi   41u  IPv4 0x9e6dafb03aa9f1cc      0t0  TCP 127.0.0.1:52551 (LISTEN)
+node      21083 ravi   27u  IPv6 0x760741417d2f9ff8      0t0  TCP *:8083 (LISTEN)
+Python    27858 ravi    3u  IPv4 0x750754c4abaccd56      0t0  TCP *:8000 (LISTEN)
+Python    27862 ravi    3u  IPv4 0x750754c4abaccd56      0t0  TCP *:8000 (LISTEN)
+node      28007 ravi   31u  IPv6 0xfc8d966075d26a42      0t0  TCP *:8081 (LISTEN)
+node      29168 ravi   14u  IPv6 0x22bfee6dc9009dca      0t0  TCP *:3000 (LISTEN)

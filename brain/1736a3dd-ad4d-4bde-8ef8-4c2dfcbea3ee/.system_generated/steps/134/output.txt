@@ -1,0 +1,9 @@
+Created At: 2026-11-17T14:48:47+05:30
+Completed At: 2026-11-17T14:48:49+05:30
+Command exited with code 1.
+
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+
+Command output:
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    25502 ravi   15u  IPv6 0x804ee1cfe72228ab      0t0  TCP *:hbci (LISTEN)

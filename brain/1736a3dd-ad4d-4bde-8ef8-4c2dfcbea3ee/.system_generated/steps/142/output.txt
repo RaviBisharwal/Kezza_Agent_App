@@ -1,0 +1,26 @@
+Created At: 2026-11-17T14:49:03+05:30
+Completed At: 2026-11-17T14:49:03+05:30
+Command exited with code 0.
+
+Command output:
+[
+  'turbopackMemoryLimit: _zod.z.number().optional(),',
+  'turbopackMinify: _zod.z.boolean().optional(),',
+  'turbopackFileSystemCacheForDev: _zod.z.boolean().optional(),',
+  'turbopackFileSystemCacheForBuild: _zod.z.boolean().optional(),',
+  'turbopackSourceMaps: _zod.z.boolean().optional(),',
+  'turbopackInputSourceMaps: _zod.z.boolean().optional(),',
+  'turbopackTreeShaking: _zod.z.boolean().optional(),',
+  'turbopackRemoveUnusedImports: _zod.z.boolean().optional(),',
+  'turbopackRemoveUnusedExports: _zod.z.boolean().optional(),',
+  'turbopackScopeHoisting: _zod.z.boolean().optional(),',
+  'turbopackClientSideNestedAsyncChunking: _zod.z.boolean().optional(),',
+  'turbopackServerSideNestedAsyncChunking: _zod.z.boolean().optional(),',
+  'turbopackImportTypeBytes: _zod.z.boolean().optional(),',
+  'turbopackUseSystemTlsCerts: _zod.z.boolean().optional(),',
+  'turbopackUseBuiltinBabel: _zod.z.boolean().optional(),',
+  'turbopackUseBuiltinSass: _zod.z.boolean().optional(),',
+  'turbopackModuleIds: _zod.z.enum([',
+  'turbopackInferModuleSideEffects: _zod.z.boolean().optional(),',
+  'turbopack: zTurbopackConfig.optional(),'
+]
