@@ -1,0 +1,11 @@
+Created At: 2026-11-17T14:39:01+05:30
+Completed At: 2026-11-17T14:39:01+05:30
+Command exited with code 0.
+
+Command output:
+total 72
+drwxr-xr-x@ 5 ravi  staff    160 Nov 17 14:38 .
+drwxr-xr-x@ 4 ravi  staff    128 Nov 17 14:38 ..
+drwxr-xr-x@ 4 ravi  staff    128 Nov 17 14:38 chunks
+-rw-r--r--@ 1 ravi  staff  13070 Nov 17 14:39 transcript.jsonl
+-rw-r--r--@ 1 ravi  staff  17246 Nov 17 14:39 transcript_full.jsonl

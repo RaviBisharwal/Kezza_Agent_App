@@ -1,0 +1,8 @@
+Created At: 2026-11-17T14:38:29+05:30
+Completed At: 2026-11-17T14:38:29+05:30
+Command exited with code 0.
+
+Command output:
+[master 0986725] build(admin): lock packages and update next tsconfig
+ 3 files changed, 6030 insertions(+), 39 deletions(-)
+ create mode 100644 admin/package-lock.json

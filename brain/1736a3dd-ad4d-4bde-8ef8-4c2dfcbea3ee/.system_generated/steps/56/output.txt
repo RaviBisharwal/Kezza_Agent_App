@@ -1,0 +1,35 @@
+Created At: 2026-11-17T14:40:27+05:30
+Completed At: 2026-11-17T14:40:27+05:30
+Command exited with code 0.
+
+Command output:
+total 336
+drwxr-xr-x@ 29 ravi  staff    928 Nov 17 11:09 .
+drwxr-xr-x@  3 ravi  staff     96 Nov 17 11:09 ..
+-rw-r--r--@  1 ravi  staff   1937 Nov 17 12:37 add-phase.md
+-rw-r--r--@  1 ravi  staff   1560 Nov 17 12:37 add-todo.md
+-rw-r--r--@  1 ravi  staff   2402 Nov 17 12:37 audit-milestone.md
+-rw-r--r--@  1 ravi  staff   1907 Nov 17 12:37 check-todos.md
+-rw-r--r--@  1 ravi  staff   4770 Nov 17 12:37 complete-milestone.md
+-rw-r--r--@  1 ravi  staff   6255 Nov 17 12:37 debug.md
+-rw-r--r--@  1 ravi  staff   2768 Nov 17 12:37 discuss-phase.md
+-rw-r--r--@  1 ravi  staff  11244 Nov 17 12:37 execute.md
+-rw-r--r--@  1 ravi  staff   3438 Nov 17 12:37 help.md
+-rw-r--r--@  1 ravi  staff   2651 Nov 17 12:37 insert-phase.md
+-rw-r--r--@  1 ravi  staff   5436 Nov 17 12:37 install.md
+-rw-r--r--@  1 ravi  staff   2081 Nov 17 12:37 list-phase-assumptions.md
+-rw-r--r--@  1 ravi  staff   9430 Nov 17 12:37 map.md
+-rw-r--r--@  1 ravi  staff   3519 Nov 17 12:37 new-milestone.md
+-rw-r--r--@  1 ravi  staff   9326 Nov 17 12:37 new-project.md
+-rw-r--r--@  1 ravi  staff   4452 Nov 17 12:37 pause.md
+-rw-r--r--@  1 ravi  staff   2359 Nov 17 12:37 plan-milestone-gaps.md
+-rw-r--r--@  1 ravi  staff  12190 Nov 17 12:37 plan.md
+-rw-r--r--@  1 ravi  staff   2455 Nov 17 12:37 progress.md
+-rw-r--r--@  1 ravi  staff   2856 Nov 17 12:37 remove-phase.md
+-rw-r--r--@  1 ravi  staff   3742 Nov 17 12:37 research-phase.md
+-rw-r--r--@  1 ravi  staff   3713 Nov 17 12:37 resume.md
+-rw-r--r--@  1 ravi  staff   4431 Nov 17 12:37 sprint.md
+-rw-r--r--@  1 ravi  staff   5502 Nov 17 12:37 update.md
+-rw-r--r--@  1 ravi  staff   7141 Nov 17 12:37 verify.md
+-rw-r--r--@  1 ravi  staff   3083 Nov 17 12:37 web-search.md
+-rw-r--r--@  1 ravi  staff   2537 Nov 17 12:37 whats-new.md

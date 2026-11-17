@@ -1,0 +1,124 @@
+Created At: 2026-11-17T14:41:54+05:30
+Completed At: 2026-11-17T14:41:55+05:30
+Command exited with code 1.
+
+Command output:
+Traceback (most recent call last):
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 154, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3303, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 445, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 1340, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 301, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 386, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 675, in __init__
+    self.__connect()
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 932, in __connect
+    with util.safe_reraise():
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 928, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 645, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 869, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/psycopg/connection.py", line 126, in connect
+    raise last_ex.with_traceback(None)
+psycopg.OperationalError: connection is bad: connection to server at "127.0.0.1", port 5432 failed: Operation not permitted
+	Is the server running on that host and accepting TCP/IP connections?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/bin/alembic", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/config.py", line 1039, in main
+    CommandLine(prog=prog).main(argv=argv)
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/config.py", line 1029, in main
+    self.run_cmd(cfg, options)
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/config.py", line 963, in run_cmd
+    fn(
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/command.py", line 360, in check
+    script_directory.run_env()
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/script/base.py", line 550, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/util/pyfiles.py", line 114, in load_python_file
+    module = load_module_py(module_id, path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/alembic/util/pyfiles.py", line 132, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/migrations/env.py", line 54, in <module>
+    run_migrations_online()
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/migrations/env.py", line 41, in run_migrations_online
+    with connectable.connect() as connection:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3279, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 156, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 154, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3303, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 445, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 1340, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 301, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 386, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 675, in __init__
+    self.__connect()
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 932, in __connect
+    with util.safe_reraise():
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 928, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 645, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 869, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/backend/.venv/lib/python3.11/site-packages/psycopg/connection.py", line 126, in connect
+    raise last_ex.with_traceback(None)
+sqlalchemy.exc.OperationalError: (psycopg.OperationalError) connection is bad: connection to server at "127.0.0.1", port 5432 failed: Operation not permitted
+	Is the server running on that host and accepting TCP/IP connections?
+(Background on this error at: https://sqlalche.me/e/21/e3q8)

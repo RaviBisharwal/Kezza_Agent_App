@@ -1,0 +1,13 @@
+Created At: 2026-11-17T14:40:36+05:30
+Completed At: 2026-11-17T14:40:36+05:30
+Command exited with code 0.
+
+Command output:
+total 64
+drwxr-xr-x   7 ravi  staff    224 Nov 17 11:44 .
+drwxr-xr-x@ 30 ravi  staff    960 Nov 17 13:27 ..
+-rw-r--r--   1 ravi  staff   5909 Nov 17 10:40 backend-integration.md
+-rw-r--r--   1 ravi  staff   3302 Nov 16 18:19 implementation-audit.md
+-rw-r--r--   1 ravi  staff   2676 Nov 17 10:48 policy-decisions.md
+-rw-r--r--@  1 ravi  staff  10023 Nov 17 11:44 screen-flow.md
+-rw-r--r--   1 ravi  staff   3877 Nov 17 10:52 setup-macos.md

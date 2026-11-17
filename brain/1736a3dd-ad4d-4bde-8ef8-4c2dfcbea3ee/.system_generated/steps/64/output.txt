@@ -1,0 +1,10 @@
+Created At: 2026-11-17T14:40:46+05:30
+Completed At: 2026-11-17T14:40:47+05:30
+Command exited with code 0.
+
+Command output:
+Updated 1 path from the index
+
+> kezza-agent-admin@1.0.0 typecheck
+> tsc --noEmit
+

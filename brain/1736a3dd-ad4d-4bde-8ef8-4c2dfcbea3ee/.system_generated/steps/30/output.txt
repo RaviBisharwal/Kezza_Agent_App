@@ -1,0 +1,9 @@
+Created At: 2026-11-17T14:39:32+05:30
+Completed At: 2026-11-17T14:39:33+05:30
+Command exited with code 0.
+
+Command output:
+
+> kezza-agent-admin@1.0.0 lint
+> eslint .
+

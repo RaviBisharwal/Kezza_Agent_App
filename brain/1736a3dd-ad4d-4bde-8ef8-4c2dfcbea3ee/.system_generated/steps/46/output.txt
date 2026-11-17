@@ -1,0 +1,33 @@
+Created At: 2026-11-17T14:40:06+05:30
+Completed At: 2026-11-17T14:40:10+05:30
+Command exited with code 0.
+
+Command output:
+
+> kezza-agent-admin@1.0.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/admin/package-lock.json
+
+▲ Next.js 16.1.0 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 819.8ms
+  Finished TypeScript in 1351.7ms    ✓ Finished TypeScript in 1351.7ms 
+  Collecting page data using 7 workers in 227.8ms    ✓ Collecting page data using 7 workers in 227.8ms 
+✓ Generating static pages using 7 workers (3/3) in 172.4ms
+  Finalizing page optimization in 5.0ms    ✓ Finalizing page optimization in 5.0ms 
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+

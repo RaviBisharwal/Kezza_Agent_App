@@ -1,0 +1,13 @@
+Created At: 2026-11-17T14:38:38+05:30
+Completed At: 2026-11-17T14:38:38+05:30
+Command exited with code 0.
+
+Command output:
+total 40
+drwxr-xr-x@  7 ravi  staff   224 Nov 17 12:13 .
+drwxr-xr-x@ 30 ravi  staff   960 Nov 17 13:27 ..
+-rw-r--r--@  1 ravi  staff  7475 Nov 17 12:40 ROADMAP.md
+-rw-r--r--@  1 ravi  staff  6140 Nov 17 12:12 SPEC.md
+-rw-r--r--@  1 ravi  staff  1903 Nov 17 13:29 STATE.md
+drwxr-xr-x@  6 ravi  staff   192 Nov 17 11:09 examples
+drwxr-xr-x@ 26 ravi  staff   832 Nov 17 11:09 templates

@@ -1,0 +1,17 @@
+Created At: 2026-11-17T14:40:19+05:30
+Completed At: 2026-11-17T14:40:19+05:30
+Command exited with code 0.
+
+Command output:
+diff --git a/admin/next-env.d.ts b/admin/next-env.d.ts
+index c4b7818..9edff1c 100644
+--- a/admin/next-env.d.ts
++++ b/admin/next-env.d.ts
+@@ -1,6 +1,6 @@
+ /// <reference types="next" />
+ /// <reference types="next/image-types/global" />
+-import "./.next/dev/types/routes.d.ts";
++import "./.next/types/routes.d.ts";
+ 
+ // NOTE: This file should not be edited
+ // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.

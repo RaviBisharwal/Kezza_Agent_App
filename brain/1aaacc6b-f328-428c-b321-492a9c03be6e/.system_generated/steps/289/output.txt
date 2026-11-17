@@ -1,0 +1,97 @@
+Created At: 2026-11-17T14:38:14+05:30
+Completed At: 2026-11-17T14:38:15+05:30
+Command exited with code 0.
+
+Command output:
+diff --git a/admin/next-env.d.ts b/admin/next-env.d.ts
+index 108412b..c4b7818 100644
+--- a/admin/next-env.d.ts
++++ b/admin/next-env.d.ts
+@@ -1,35 +1,6 @@
+-declare module 'next' {
+-  export type Metadata = {
+-    title?: string;
+-    description?: string;
+-    [key: string]: unknown;
+-  };
+-  export type NextConfig = Record<string, unknown>;
+-}
++/// <reference types="next" />
++/// <reference types="next/image-types/global" />
++import "./.next/dev/types/routes.d.ts";
+ 
+-declare module 'next/navigation' {
+-  export function useRouter(): {
+-    push: (url: string) => void;
+-    replace: (url: string) => void;
+-    refresh: () => void;
+-    back: () => void;
+-  };
+-  export function usePathname(): string;
+-  export function useSearchParams(): URLSearchParams;
+-}
+-
+-declare module '*.css' {
+-  const content: Record<string, string>;
+-  export default content;
+-}
+-
+-declare namespace NodeJS {
+-  interface ProcessEnv {
+-    NEXT_PUBLIC_API_URL?: string;
+-    [key: string]: string | undefined;
+-  }
+-}
+-
+-declare const process: {
+-  env: NodeJS.ProcessEnv;
+-};
++// NOTE: This file should not be edited
++// see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
+diff --git a/admin/tsconfig.json b/admin/tsconfig.json
+index b1b572b..b575f7d 100644
+--- a/admin/tsconfig.json
++++ b/admin/tsconfig.json
+@@ -1,7 +1,11 @@
+ {
+   "compilerOptions": {
+     "target": "ES2017",
+-    "lib": ["dom", "dom.iterable", "esnext"],
++    "lib": [
++      "dom",
++      "dom.iterable",
++      "esnext"
++    ],
+     "allowJs": true,
+     "skipLibCheck": true,
+     "strict": true,
+@@ -13,9 +17,25 @@
+     "isolatedModules": true,
+     "jsx": "react-jsx",
+     "incremental": true,
+-    "plugins": [{ "name": "next" }],
+-    "paths": { "@/*": ["./src/*"] }
++    "plugins": [
++      {
++        "name": "next"
++      }
++    ],
++    "paths": {
++      "@/*": [
++        "./src/*"
++      ]
++    }
+   },
+-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+-  "exclude": ["node_modules"]
++  "include": [
++    "next-env.d.ts",
++    "**/*.ts",
++    "**/*.tsx",
++    ".next/types/**/*.ts",
++    ".next/dev/types/**/*.ts"
++  ],
++  "exclude": [
++    "node_modules"
++  ]
+ }
