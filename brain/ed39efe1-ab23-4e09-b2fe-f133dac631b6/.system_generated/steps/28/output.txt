@@ -1,0 +1,61 @@
+Created At: 2026-11-17T12:10:32+05:30
+Completed At: 2026-11-17T12:10:32+05:30
+Command exited with code 0.
+
+Command output:
+import axios, { create } from 'axios';
+import { Platform } from 'react-native';
+import { useAuthStore } from '@/store/auth-store';
+
+const baseURL = process.env.EXPO_PUBLIC_API_URL?.trim().replace(/\/$/, '');
+
+export const api = create({
+  baseURL,
+  timeout: 15_000,
+  headers: {
+    'Content-Type': 'application/json',
+    'X-Kezza-Client': Platform.OS === 'web' ? 'web' : 'mobile',
+  },
+  withCredentials: true,
+});
+
+api.interceptors.request.use((config) => {
+  if (!baseURL) {
+    throw new Error('API address is not configured. Copy .env.example to .env and set EXPO_PUBLIC_API_URL.');
+  }
+  const token = useAuthStore.getState().accessToken;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const original = error?.config as (typeof error.config & { _retry?: boolean }) | undefined;
+    const isAuthRoute = String(original?.url ?? '').startsWith('/auth/');
+    if (error?.response?.status === 401 && original && !original._retry && !isAuthRoute && baseURL) {
+      const refreshToken = useAuthStore.getState().refreshToken;
+      if (refreshToken || typeof document !== 'undefined') {
+        original._retry = true;
+        try {
+          const refreshed = await axios.post<{ access_token: string; refresh_token?: string }>(
+            `${baseURL}/auth/refresh`, { refresh_token: refreshToken }, {
+              withCredentials: true,
+              timeout: 15_000,
+              headers: { 'X-Kezza-Client': Platform.OS === 'web' ? 'web' : 'mobile' },
+            },
+          );
+          await useAuthStore.getState().updateTokens(refreshed.data.access_token, refreshed.data.refresh_token);
+          original.headers.Authorization = `Bearer ${refreshed.data.access_token}`;
+          return api(original);
+        } catch {
+          await useAuthStore.getState().signOut();
+        }
+      } else {
+        await useAuthStore.getState().signOut();
+      }
+    }
+    if (error?.response?.status === 401 && !isAuthRoute) await useAuthStore.getState().signOut();
+    return Promise.reject(error);
+  },
+);

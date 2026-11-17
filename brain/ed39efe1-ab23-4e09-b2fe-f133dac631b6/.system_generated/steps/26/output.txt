@@ -1,0 +1,117 @@
+Created At: 2026-11-17T12:10:30+05:30
+Completed At: 2026-11-17T12:10:32+05:30
+Command exited with code 0.
+
+Command output:
+import * as Clipboard from 'expo-clipboard';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Pressable, RefreshControl, Share, StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, Screen } from '@/components/Screen';
+import { StatusBadge } from '@/components/StatusBadge';
+import { Colors, Space } from '@/constants/theme';
+import { useAgentDashboard, useAgentReferrals } from '@/features/referrals/hooks';
+import { formatDate } from '@/lib/format';
+import { getErrorMessage } from '@/lib/errors';
+import { useAuthStore } from '@/store/auth-store';
+
+export default function OverviewScreen() {
+  const user = useAuthStore((state) => state.user);
+  const dashboard = useAgentDashboard();
+  const referrals = useAgentReferrals();
+  const [copied, setCopied] = useState(false);
+  const refreshing = referrals.isRefetching || dashboard.isRefetching;
+  const items = referrals.data ?? [];
+
+  async function copyCode() {
+    if (!dashboard.data?.referral_code) return;
+    await Clipboard.setStringAsync(dashboard.data.referral_code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  }
+
+  async function shareCode() {
+    if (!dashboard.data?.share_text) return;
+    await Share.share({ message: dashboard.data.share_text });
+  }
+
+  return (
+    <Screen refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => { void referrals.refetch(); void dashboard.refetch(); }} tintColor={Colors.teal} />}>
+      <View style={styles.topline}>
+        <View><Text style={styles.kicker}>KEZZA AGENT</Text><Text style={styles.greeting}>Hello, {user?.fullName.split(' ')[0] ?? 'Agent'}</Text></View>
+        <Pressable accessibilityRole="button" accessibilityLabel="Open profile and menu" onPress={() => router.push('/profile')} style={styles.avatar}><Text style={styles.avatarText}>{user?.fullName.slice(0, 1).toUpperCase() ?? 'A'}</Text></Pressable>
+      </View>
+      <Text style={styles.subheading}>Your referral and reward workspace.</Text>
+
+      {dashboard.isError ? <InlineNotice tone="error">{getErrorMessage(dashboard.error, 'Could not load your dashboard. Pull down to retry.')}</InlineNotice> : null}
+      <View style={styles.statsRow}>
+        <Stat label="Patients referred" value={String(dashboard.data?.referral_count ?? items.length)} />
+        <Stat label="Payments waiting" value={String(dashboard.data?.pending_payment_count ?? 0)} />
+        <Stat label="Reward points" value={String(dashboard.data?.points_balance ?? 0)} accent />
+      </View>
+
+      <Card style={styles.inviteCard}>
+        <View><Text style={styles.inviteEyebrow}>YOUR AGENT CODE</Text><Text style={styles.code}>{dashboard.data?.referral_code ?? '—'}</Text></View>
+        <Text style={styles.cardCopy}>Share your assigned code, or add a patient referral directly in this app.</Text>
+        <View style={styles.actionRow}>
+          <View style={styles.actionCell}><Button variant="secondary" disabled={!dashboard.data?.referral_code} onPress={copyCode}>{copied ? 'Copied' : 'Copy code'}</Button></View>
+          <View style={styles.actionCell}><Button variant="secondary" disabled={!dashboard.data?.share_text} onPress={shareCode}>Share code</Button></View>
+        </View>
+      </Card>
+
+      {dashboard.data?.cycle ? <Card>
+        <View style={styles.cycleTop}><Text style={styles.sectionTitle}>{dashboard.data.cycle.name}</Text><Text style={styles.points}>{dashboard.data.cycle.points} pts</Text></View>
+        <Text style={styles.muted}>{formatDate(dashboard.data.cycle.starts_at)} – {formatDate(dashboard.data.cycle.ends_at)}</Text>
+        <View style={styles.track}><View style={[styles.fill, { width: `${dashboard.data.cycle.progress_percent}%` }]} /></View>
+        <Text style={styles.muted}>{formatRupees(dashboard.data.cycle.eligible_sales_paise)} of {formatRupees(dashboard.data.cycle.threshold_paise)} eligible sales</Text>
+      </Card> : <InlineNotice tone="info">No reward cycle is open. Cycle progress appears after Kezza configures and approves the reward policy dates.</InlineNotice>}
+
+      <View style={styles.actionRow}>
+        <View style={styles.actionCell}><Button onPress={() => router.push('/add-patient')}>＋  Add patient</Button></View>
+        <View style={styles.actionCell}><Button variant="secondary" onPress={() => router.push('/add-payment')}>＋  Add payment</Button></View>
+      </View>
+
+      <View style={styles.sectionHeader}><Text style={styles.sectionTitle}>Recent referrals</Text><Pressable onPress={() => router.push('/patients')}><Text style={styles.seeAll}>View all</Text></Pressable></View>
+      {referrals.isLoading ? <Card><Text style={styles.muted}>Loading your referral activity…</Text></Card> : items.length === 0 ? (
+        <Card><Text style={styles.emptyTitle}>Your first referral starts here</Text><Text style={styles.muted}>Add a patient to create the first tracked referral.</Text></Card>
+      ) : items.slice(0, 3).map((item) => (
+        <Pressable key={item.id} onPress={() => router.push({ pathname: '/referral/[id]', params: { id: item.id } })}>
+          <Card style={styles.referralCard}>
+            <View style={styles.referralTop}><Text style={styles.patientName} numberOfLines={1}>{item.patient_name}</Text><StatusBadge status={item.status} /></View>
+            <Text style={styles.muted}>{item.service || 'Service not specified'} · {item.branch} · Added {formatDate(item.created_at)}</Text>
+          </Card>
+        </Pressable>
+      ))}
+      <Text style={styles.disclaimer}>Points are posted only after finance review. The agent app cannot edit reward balances.</Text>
+    </Screen>
+  );
+}
+
+function Stat({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
+  return <View style={styles.stat}><Text style={[styles.statValue, accent && { color: Colors.teal }]}>{value}</Text><Text style={styles.statLabel}>{label}</Text></View>;
+}
+function formatRupees(paise: number) { return `₹${(paise / 100).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`; }
+
+const styles = StyleSheet.create({
+  topline: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: Space.sm },
+  kicker: { fontSize: 10, letterSpacing: 1.4, color: Colors.teal, fontWeight: '900' },
+  greeting: { fontSize: 27, lineHeight: 33, fontWeight: '900', color: Colors.ink, marginTop: 3 },
+  subheading: { color: Colors.inkMuted, fontSize: 14, marginTop: -Space.md },
+  avatar: { width: 44, height: 44, borderRadius: 16, backgroundColor: Colors.softTeal, alignItems: 'center', justifyContent: 'center' },
+  avatarText: { color: Colors.tealDark, fontSize: 18, fontWeight: '800' },
+  statsRow: { flexDirection: 'row', gap: Space.sm },
+  stat: { flex: 1, minHeight: 84, borderRadius: 16, backgroundColor: Colors.white, borderColor: Colors.line, borderWidth: 1, padding: Space.md, justifyContent: 'center', gap: 4 },
+  statValue: { color: Colors.ink, fontSize: 23, fontWeight: '900' }, statLabel: { color: Colors.inkMuted, fontSize: 11, fontWeight: '700', lineHeight: 15 },
+  inviteCard: { backgroundColor: Colors.ink, borderColor: Colors.ink, paddingVertical: Space.xl },
+  inviteEyebrow: { color: '#B8D9D4', fontSize: 10, fontWeight: '900', letterSpacing: 1.3 },
+  code: { color: Colors.white, fontSize: 29, letterSpacing: 2, fontWeight: '900' },
+  cardCopy: { color: '#D9E8E5', fontSize: 13, lineHeight: 19 }, actionRow: { flexDirection: 'row', gap: Space.md }, actionCell: { flex: 1 },
+  cycleTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, sectionTitle: { color: Colors.ink, fontSize: 18, fontWeight: '800' },
+  points: { color: Colors.teal, fontSize: 15, fontWeight: '900' }, track: { height: 9, borderRadius: 5, backgroundColor: Colors.line, overflow: 'hidden' },
+  fill: { height: 9, borderRadius: 5, backgroundColor: Colors.teal }, muted: { color: Colors.inkMuted, fontSize: 13, lineHeight: 19 },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: Space.sm }, seeAll: { color: Colors.teal, fontSize: 13, fontWeight: '800' },
+  referralCard: { padding: Space.lg }, referralTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: Space.sm },
+  patientName: { color: Colors.ink, fontWeight: '800', fontSize: 15, flex: 1 }, emptyTitle: { color: Colors.ink, fontSize: 16, fontWeight: '800' },
+  disclaimer: { textAlign: 'center', marginTop: Space.sm, color: Colors.inkMuted, fontSize: 11, lineHeight: 16 },
+});

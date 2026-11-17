@@ -1,0 +1,44 @@
+Created At: 2026-11-17T12:10:38+05:30
+Completed At: 2026-11-17T12:10:42+05:30
+Command exited with code 0.
+
+Command output:
+{
+  "name": "kezza-agent-app",
+  "version": "1.0.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "expo lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.107.1",
+    "axios": "^1.21.1",
+    "expo": "~57.0.33",
+    "expo-clipboard": "~57.0.2",
+    "expo-constants": "~57.0.23",
+    "expo-document-picker": "~57.0.2",
+    "expo-linking": "~57.0.14",
+    "expo-router": "~57.0.31",
+    "expo-secure-store": "~57.0.4",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-web": "0.21.0",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.2",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~57.0.2",
+    "typescript": "~6.0.3"
+  }
+}

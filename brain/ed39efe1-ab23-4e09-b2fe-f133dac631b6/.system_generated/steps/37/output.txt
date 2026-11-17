@@ -1,0 +1,61 @@
+Created At: 2026-11-17T12:11:53+05:30
+Completed At: 2026-11-17T12:11:54+05:30
+Command exited with code 0.
+
+Command output:
+# Kezza Agent Rewards: API and integration guide
+
+All API routes are mounted below `/api/v1`. The API owns identity, permissions, consent records, referral attribution, payment review, reward policy, points ledger, and audit records. Mobile and admin clients never connect directly to PostgreSQL.
+
+## Agent API flow
+
+| Workflow | Endpoint | Result |
+| --- | --- | --- |
+| Request OTP | `POST /auth/otp/request` | Sends an OTP request; local development returns `dev_code` only when mock OTP is enabled. |
+| Verify OTP | `POST /auth/otp/verify` | Existing active user receives a session; an invited agent receives a short lived phone-verification token. |
+| Activate invite | `POST /auth/agent/activate` | Requires verified phone and a one-time administrator invitation code. |
+| Read dashboard/profile | `GET /agent/dashboard`, `GET /agent/profile` | Returns server-side referral and points summary. |
+| Read referral list/detail | `GET /agent/referrals`, `GET /agent/referrals/{id}` | Returns only referrals attributed to the signed-in agent. |
+| Create referral | `POST /agent/referrals` | Requires active consent document/version and an idempotency key. Consent text is not invented by the app. |
+| Update referral status | `PATCH /agent/referrals/{id}/status` | Restricts agent changes to permitted non-final workflow statuses. |
+| Create payment claim | `POST /agent/payments/claims` | Creates/reuses an invoice and submits a claimed collection; invoice totals and prior claims are checked. |
+| Upload receipt | `POST /agent/payments/claims/{id}/evidence` | Private JPEG, PNG, or PDF evidence, maximum 8 MB. |
+| Respond to reviewer | `POST /agent/payments/claims/{id}/respond` | Resubmits a claim waiting for additional information. |
+| Read wallet | `GET /agent/wallet` | Returns server ledger balance, entries, and a clearly labelled indicative estimate. |
+| Read branches/services/legal docs | `/agent/branches`, `/agent/services`, `/agent/legal-documents` | Returns active, server-managed catalog items and approved documents. |
+| Record document acceptance | `POST /agent/legal-documents/{id}/accept` | Stores accepted document ID/version and server timestamp. |
+| Feedback/branch change/notifications | `/agent/feedback`, `/agent/branch-change-requests`, `/agent/notifications` | Submits and reads operational requests and notifications. |
+
+After login, native mobile stores its refresh session in Expo Secure Store. The admin web portal keeps the short lived access token in memory and uses the API's HTTP-only refresh cookie. Sensitive API operations still verify role, branch scope, and record ownership on the server.
+
+## Admin responsibilities
+
+The admin portal exposes agent invitations, scoped staff accounts, payment review, branch and service catalogs, reward policies and cycle preview/close, settlement review, branch-change decisions, feedback, legal document versioning, release notes, audit history, and a reward ledger CSV.
+
+- Branch reviewers may inspect scoped work and request more information or reject claims.
+- Finance reviewers and super-admins can approve collected payment claims; self-approval is denied.
+- Operations admins manage permitted operational setup; super-admins handle high impact approval actions.
+- Policy/document/release approval requires a different super-admin from the creator where the API enforces dual control.
+- Every sensitive decision records an actor, reason, and audit event.
+
+## Money and reward handling
+
+Money is stored as integer paise. An invoice may have multiple partial collection claims, but the sum of reserved and approved claims cannot exceed the invoice amount. A claim cannot award points while pending. Finance approval appends integer point credits according to the approved policy and cycle. Refunds/reversals append ledger entries; existing entries are not overwritten. Settlement and expiry actions append ledger events with idempotency keys.
+
+The current working policy is 1 point per eligible whole rupee, 10 points per indicative ₹1, and a ₹1,00,000 cycle threshold. Whether points accrue on every eligible rupee or only above the threshold is an unselected policy decision. Payout method, exact dates, late approvals, and refund handling also require Kezza approval. The API blocks use of policies with unresolved required choices.
+
+## Isolated database and evidence
+
+Use only the dedicated `kezza_rewards_db` database for this code. Alembic checks the configured URL and live PostgreSQL database name before migrating; `/health/db` reports healthy only when the connected database name matches. The initial migration creates 25 tables and seeds only the three listed Kezza branch records. It does not seed users, patients, invoices, payments, reward balances, or admin credentials.
+
+Receipts are stored outside the public web directory and downloaded only after API authorization. The local filesystem backend is a development setup; production should use private object storage with lifecycle/retention policy and audit logging.
+
+## Local development notes
+
+- Set `EXPO_PUBLIC_API_URL` to `<base>/api/v1`; for a phone on Wi-Fi use the Mac LAN IP, not `localhost`.
+- Set `NEXT_PUBLIC_API_URL` to the same API base. The API CORS list must include the admin origin and any Expo web origin used for development.
+- `OTP_PROVIDER=mock` is for development only. The implementation returns the OTP only in development and applies basic resend, attempt, phone, and IP limits. Use an approved SMS service and operational rate limits before public exposure.
+- `GOOGLE_CLIENT_IDS` can be configured for optional server-verified Google account linking; the agent must already be invited and active.
+- Add the active patient consent document through the admin portal using exact Kezza-approved wording before agents can submit patient referrals.
+
+For database bootstrap and run commands, follow [`setup-macos.md`](setup-macos.md).

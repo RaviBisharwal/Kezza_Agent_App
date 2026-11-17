@@ -1,0 +1,83 @@
+Created At: 2026-11-17T12:10:15+05:30
+Completed At: 2026-11-17T12:10:15+05:30
+Command exited with code 0.
+
+Command output:
+import logging
+import uuid
+
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError
+
+from app.config import get_settings
+from app.database import engine
+from app.routes.admin import router as admin_router
+from app.routes.auth import router as auth_router
+from app.routes.mobile import router as mobile_router
+from app.routes.public import router as public_router
+
+# Import the declarative models before Alembic loads metadata.
+import app.models  # noqa: F401,E402
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+settings = get_settings()
+
+app = FastAPI(
+    title="Kezza Agent Rewards API",
+    description="Agent referral, collected-sale review, and reward ledger API.",
+    version="1.0.0",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.allowed_origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Request-ID", "Idempotency-Key", "X-Kezza-Client"],
+)
+
+
+@app.middleware("http")
+async def request_id_header(request: Request, call_next):
+    request_id = request.headers.get("x-request-id", str(uuid.uuid4()))[:100]
+    request.state.request_id = request_id
+    response = await call_next(request)
+    response.headers["X-Request-ID"] = request_id
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    return response
+
+
+app.include_router(auth_router, prefix="/api/v1")
+app.include_router(mobile_router, prefix="/api/v1")
+app.include_router(admin_router, prefix="/api/v1")
+app.include_router(public_router, prefix="/api/v1")
+
+
+@app.get("/")
+def home() -> dict:
+    return {"application": "Kezza Agent Rewards", "status": "running", "version": app.version,
+            "docs": "/docs", "health": "/health"}
+
+
+@app.get("/health")
+def health() -> dict:
+    return {"status": "healthy", "application": "Kezza Agent Rewards API"}
+
+
+@app.get("/health/db")
+def database_health() -> dict:
+    try:
+        with engine.connect() as connection:
+            database_name = connection.execute(text("select current_database()")).scalar_one()
+        if database_name != "kezza_rewards_db":
+            logger.error("Refusing unexpected database name: %s", database_name)
+            raise HTTPException(status_code=503, detail="Rewards API is connected to the wrong database")
+        return {"status": "connected", "database": database_name}
+    except HTTPException:
+        raise
+    except SQLAlchemyError:
+        logger.exception("Database health check failed")
+        raise HTTPException(status_code=503, detail="Rewards database is unavailable") from None

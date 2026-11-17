@@ -1,0 +1,57 @@
+Created At: 2026-11-17T12:10:31+05:30
+Completed At: 2026-11-17T12:10:32+05:30
+Command exited with code 0.
+
+Command output:
+import { useState } from 'react';
+import { router } from 'expo-router';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, InlineNotice } from '@/components/Button';
+import { Card, PageHeading, Screen } from '@/components/Screen';
+import { FormField } from '@/components/FormField';
+import { Colors, Space } from '@/constants/theme';
+import { useRequestOtp } from '@/features/auth/hooks';
+import { getErrorMessage } from '@/lib/errors';
+import { isIndianMobile, normalizeIndianMobile, toE164 } from '@/lib/phone';
+
+export default function LoginScreen() {
+  const [phone, setPhone] = useState('');
+  const [error, setError] = useState('');
+  const requestOtp = useRequestOtp();
+  const normalized = normalizeIndianMobile(phone);
+
+  async function submit() {
+    setError('');
+    if (!isIndianMobile(normalized)) { setError('Enter a valid 10-digit Indian mobile number.'); return; }
+    try {
+      const result = await requestOtp.mutateAsync(toE164(normalized));
+      router.push({ pathname: '/(auth)/verify', params: { phone: toE164(normalized), devCode: result.dev_code ?? '' } });
+    } catch (caught) { setError(getErrorMessage(caught, 'We could not send the verification code.')); }
+  }
+
+  return (
+    <Screen>
+      <View style={styles.brand}><View style={styles.mark}><Text style={styles.markText}>K</Text></View><Text style={styles.brandName}>KEZZA <Text style={styles.brandAccent}>AGENT</Text></Text></View>
+      <PageHeading eyebrow="Agent workspace" title="Welcome back" subtitle="Sign in to manage patient referrals and follow up with confidence." />
+      <Card>
+        <Text style={styles.cardTitle}>Secure sign in</Text>
+        <Text style={styles.body}>We’ll send a one-time verification code to your mobile number.</Text>
+        <FormField label="Mobile number" value={phone} onChangeText={setPhone} placeholder="98765 43210" keyboardType="phone-pad" maxLength={14} />
+        {error ? <InlineNotice tone="error">{error}</InlineNotice> : null}
+        <Button onPress={submit} loading={requestOtp.isPending}>Continue with OTP</Button>
+      </Card>
+      <Text style={styles.footnote}>Agent accounts only · Your session is stored securely on this device.</Text>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({
+  brand: { flexDirection: 'row', alignItems: 'center', gap: Space.md, marginTop: Space.xxl, marginBottom: Space.md },
+  mark: { width: 42, height: 42, borderRadius: 14, backgroundColor: Colors.teal, alignItems: 'center', justifyContent: 'center' },
+  markText: { color: Colors.white, fontSize: 25, fontWeight: '900' },
+  brandName: { color: Colors.ink, fontSize: 15, letterSpacing: 1.3, fontWeight: '900' },
+  brandAccent: { color: Colors.teal },
+  cardTitle: { fontSize: 19, fontWeight: '800', color: Colors.ink },
+  body: { color: Colors.inkMuted, fontSize: 14, lineHeight: 21 },
+  footnote: { marginTop: 'auto', paddingTop: Space.xxxl, textAlign: 'center', color: Colors.inkMuted, fontSize: 12, lineHeight: 18 },
+});

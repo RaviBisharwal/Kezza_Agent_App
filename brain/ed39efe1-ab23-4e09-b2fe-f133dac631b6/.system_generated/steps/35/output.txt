@@ -1,0 +1,13 @@
+Created At: 2026-11-17T12:11:51+05:30
+Completed At: 2026-11-17T12:11:54+05:30
+Command exited with code 0.
+
+Command output:
+DEBUG.md		decisions.md		spec.md
+PLAN.md			discovery.md		sprint.md
+RESEARCH.md		journal.md		stack.md
+SUMMARY.md		milestone.md		state.md
+UAT.md			phase-summary.md	state_snapshot.md
+VERIFICATION.md		project.md		todo.md
+architecture.md		requirements.md		token_report.md
+context.md		roadmap.md		user-setup.md

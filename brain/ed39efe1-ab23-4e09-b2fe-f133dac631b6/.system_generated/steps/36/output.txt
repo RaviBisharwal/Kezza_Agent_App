@@ -1,0 +1,33 @@
+Created At: 2026-11-17T12:11:52+05:30
+Completed At: 2026-11-17T12:11:54+05:30
+Command exited with code 0.
+
+Command output:
+# Reward policy decisions
+
+This is a working register from the supplied Kezza implementation brief and product guide. These values must remain server-controlled and versioned.
+
+## Working rules from the supplied specification
+
+- Three-month reward cycle.
+- ₹1,00,000 minimum eligible collected sales per cycle.
+- One point per whole rupee of eligible amount approved by an authorized reviewer; fractional rupees are rounded down unless finance approves another integer rule.
+- Ten points have an indicative value of ₹1. That is a preview only; it is not a cash promise or treatment-credit promise.
+- Points are not credited on a submitted or pending claim. Each credit must follow a verified approval and be traceable to a source payment.
+- Reversals, expiry and corrections append ledger entries; they never erase the original.
+- Recruitment commissions are separate and disabled for this MVP unless Kezza explicitly re-approves them.
+
+## Kezza approval is still required
+
+1. Reward delivery: cash, Kezza treatment credit, or hybrid.
+2. Cycle calendar and exact dates: fixed quarters or rolling/custom three-month windows.
+3. How late approvals are handled: include them in the original cycle, approve without reward eligibility, or reject them. The current `approve_no_points` option excludes late-approved sales from both points and threshold eligibility; Kezza must confirm this interpretation before approval.
+4. Whether threshold qualification applies to all cycle points or only a qualifying subset. The API requires this choice in each approved policy.
+5. Net eligible sales definition for discounts, tax, packages, deposits, split payments, cancellations and refunds.
+6. Refund/reversal treatment after a cycle has closed and handling of a negative balance. The current API blocks reversal after close until this rule is defined.
+7. Whether unused points expire after close/settlement and the exact expiry timing. The current API requires explicit expiry approval and waits until no eligible or approved settlement remains.
+8. Patient referral ownership rules for existing patients, repeat visits, attribution expiry and cross-agent duplicates.
+9. Exact patient-consent and privacy wording, retention and support process.
+10. Google OAuth, SMS/WhatsApp, push and private file-storage provider credentials/configuration.
+
+Until the applicable approvals exist, the API exposes preview data and refuses policy approval, reward awards, and cycle close where a required choice is missing. Cycle expiry is a separate explicit action after close and settlement processing. There is no default password, fake account, patient, invoice, sale, reward, or admin credential.
