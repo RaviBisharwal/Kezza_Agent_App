@@ -1,0 +1,10 @@
+Created At: 2026-11-17T12:40:25+05:30
+Completed At: 2026-11-17T12:40:25+05:30
+Command exited with code 0.
+
+Command output:
+/opt/homebrew/opt/postgresql@18/bin/psql
+/opt/homebrew/bin/brew
+/Library/Frameworks/Python.framework/Versions/3.11/bin/python3
+/opt/homebrew/opt/node@22/bin/node
+/opt/homebrew/opt/node@22/bin/npm

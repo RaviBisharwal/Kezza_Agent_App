@@ -1,0 +1,10 @@
+Created At: 2026-11-17T12:39:02+05:30
+Completed At: 2026-11-17T12:39:04+05:30
+Command exited with code 127.
+
+Command output:
+
+> kezza-agent-admin@1.0.0 build
+> next build
+
+sh: next: command not found

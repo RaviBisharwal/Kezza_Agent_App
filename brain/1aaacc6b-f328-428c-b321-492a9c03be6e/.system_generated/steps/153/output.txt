@@ -1,0 +1,11 @@
+Created At: 2026-11-17T12:41:14+05:30
+Completed At: 2026-11-17T12:41:14+05:30
+Command exited with code 0.
+
+Command output:
+total 0
+drwxr-xr-x@   5 ravi  staff   160 Nov 12 16:15 .
+drwx------+ 118 ravi  staff  3776 Nov 17 12:35 ..
+drwxr-xr-x@   7 ravi  staff   224 Nov 12 16:32 http
+drwxr-xr-x@  18 ravi  staff   576 Nov 12 16:32 http-v2
+drwxr-xr-x@   7 ravi  staff   224 Nov 17 12:41 selfcheck

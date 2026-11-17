@@ -1,0 +1,11 @@
+Created At: 2026-11-17T12:41:35+05:30
+Completed At: 2026-11-17T12:41:35+05:30
+Command exited with code 0.
+
+Command output:
+COMMAND  PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    4608 ravi   23u  IPv6 0x220fc6ea9f05026f      0t0  TCP 192.168.1.67:sunproxyadmin->192.168.1.6:35380 (ESTABLISHED)
+node    4608 ravi   35u  IPv6 0xec2b125074386f4d      0t0  TCP *:sunproxyadmin (LISTEN)
+node    4608 ravi   38u  IPv6 0x676b989d65ee8bf9      0t0  TCP 192.168.1.67:sunproxyadmin->192.168.1.6:50258 (ESTABLISHED)
+node    4608 ravi   41u  IPv6 0x8b42cc9deb90152e      0t0  TCP 192.168.1.67:sunproxyadmin->192.168.1.6:50280 (ESTABLISHED)
+node    4608 ravi   42u  IPv6 0x16709e17b8755609      0t0  TCP 192.168.1.67:sunproxyadmin->192.168.1.6:50286 (ESTABLISHED)

@@ -1,0 +1,12 @@
+Created At: 2026-11-17T12:40:36+05:30
+Completed At: 2026-11-17T12:40:36+05:30
+Command exited with code 0.
+
+Command output:
+total 0
+drwxrwxr-x@  6 ravi  admin   192 Nov 12 17:24 .
+drwxr-xr-x@ 41 ravi  admin  1312 Nov 12 15:47 ..
+drwxrwxr-x@  5 ravi  admin   160 Nov 12 15:49 homebrew
+drwxr-xr-x@  4 ravi  admin   128 Nov 12 17:25 log
+drwx------@ 26 ravi  admin   832 Nov 16 15:54 postgresql@16
+drwx------@ 25 ravi  admin   800 Nov 13 08:18 postgresql@18

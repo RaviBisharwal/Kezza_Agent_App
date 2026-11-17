@@ -1,0 +1,18 @@
+Created At: 2026-11-17T12:38:45+05:30
+Completed At: 2026-11-17T12:38:46+05:30
+Command exited with code 0.
+
+Command output:
+
+> kezza-agent-admin@1.0.0 lint
+> eslint .
+
+
+/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/admin/src/components/AdminConsole.tsx
+  304:144  warning  'confirm' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+  304:153  warning  'setConfirm' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  304:188  warning  'reason' is assigned a value but never used. Allowed unused vars must match /^_/u      @typescript-eslint/no-unused-vars
+  304:196  warning  'setReason' is assigned a value but never used. Allowed unused vars must match /^_/u   @typescript-eslint/no-unused-vars
+
+✖ 4 problems (0 errors, 4 warnings)
+

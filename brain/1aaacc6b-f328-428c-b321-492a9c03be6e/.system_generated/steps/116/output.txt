@@ -1,0 +1,59 @@
+Created At: 2026-11-17T12:39:34+05:30
+Completed At: 2026-11-17T12:39:34+05:30
+Command exited with code 0.
+
+Command output:
+diff --git a/admin/eslint.config.mjs b/admin/eslint.config.mjs
+index b261ecf..d1716ec 100644
+--- a/admin/eslint.config.mjs
++++ b/admin/eslint.config.mjs
+@@ -1,9 +1,28 @@
+-import { defineConfig, globalIgnores } from 'eslint/config';
+-import nextVitals from 'eslint-config-next/core-web-vitals';
+-import nextTs from 'eslint-config-next/typescript';
++import tsParser from '@typescript-eslint/parser';
++import tsPlugin from '@typescript-eslint/eslint-plugin';
+ 
+-export default defineConfig([
+-  ...nextVitals,
+-  ...nextTs,
+-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+-]);
++export default [
++  {
++    ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'node_modules/**'],
++  },
++  {
++    files: ['**/*.ts', '**/*.tsx'],
++    languageOptions: {
++      parser: tsParser,
++      parserOptions: {
++        ecmaVersion: 'latest',
++        sourceType: 'module',
++        ecmaFeatures: {
++          jsx: true,
++        },
++      },
++    },
++    plugins: {
++      '@typescript-eslint': tsPlugin,
++    },
++    rules: {
++      'no-unused-vars': 'off',
++      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
++    },
++  },
++];
+diff --git a/admin/src/components/AdminConsole.tsx b/admin/src/components/AdminConsole.tsx
+index becd584..b0fa352 100644
+--- a/admin/src/components/AdminConsole.tsx
++++ b/admin/src/components/AdminConsole.tsx
+@@ -301,7 +301,7 @@ function RewardsPanel({ data, staff, api, refresh }: { data: Data; staff: Staff;
+   const [cycleMonths, setCycleMonths] = useState('3'); const [thresholdRupees, setThresholdRupees] = useState('100000'); const [pointsRate, setPointsRate] = useState('1'); const [pointsValue, setPointsValue] = useState('10');
+   const [payout, setPayout] = useState('unselected'); const [thresholdMode, setThresholdMode] = useState('unselected'); const [lateMode, setLateMode] = useState('unselected'); const [expires, setExpires] = useState(false); const [policyReason, setPolicyReason] = useState('');
+   const [cycleName, setCycleName] = useState(''); const [policyId, setPolicyId] = useState(''); const [startsAt, setStartsAt] = useState(''); const [endsAt, setEndsAt] = useState('');
+-  const [selectedCycle, setSelectedCycle] = useState(''); const [preview, setPreview] = useState<Record<string, unknown> | null>(null); const [confirm, setConfirm] = useState(''); const [reason, setReason] = useState('');
++  const [selectedCycle, setSelectedCycle] = useState(''); const [preview, setPreview] = useState<Record<string, unknown> | null>(null);
+   const [busy, setBusy] = useState(false); const [error, setError] = useState(''); const [success, setSuccess] = useState('');
+   async function action(path: string, body: unknown, messageText: string) { setError(''); setSuccess(''); setBusy(true); try { const result = await api<Record<string, unknown>>(path, { method: 'POST', ...(body === undefined ? {} : { body }) }); setSuccess(messageText + (typeof result?.message === 'string' ? ` ${result.message}` : '')); await refresh(); return result; } catch (caught) { setError(message(caught)); return null; } finally { setBusy(false); } }
+   async function createPolicy(event: React.FormEvent) { event.preventDefault(); const result = await action('/admin/policies', { cycle_months: Number(cycleMonths), threshold_paise: Math.round(Number(thresholdRupees) * 100), points_per_rupee: Number(pointsRate), points_per_reward_rupee: Number(pointsValue), payout_mode: payout, threshold_mode: thresholdMode, late_approval_mode: lateMode, eligible_sales_basis: 'approved_collected_net', expires_unused_points: expires, reason: policyReason }, 'Reward policy draft created.'); if (result?.id) setPolicyReason(''); }

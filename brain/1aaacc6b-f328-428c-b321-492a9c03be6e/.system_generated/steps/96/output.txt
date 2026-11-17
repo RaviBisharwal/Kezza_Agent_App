@@ -1,0 +1,24 @@
+Created At: 2026-11-17T12:39:06+05:30
+Completed At: 2026-11-17T12:39:06+05:30
+Command exited with code 0.
+
+Command output:
+acorn				mkdirp
+agent-cli-detector		nanoid
+baseline-browser-mapping	napi-patch
+browserslist			napi-postinstall
+dotslash			node-which
+eslint				parser
+excpretty			print-chrome-path
+expo				react-native
+expo-modules-autolinking	regjsparser
+fingerprint			resolve
+is-docker			sandbox-cli-detector
+js-yaml				semver
+jsesc				terser
+json5				tsc
+lan-network			tsserver
+loose-envify			ua-parser-js
+metro				update-browserslist-db
+metro-symbolicate		yaml
+mime

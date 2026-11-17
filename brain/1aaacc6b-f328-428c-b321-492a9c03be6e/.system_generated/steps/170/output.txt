@@ -1,0 +1,25 @@
+Created At: 2026-11-17T12:41:43+05:30
+Completed At: 2026-11-17T12:41:45+05:30
+Command exited with code 1.
+
+Command output:
+env: load .env
+env: export EXPO_PUBLIC_API_URL EXPO_PUBLIC_RELEASE_CHANNEL
+Starting project at /Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2
+Using src/app as the root directory for Expo Router.
+Starting Metro Bundler
+
+Error: open http://localhost:8083 exited with non-zero code: 1
+Error: open http://localhost:8083 exited with non-zero code: 1
+    at ChildProcess.completionListener (/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/node_modules/@expo/spawn-async/build/spawnAsync.js:113:23)
+    at Object.onceWrapper (node:events:634:26)
+    at ChildProcess.emit (node:events:519:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+    ...
+    at spawnAsync (/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/node_modules/@expo/spawn-async/build/spawnAsync.js:9:23)
+    at openBrowserAsync (/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/node_modules/expo/node_modules/@expo/cli/build/src/utils/open.js:210:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async MetroBundlerDevServer.openPlatformAsync (/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/node_modules/expo/node_modules/@expo/cli/build/src/start/server/BundlerDevServer.js:361:17)
+    at async Promise.allSettled (index 2)
+    at async openPlatformsAsync (/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/node_modules/expo/node_modules/@expo/cli/build/src/start/server/openPlatforms.js:13:21)
+    at async startAsync (/Users/ravi/.codex/.chatgpt-projects/g-p-6ae81da483248191a7e1c68af4392bce/kezza-agent-app 2/node_modules/expo/node_modules/@expo/cli/build/src/start/startAsync.js:169:5)

@@ -1,0 +1,18 @@
+Created At: 2026-11-17T12:40:33+05:30
+Completed At: 2026-11-17T12:40:34+05:30
+Command exited with code 0.
+
+Command output:
+clusterdb		pg_config		pg_test_timing
+createdb		pg_controldata		pg_upgrade
+createuser		pg_createsubscriber	pg_verifybackup
+dropdb			pg_ctl			pg_waldump
+dropuser		pg_dump			pg_walsummary
+ecpg			pg_dumpall		pgbench
+initdb			pg_isready		postgres
+oid2name		pg_receivewal		psql
+pg_amcheck		pg_recvlogical		reindexdb
+pg_archivecleanup	pg_resetwal		vacuumdb
+pg_basebackup		pg_restore		vacuumlo
+pg_checksums		pg_rewind
+pg_combinebackup	pg_test_fsync

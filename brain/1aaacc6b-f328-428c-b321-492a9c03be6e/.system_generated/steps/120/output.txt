@@ -1,0 +1,187 @@
+Created At: 2026-11-17T12:39:39+05:30
+Completed At: 2026-11-17T12:39:47+05:30
+Command exited with code 0.
+
+Command output:
+
+> kezza-agent-app@1.0.0 typecheck
+> tsc --noEmit
+
+
+> kezza-agent-admin@1.0.0 typecheck
+> tsc --noEmit
+
+
+> kezza-agent-admin@1.0.0 lint
+> eslint .
+
+
+╔═══════════════════════════════════════════════════════╗
+║         GSD ► RUNNING ALL VALIDATORS                  ║
+╚═══════════════════════════════════════════════════════╝
+
+▶ Running workflow validation...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ GSD ► VALIDATING WORKFLOWS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ add-phase.md
+✅ add-todo.md
+✅ audit-milestone.md
+✅ check-todos.md
+✅ complete-milestone.md
+✅ debug.md
+✅ discuss-phase.md
+✅ execute.md
+✅ help.md
+✅ insert-phase.md
+✅ install.md
+✅ list-phase-assumptions.md
+✅ map.md
+✅ new-milestone.md
+✅ new-project.md
+✅ pause.md
+✅ plan-milestone-gaps.md
+✅ plan.md
+✅ progress.md
+✅ remove-phase.md
+✅ research-phase.md
+✅ resume.md
+✅ sprint.md
+✅ update.md
+✅ verify.md
+✅ web-search.md
+✅ whats-new.md
+
+───────────────────────────────────────────────────────
+
+Workflows checked: 27
+Errors: 0
+Warnings: 0
+
+✅ All workflows valid!
+
+▶ Running skill validation...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ GSD ► VALIDATING SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ codebase-mapper
+✅ context-compressor
+✅ context-fetch
+✅ context-health-monitor
+✅ debugger
+✅ empirical-validation
+✅ executor
+✅ plan-checker
+✅ planner
+✅ subagent-delegation
+✅ token-budget
+✅ verifier
+
+───────────────────────────────────────────────────────
+
+Skills checked: 12
+Errors: 0
+
+✅ All skills valid!
+
+▶ Running subagent validation...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ GSD ► VALIDATING SUBAGENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ gsd-debugger
+✅ gsd-executor
+✅ gsd-planner
+✅ gsd-researcher
+✅ gsd-verifier
+
+───────────────────────────────────────────────────────
+
+Subagents checked: 5
+Errors: 0
+
+✅ All subagents valid!
+
+▶ Running template validation...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ GSD ► VALIDATING TEMPLATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  DEBUG.md: Missing 'Last updated' marker
+✅ DEBUG.md
+⚠️  PLAN.md: Missing 'Last updated' marker
+✅ PLAN.md
+⚠️  RESEARCH.md: Missing 'Last updated' marker
+✅ RESEARCH.md
+⚠️  SUMMARY.md: Missing 'Last updated' marker
+✅ SUMMARY.md
+⚠️  UAT.md: Missing 'Last updated' marker
+✅ UAT.md
+⚠️  VERIFICATION.md: Missing 'Last updated' marker
+✅ VERIFICATION.md
+✅ architecture.md
+⚠️  context.md: Missing 'Last updated' marker
+✅ context.md
+✅ decisions.md
+⚠️  discovery.md: Missing 'Last updated' marker
+✅ discovery.md
+✅ journal.md
+⚠️  milestone.md: Missing 'Last updated' marker
+✅ milestone.md
+⚠️  phase-summary.md: Missing 'Last updated' marker
+✅ phase-summary.md
+⚠️  project.md: Missing 'Last updated' marker
+✅ project.md
+⚠️  requirements.md: Missing 'Last updated' marker
+✅ requirements.md
+⚠️  roadmap.md: Missing 'Last updated' marker
+✅ roadmap.md
+✅ spec.md
+✅ sprint.md
+✅ stack.md
+⚠️  state.md: Missing 'Last updated' marker
+✅ state.md
+⚠️  state_snapshot.md: Missing 'Last updated' marker
+✅ state_snapshot.md
+✅ todo.md
+⚠️  token_report.md: Missing 'Last updated' marker
+✅ token_report.md
+⚠️  user-setup.md: Missing 'Last updated' marker
+✅ user-setup.md
+
+───────────────────────────────────────────────────────
+
+Templates checked: 24
+Errors: 0
+Warnings: 17
+
+✅ All templates valid!
+
+▶ Running script encoding validation...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ GSD ► VALIDATING SCRIPT ENCODING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ search_repo.ps1
+✅ setup_search.ps1
+✅ validate-agents.ps1
+✅ validate-all.ps1
+✅ validate-encoding.ps1
+✅ validate-skills.ps1
+✅ validate-templates.ps1
+✅ validate-workflows.ps1
+
+───────────────────────────────────────────────────────
+
+Scripts checked: 8
+Errors: 0
+
+✅ All scripts correctly encoded!
+
+╔═══════════════════════════════════════════════════════╗
+║                    SUMMARY                            ║
+╚═══════════════════════════════════════════════════════╝
+
+✅ All validators passed!

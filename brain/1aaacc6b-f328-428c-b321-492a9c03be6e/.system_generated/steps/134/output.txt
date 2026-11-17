@@ -1,0 +1,22 @@
+Created At: 2026-11-17T12:40:28+05:30
+Completed At: 2026-11-17T12:40:30+05:30
+Command exited with code 1.
+
+Command output:
+==> Downloading Homebrew API data
+✘ JSON API packages.arm64_golden_gate.jws.json
+Error: Operation not permitted @ rb_sysopen - /opt/homebrew/var/homebrew/locks/packages.arm64_golden_gate.jws.json.download.lock
+Usage: brew [sudo] brew services [list] [--json] [--debug]:
+    List information about all managed services for the current user (or root).
+Provides more output from Homebrew and launchctl(1) or systemctl(1) if run
+with --debug.
+
+  -d, --debug                      Display any debugging information.
+  -q, --quiet                      Make some output more quiet.
+  -v, --verbose                    Make some output more verbose.
+  -h, --help                       Show this message.
+      --sudo-service-user          When run as root on macOS, run the service(s)
+                                   as this user.
+      --json                       Output as JSON.
+
+Error: Invalid usage: `brew services` is supported only on macOS or Linux (with systemd)!
