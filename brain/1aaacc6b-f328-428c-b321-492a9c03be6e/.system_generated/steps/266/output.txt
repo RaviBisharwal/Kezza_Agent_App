@@ -1,0 +1,17 @@
+Created At: 2026-11-17T14:36:25+05:30
+Completed At: 2026-11-17T14:36:25+05:30
+Command exited with code 0.
+
+Command output:
+total 96
+drwxr-xr-x  11 ravi  staff    352 Nov 17 13:28 .
+drwxr-xr-x@ 30 ravi  staff    960 Nov 17 13:27 ..
+-rw-r--r--   1 ravi  staff     49 Nov 17 10:29 .env.example
+-rw-r--r--@  1 ravi  staff     49 Nov 17 12:26 .env.local
+-rw-r--r--@  1 ravi  staff    688 Nov 17 12:40 eslint.config.mjs
+-rw-r--r--@  1 ravi  staff    753 Nov 17 12:31 next-env.d.ts
+-rw-r--r--   1 ravi  staff    130 Nov 17 10:29 next.config.ts
+-rw-r--r--   1 ravi  staff    578 Nov 17 10:52 package.json
+drwxr-xr-x   4 ravi  staff    128 Nov 17 10:59 src
+-rw-r--r--   1 ravi  staff    567 Nov 17 10:29 tsconfig.json
+-rw-r--r--@  1 ravi  staff  17360 Nov 17 12:39 tsconfig.tsbuildinfo
